@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News | Computational Catalysis and Interfacial Chemistry | IIT Madras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    <link rel="stylesheet" href="style.css"> <!-- Linked common styles -->
+
+    <!-- Styles for news card truncation and the new modal -->
+    <style>
+      /* Style for the truncated excerpt on the card */
+      div#news-list .excerpt-container p {
+          /* Truncate text to 3 lines */
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3; /* Limit to 3 lines */
+          overflow: hidden;
+          text-overflow: ellipsis;
+      }
+
+      /* Styles for the news modal */
+      #news-modal {
+          /* Added for fade-in/out transition */
+          transition: opacity 0.3s ease;
+      }
+      
+      #news-modal-content {
+          /* Make the modal content area scrollable if it's too tall */
+          max-height: 90vh;
+          overflow-y: auto;
+      }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover" onerror="this.style.display='none'; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=CCIC&font=inter';">
+                    <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8" data-current-page="news">
+                    <a href="index.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="research.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
+                    <a href="team.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
+                    <a href="publications.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
+                    <a href="news.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
+    				<a href="collab.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
+                    <a href="gallery.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
+                    <a href="contact.html" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="index.html" target="_blank" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
+            <a href="research.html" target="_blank" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
+            <a href="team.html" target="_blank" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
+            <a href="publications.html" target="_blank" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
+            <a href="news.html" target="_blank" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
+			<a href="collab.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
+            <a href="gallery.html" target="_blank" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
+            <a href="contact.html" target="_blank" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- NEWS Section -->
+        <section id="news" class="section py-20 bg-white">
+             <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                     <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Latest News</h1>
+                     <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Updates on our research, achievements, and events.</p>
+                 </div>
+                 <div id="news-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                     <!-- Dynamic news items will be rendered here by script.js -->
+                 </div>
+             </div>
+        </section>
+
+        <!-- Gallery Modal (Included for consistent script linking) -->
+        <div id="gallery-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg max-w-4xl max-h-full w-full h-auto p-4 relative">
+                <button id="modal-close-btn" class="absolute -top-4 -right-4 bg-white rounded-full p-2 z-10">
+                    <i data-feather="x" class="text-gray-800"></i>
+                </button>
+                <img id="modal-image" src="" alt="Gallery image" class="w-full h-auto max-h-[80vh] object-contain rounded-md">
+                <p id="modal-caption" class="text-center text-gray-700 mt-4"></p>
+            </div>
+        </div>
+
+        <!-- News Modal -->
+        <div id="news-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4 opacity-0">
+            <!-- Modal wrapper for content and centering -->
+            <div class="bg-white rounded-lg max-w-3xl w-full relative" id="news-modal-content-wrapper">
+                <!-- Close Button -->
+                <button id="news-modal-close-btn" class="absolute -top-3 -right-3 bg-white rounded-full p-2 z-10 shadow-lg transition-transform hover:scale-110">
+                    <i data-feather="x" class="text-gray-800"></i>
+                </button>
+                
+                <!-- Scrollable Content Area -->
+                <div id="news-modal-content" class="rounded-lg overflow-hidden">
+                    <img id="news-modal-image" src="" alt="News image" class="w-full h-64 object-cover">
+                    <div class="p-6 md:p-8">
+                        <p id="news-modal-date" class="text-sm text-gray-500 mb-2"></p>
+                        <h2 id="news-modal-title" class="text-2xl font-bold text-gray-900 mb-4"></h2>
+                        <!-- Full excerpt text will be injected here -->
+                        <div id="news-modal-excerpt" class="text-gray-700 space-y-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+            <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // Specific script for news.html to highlight the current page
+        document.addEventListener('DOMContentLoaded', () => {
+             const nav = document.querySelector('nav[data-current-page="news"]');
+             if (nav) {
+                const link = nav.querySelector('a[href="news.html"]');
+                if (link) {
+                    link.classList.add('active');
+                }
+             }
+             
+             // Highlight mobile link
+             const mobileNav = document.querySelector('#mobile-menu');
+             if (mobileNav) {
+                const mobileLink = mobileNav.querySelector('a[href="news.html"]');
+                if (mobileLink) {
+                    mobileLink.classList.add('active', 'bg-gray-100');
+                }
+             }
+        });
+
+    </script>
+</body>
+</html>
+
+

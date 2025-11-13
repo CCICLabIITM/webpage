@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Computational Catalysis and Interfacial Chemistry | IIT Madras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    <link rel="stylesheet" href="style.css"> <style>
+        /* Keyframes for the image slideshow on the index page */
+        @keyframes fadeEffect {
+            0% { opacity: 0; transform: scale(1.05); }
+            5% { opacity: 1; transform: scale(1); }
+            20% { opacity: 1; transform: scale(1); }
+            25% { opacity: 0; transform: scale(1.05); }
+            100% { opacity: 0; }
+        }
+
+        .slideshow-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation-name: fadeEffect;
+            animation-duration: 30s; /* 5s per image * 6 images */
+            animation-iteration-count: infinite;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* Apply staggered animation delays */
+        .slideshow-image:nth-child(1) { animation-delay: 0s; }
+        .slideshow-image:nth-child(2) { animation-delay: 5s; }
+        .slideshow-image:nth-child(3) { animation-delay: 10s; }
+        .slideshow-image:nth-child(4) { animation-delay: 15s; }
+        .slideshow-image:nth-child(5) { animation-delay: 20s; }
+        .slideshow-image:nth-child(6) { animation-delay: 25s; }
+        
+        /* Style for active navigation link */
+        .nav-link.active {
+            color: #2563EB; /* blue-600 */
+            font-weight: 600;
+            /* Visual indicator that the link is active on the current page */
+            border-bottom: 2px solid #2563EB; 
+            padding-bottom: 2px;
+        }
+
+        /* Styles for Photo Gallery Modal */
+        #gallery-modal.hidden {
+            display: none;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .section {
+            scroll-margin-top: 80px; /* Adjust for fixed header height */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
+                    <a href="index.html" target="_blank" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
+                    <div class="flex items-center space-x-3">
+                    <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
+                        <i data-feather="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
+                        <i data-feather="mail" class="w-5 h-5"></i>
+                    </a>
+                </div>
+				
+		</div>		
+				
+                <nav class="hidden md:flex items-center space-x-8" data-current-page="home">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
+                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
+                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
+                    <a href="news.html"  class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
+					<a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
+                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
+			<a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
+            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="section relative min-h-screen flex items-center justify-center text-white overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full z-0">
+                <div class="slideshow-container">
+                    <img src="IMAGE/Slideshow/SlideShow_ANJANA.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000/fff?text=Abstract+Model+1';" alt="Abstract molecular structure" class="slideshow-image">
+                    <img src="IMAGE/Slideshow/SlideShow_MADHURJA.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000/fff?text=Chemical+Lab';" alt="Chemical lab equipment" class="slideshow-image">
+                    <img src="IMAGE/Slideshow/SlideShow_SUDHIN.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000/fff?text=Scientist+Working';" alt="Scientist working in a lab" class="slideshow-image">
+                    <img src="IMAGE/Slideshow/SlideShow_SUDHIN2.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000/fff?text=Graphene+Structure';" alt="Graphene structure visualization" class="slideshow-image">
+                    <img src="IMAGE/Slideshow/SlideShow_DEVANAND.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000/fff?text=3D+Molecular+Model';" alt="3D molecular model" class="slideshow-image">
+                    <img src="IMAGE/Slideshow/SlideShow_ATHIRA.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000/fff?text=Scientific+Equipment';" alt="Advanced scientific equipment" class="slideshow-image">
+                </div>
+                <div class="absolute inset-0 bg-black/60"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 py-20 md:py-32 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">Computational Catalysis and Interfacial Chemistry (CCIC)</h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">Machine Learning • ab initio MD • Classical MD • Metadynamics • DFT</p>
+                <div class="mt-10">
+                    <a href="research.html" target="_blank" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl">Explore Our Work</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section bg-white py-20">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Welcome to CCIC Lab at IIT Madras </h2>
+                <p class="text-lg text-gray-700 leading-relaxed text-justify">Welcome to the Computational Catalysis and Interfacial Chemistry (CCIC) research group led by Dr. Sooraj Kunnikuruvan.
+                    Our group focuses on understanding and designing catalytic and interfacial processes through advanced computational techniques.
+                    We investigate a wide range of chemical reactions-both homogeneous and heterogeneous-that occur at various interfaces,
+                    with applications in sustainable fuel production,
+                    energy storage systems such as batteries, and broader energy conversion technologies.
+                    Our research combines first-principles methods like density functional theory (DFT), ab initio molecular dynamics (AIMD),
+                    and classical molecular dynamics (CMD) to uncover mechanistic insights and guide experimental efforts.
+                    We also integrate machine learning (ML) and data-driven approaches to accelerate
+                    the discovery and optimization of catalytic materials and interfacial chemistries.
+                    Through this multidisciplinary approach, we aim to address fundamental challenges
+                    in energy sustainability and contribute to the development of next-generation catalytic and energy storage technologies.</p>
+                <div class="mt-10">
+                    <a href="team.html" target="_blank" class="text-blue-600 font-semibold hover:text-blue-700 flex items-center justify-center space-x-2">
+                        <span>Meet Our Students and Alumni</span>
+                        <i data-feather="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section bg-gray-50 py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Principal Investigator</h2>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    
+                    <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+                        <div class="flex-shrink-0">
+                            <img src="IMAGE/PROFILE/soorajK.jpg" 
+                                 onerror="this.onerror=null;this.src='https://placehold.co/160x160/2563EB/fff?text=PI+Photo';" 
+                                 alt="Dr. Sooraj Kunnikuruvan" 
+                                 class="w-40 h-40 object-cover rounded-full border-4 border-blue-600 shadow-md mx-auto md:mx-0">
+                        </div>
+
+                        <div class="flex-grow text-center md:text-left">
+                            <h3 class="text-3xl font-bold text-gray-900">Dr. Sooraj Kunnikuruvan</h3>
+                            <p class="text-lg text-blue-600 mb-6">Assistant Professor, Department of Chemistry</p>
+                            <p class="text-lg text-blue-600 mb-6">Office: Chemistry Old Building (209B)</p>
+                            <p class="text-lg text-blue-600 mb-6">Lab: Chemistry New Building (351)</p>
+                            <p class="text-lg text-blue-600 mb-6">Indian Institute of Technology Madras Chennai-600036, INDIA</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-2xl font-bold text-center text-gray-900 mt-8 mb-6 border-t pt-6">Principal Investigator Contact</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        
+                        <div class="bg-blue-50/70 p-4 rounded-xl border-2 border-blue-200 shadow-md hover:shadow-lg hover:shadow-blue-200 transition-shadow duration-300 flex flex-col items-center space-y-2">
+                            <i data-feather="mail" class="w-8 h-8 text-blue-600"></i>
+                            <span class="text-sm font-semibold text-gray-600">Email Address</span>
+                            <a href="mailto:soorajk@iitm.ac.in" class="text-blue-800 font-bold text-lg truncate hover:text-blue-900 transition-colors">soorajk@iitm.ac.in</a>
+                        </div>
+
+                        <div class="bg-green-50/70 p-4 rounded-xl border-2 border-green-200 shadow-md hover:shadow-lg hover:shadow-green-200 transition-shadow duration-300 flex flex-col items-center space-y-2">
+                            <i data-feather="phone" class="w-8 h-8 text-green-600"></i>
+                            <span class="text-sm font-semibold text-gray-600">Phone</span>
+                            <span class="text-green-800 font-bold text-lg">+91-44-2257-4245
+                        </div>
+
+                        <div class="bg-slate-50/70 p-4 rounded-xl border-2 border-slate-200 shadow-md hover:shadow-lg hover:shadow-slate-200 transition-shadow duration-300 flex flex-col items-center space-y-2">
+                            <i data-feather="map-pin" class="w-8 h-8 text-slate-600"></i>
+                            <span class="text-sm font-semibold text-gray-600">Lab Location</span>
+                            <a href="https://www.google.com/maps/place/Department+of+Chemistry/@12.9881348,80.2324006,21z/data=!4m10!1m2!2m1!1schemistry+department+iit+madras!3m6!1s0x3a525d8020b71665:0x94cb18c14f82268c!8m2!3d12.9881261!4d80.2325725!15sCh9jaGVtaXN0cnkgZGVwYXJ0bWVudCBpaXQgbWFkcmFzkgEVdW5pdmVyc2l0eV9kZXBhcnRtZW50qgFTCgkvbS8wZ3l4d2QQATIfEAEiG7adv6xgP-jLWrkfNa6NEFSJ2mxAhOLdItjFLjIjEAIiH2NoZW1pc3RyeSBkZXBhcnRtZW50IGlpdCBtYWRyYXPgAQA!16s%2Fg%2F1hm3vdcwb?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-slate-800 font-bold text-lg hover:text-slate-900 transition-colors">View on Google Maps</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+            <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
+        </div>
+    </footer>
+
+    <div id="gallery-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl max-h-full w-full h-auto p-4 relative">
+            <button id="modal-close-btn" class="absolute -top-4 -right-4 bg-white rounded-full p-2 z-10">
+                <i data-feather="x" class="text-gray-800"></i>
+            </button>
+            <img id="modal-image" src="" alt="Gallery image" class="w-full h-auto max-h-[80vh] object-contain rounded-md">
+            <p id="modal-caption" class="text-center text-gray-700 mt-4"></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Specific script for index.html to highlight the current page
+        document.addEventListener('DOMContentLoaded', () => {
+             const nav = document.querySelector('nav[data-current-page="home"]');
+             nav.querySelector('a[href="index.html"]').classList.add('active');
+             
+             // Initialize feather icons (This is OK to run again, just in case)
+             feather.replace();
+
+             // Set current year in footer (This is also OK to run again)
+             document.getElementById('current-year').textContent = new Date().getFullYear();
+             
+             // --- FIXED ---
+             // The mobile menu toggle logic has been REMOVED from this file.
+             // It is now handled only by the global 'script.js' file,
+             // which prevents the "double-toggle" bug.
+
+             // Simple slideshow logic (if script.js is not present)
+             let slideIndex = 0;
+             function showSlides() {
+                 let slides = document.getElementsByClassName("slideshow-image");
+                 for (let i = 0; i < slides.length; i++) {
+                     // Note: We are relying on CSS animations for smooth transitions...
+                 }
+             }
+             showSlides();
+        });
+
+        // --- FIXED ---
+        // Removed the redundant second DOMContentLoaded listener
+        // that was also setting the current year.
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

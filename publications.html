@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Computational Catalysis and Interfacial Chemistry | IIT Madras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    
+    <!-- Custom Styles for clean look and feel -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-link.active, .mobile-link.active {
+            color: #2563eb; /* Blue-600 */
+            font-weight: 600;
+            border-bottom: 2px solid #2563eb;
+        }
+        .publication-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .publication-card {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #f3f4f6; /* Subtle border */
+        }
+        .nav-link {
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid transparent;
+        }
+        .modal-content {
+            max-height: 90vh;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <!-- Placeholder for logo. Replaced local path with a placeholder image URL for runnable code -->
+                    <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
+                    <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
+					<div class="flex items-center space-x-3">
+                    <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
+                        <i data-feather="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
+                        <i data-feather="mail" class="w-5 h-5"></i>
+                    </a>
+                </div>
+				
+		</div>		
+
+                <nav class="hidden md:flex items-center space-x-8" data-current-page="publications">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
+                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
+                    <a href="publications.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
+                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
+        			<a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
+                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
+                    <a href="joinus.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all text-sm font-semibold shadow-md">Join Us</a>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors">
+                    <i data-feather="menu" class="w-6 h-6 text-gray-700"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-blue-600 font-semibold bg-blue-50/50 border-l-4 border-blue-600 mobile-link active">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
+			<a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
+            <a href="joinus.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- PUBLICATIONS Section -->
+        <section id="publications" class="section py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Featured Publications</h2>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                        Click on a card below to see the full citation and link to the external article.
+                    </p>
+                </div>
+                
+                <!-- Publications will be injected here -->
+                <div id="publications-list" class="space-y-10 max-w-5xl mx-auto">
+                    <!-- Dynamic publication cards will be rendered here by JavaScript -->
+                    <div class="text-center p-8 text-gray-500">
+                        Loading publications...
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <!-- Link to Google Scholar/full list -->
+                    <a href="https://scholar.google.com/citations?user=DCJi8BkAAAAJ&hl=en" target="_blank" class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all shadow-md hover:shadow-lg">
+                        View All on Google Scholar
+                        <i data-feather="external-link" class="w-5 h-5 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLICATION DETAIL MODAL (New Element) -->
+        <div id="publication-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4" onclick="closePublicationModal(event)">
+            <div class="modal-content bg-white rounded-xl max-w-4xl w-full relative shadow-2xl overflow-y-auto" onclick="event.stopPropagation()">
+                <button id="modal-close-btn" class="absolute -top-3 -right-3 bg-white rounded-full p-2 z-10 shadow-lg border border-gray-200 hover:bg-gray-100 transition-colors" onclick="closePublicationModal()">
+                    <i data-feather="x" class="text-gray-800 w-6 h-6"></i>
+                </button>
+                
+                <div class="flex flex-col md:flex-row">
+                    <!-- Image/Abstract Side -->
+                    <div class="md:w-1/3 flex-shrink-0 bg-gray-50 p-6 flex items-center justify-center rounded-t-xl md:rounded-l-xl md:rounded-t-none">
+                        <img id="modal-image" src="" alt="Graphical abstract" class="w-full h-auto object-contain rounded-lg shadow-md max-h-96 md:max-h-full">
+                    </div>
+                    
+                    <!-- Content Side -->
+                    <div class="md:w-2/3 p-6 md:p-8">
+                        <h2 id="modal-title" class="text-2xl font-bold text-gray-900 mb-4 leading-tight"></h2>
+                        
+                        <div class="space-y-4 text-gray-700">
+                            <div>
+                                <h4 class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-1">Authors</h4>
+                                <p id="modal-authors" class="text-base"></p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-1">Journal & Citation</h4>
+                                <p id="modal-citation" class="text-base font-medium"></p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-1">Source Link</h4>
+                                <!-- UPDATED: Added classes for full URL display -->
+                                <p id="modal-domain" class="text-sm break-all font-mono bg-gray-100 p-2 rounded-lg"></p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <a id="modal-link-button" href="#" target="_blank" class="inline-flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all shadow-lg w-full md:w-auto">
+                                View Full Article
+                                <i data-feather="external-link" class="w-5 h-5 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Modal (Kept minimal as it's not the main focus) -->
+        <div id="gallery-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
+            <!-- Modal content for gallery (unchanged) -->
+            <div class="bg-white rounded-xl max-w-4xl max-h-full w-full h-auto p-4 relative shadow-2xl">
+                <button id="modal-close-btn-gallery" class="absolute -top-3 -right-3 bg-white rounded-full p-2 z-10 shadow-lg border border-gray-200 hover:bg-gray-100 transition-colors">
+                    <i data-feather="x" class="text-gray-800 w-6 h-6"></i>
+                </button>
+                <img id="modal-image-gallery" src="" alt="Gallery image" class="w-full h-auto max-h-[80vh] object-contain rounded-lg">
+                <p id="modal-caption-gallery" class="text-center text-gray-700 mt-4"></p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC).</p>
+            <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // --- Publication Data ---
+        // Added explicit 'year' field for sorting and grouping
+        const publicationsData = [
+            {
+                id: 1,
+                title: "Unveiling the Role of Ion Pairs in Determining Electrolyte Stability and Solid Electrolyte Interphase Formation in Lithium Metal Batteries",
+                authors: "M Buragohain, S Kunnikuruvan",
+                journal: "ACS Applied Energy Materials",
+                details: "X",
+                year: 2025,
+                link: "https://doi.org/10.1021/acsaem.5c02340",
+                image: "https://pubs.acs.org/cms/10.1021/acsaem.5c02340/asset/images/medium/ae5c02340_0009.gif"
+            },
+            {
+                id: 2,
+                title: "Unraveling B, N Co-doping synergy in graphitic carbon nitride for efficient CO2 cycloaddition with styrene oxide",
+                authors: "Hafila S Khairun, Gazala Parveen, Ripsa Rani Nayak, Jogeswar Chhatria, Sooraj Kunnikuruvan, Navneet Kumar Gupta",
+                journal: "Journal of Catalysis",
+                details: "",
+                year: 2025,
+                link: "https://doi.org/10.1016/j.jcat.2025.116399",
+                image: "https://ars.els-cdn.com/content/image/1-s2.0-S0021951725004658-ga1.jpg"
+            },
+            {
+                id: 3,
+                title: "A Review on the Applications of “Catalysis Under 2D-Cover” for Small Molecule Activation",
+                authors: "Athira Jayasankar, Sooraj Kunnikuruvan",
+                journal: "Journal of the Indian Institute of Science",
+                details: "X",
+                year: 2025,
+                link: "https://link.springer.com/article/10.1007/s41745-025-00481-9",
+                image: "https://media.springernature.com/lw685/springer-static/image/art%3A10.1007%2Fs41745-025-00481-9/MediaObjects/41745_2025_481_Fig1_HTML.png?as=webp"
+            },
+            {
+                id: 4,
+                title: "Orchestrating Multiple Aryl Rearrangements: Deciphering the Dynamics of Competitive Shifts and Shuttles on Four Carbons",
+                authors: "Nagaraju Ponugoti, Jogeswar Chhatria, Sooraj Kunnikuruvan, Parthasarathy Venkatakrishnan",
+                journal: "The Journal of Organic Chemistry",
+                details: "90 (29), 10206-10217",
+                year: 2025,
+                link: "https://doi.org/10.1021/acs.joc.5c00596",
+                image: "https://pubs.acs.org/cms/10.1021/acs.joc.5c00596/asset/images/medium/jo5c00596_0012.gif"
+            },
+            {
+                id: 5,
+                title: "Self‐Healing, Ga‐Sb Alloy Confined Sn Anode for Stable Na‐Ion Storage in Glyme Based Electrolytes",
+                authors: "Dimpal Deori, Madhurja Buragohain, Youhyun Son, Sooraj Kunnikuruvan, Ashok Kumar Nanjundan, Philipp Adelhelm, Thangavelu Palaniselvam",
+                journal: "Small",
+                details: "90 (29), 10206-10217",
+                year: 2025,
+                link: "Small",
+                image: "https://onlinelibrary.wiley.com/cms/asset/5b1bcd97-f6ff-43dc-8861-0722e297600f/smll202504185-fig-0008-m.png"
+            },
+            {
+                id: 6,
+                title: "Electrochemical Nitrate Reduction to Ammonia using γ-Fe2O3/BCN in a Neutral Medium",
+                authors: "Soniya Mariya Varghese, Anju Vakakuzhiyil Gopinathan, Sudhin Rathnakumaran, Suraj Sasikumar, Sooraj Kunnikuruvan, Ranga Rao Gangavarapu",
+                journal: "ACS Catalysis",
+                details: "90 (29), 10206-10217",
+                year: 2025,
+                link: "https://doi.org/10.1021/acscatal.5c00936",
+                image: "https://pubs.acs.org/cms/10.1021/acscatal.5c00936/asset/images/medium/cs5c00936_0009.gif"
+            },
+            {
+                id: 7,
+                title: "Computational and Experimental Insights on the Role of ZnO Nanoplatelets Coated Separator in Stabilizing Lithium Metal Anodes",
+                authors: "Ankush Kumar Singh, Rashmi Yadav, Madhurja Buragohain, Sooraj Kunnikuruvan, Rosy",
+                journal: "Small",
+                details: "90 (29), 10206-10217",
+                year: 2025,
+                link: "https://doi.org/10.1002/smll.202505175",
+                image: "https://onlinelibrary.wiley.com/cms/asset/9d99f0e0-92dc-4754-9332-6f90370a5045/smll202505175-fig-0001-m.png"
+            },
+            {
+                id: 8,
+                title: "Doping Strategies in Ni-Rich NCM Cathode Materials for Next-Generation Li-Ion Batteries: A Systematic Computational Study",
+                authors: "Arup Chakraborty, Amreen Bano, Sooraj Kunnikuruvan, Boris Markovsky, Doron Aurbach, Dan Thomas Major",
+                journal: "ACS Applied Energy Materials",
+                details: "90 (29), 10206-10217",
+                year: 2025,
+                link: "https://doi.org/10.1021/acsaem.5c01325",
+                image: "https://pubs.acs.org/cms/10.1021/acsaem.5c01325/asset/images/medium/ae5c01325_0012.gif"
+            },
+            {
+                id: 9,
+                title: "π-Functionalized 1,5-diazocines with diverse intramolecular connectivities to modulate photophysical and electroluminescence properties",
+                authors: "Anjitha Sebastian, Simi Achankunju, Swetha Nair, Kavya Rajeev, Anju Vakakuzhiyil Gopinathan, Vijay Kumar Maka, Sooraj Kunnikuruvan, Narayanan Unni KN, Keshaba Nanda Parida, Ishita Neogi",
+                journal: "Journal of Materials Chemistry C",
+                details: "90 (29), 10206-10217",
+                year: 2025,
+                link: "https://doi.org/10.1039/D4TC05509H",
+                image: "https://pubs.rsc.org/en/Image/Get?imageInfo.ImageType=GA&imageInfo.ImageIdentifier.ManuscriptID=D4TC05509H&imageInfo.ImageIdentifier.Year=2025"
+            },
+            {
+                id: 10,
+                title: "Fluorine-rich interface for garnet-based high-performance all-solid-state lithium batteries",
+                authors: "Shruti Suriyakumar, Indu M Santhakumari, Souvik Ghosh, Anju Vakakuzhiyil Gopinathan, Sooraj Kunnikuruvan, Manikoth M Shaijumon",
+                journal: "Chemical Science",
+                details: "90 (29), 10206-10217",
+                year: 2025,
+                link: "https://doi.org/10.1039/D5SC01107H",
+                image: "https://pubs.rsc.org/en/Image/Get?imageInfo.ImageType=GA&imageInfo.ImageIdentifier.ManuscriptID=D5SC01107H&imageInfo.ImageIdentifier.Year=2025"
+            },
+            {
+                id: 11,
+                title: "Nanostructured Ternary Bismuth–Antimony Trichalcogenide/Au Heterostructure Boosts Electrocatalytic Hydrogen Evolution Reaction",
+                authors: "Naduvile Purayil Dileep, Mithun C Madhusudhanan, Lakshmi K Puthenveettil, Vipin Yadav, Stephen N Myakala, Sooraj Kunnikuruvan, Manikoth M Shaijumon",
+                journal: "ACS Applied Energy Materials",
+                details: "90 (29), 10206-10217",
+                year: 2025,
+                link: "https://doi.org/10.1021/acsaem.4c00046",
+                image: "https://pubs.acs.org/cms/10.1021/acsaem.4c00046/asset/images/medium/ae4c00046_0008.gif"
+            },
+            {
+                id: 12,
+                title: "Mononuclear phenoxy-imine Mg (II) compounds as catalysts for the ring-opening copolymerization of epoxides with CO2",
+                authors: "Sourav Singha Roy, Sriparna Sarkar, Nikitha Srinivasan, PK Sudhadevi Antharjanam, Sooraj Kunnikuruvan, Debashis Chakraborty",
+                journal: "Materials Today Chemistry",
+                details: "90 (29), 10206-10217",
+                year: 2024,
+                link: "https://doi.org/10.1016/j.mtchem.2024.102330",
+                image: "https://ars.els-cdn.com/content/image/1-s2.0-S2468519424004361-ga1.jpg"
+            },
+            {
+                id: 12,
+                title: "Nanostructured Ternary Bismuth–Antimony Trichalcogenide/Au Heterostructure Boosts Electrocatalytic Hydrogen Evolution Reaction",
+                authors: "Naduvile Purayil Dileep, Mithun C Madhusudhanan, Lakshmi K Puthenveettil, Vipin Yadav, Stephen N Myakala, Sooraj Kunnikuruvan, Manikoth M Shaijumon",
+                journal: "ACS Applied Energy Materials",
+                details: "90 (29), 10206-10217",
+                year: 2024,
+                link: "https://doi.org/10.1021/acsaem.4c00046",
+                image: "https://pubs.acs.org/cms/10.1021/acsaem.4c00046/asset/images/medium/ae4c00046_0008.gif"
+            },
+            {
+                id: 12,
+                title: "Computational insights into selective glucose to 5-hydroxymethylfurfural (HMF) conversion by reducing humins formation in aqueous media under Brønsted acid-catalyzed conditions",
+                authors: "Jogeswar Chhatria, Swetha Nair, Sankari Nattuvetty Sunil Kumar, Sooraj Kunnikuruvan",
+                journal: "Physical Chemistry Chemical Physics",
+                details: "90 (29), 10206-10217",
+                year: 2024,
+                link: "https://doi.org/10.1039/D4CP03032J",
+                image: "https://pubs.rsc.org/en/Image/Get?imageInfo.ImageType=GA&imageInfo.ImageIdentifier.ManuscriptID=D4CP03032J&imageInfo.ImageIdentifier.Year=2024"
+            },
+            {
+                id: 13,
+                title: "Revisiting the Relation Between the Stability of the LUMO of the Electrolytes and the Kinetics of Solid Electrolyte Interface Formation in Lithium‐and Post‐Lithium‐ion Batteries",
+                authors: "Mithun C Madhusudhanan, Sreelakshmi Anil Kumar, Swetha Nair, Nikitha Srinivasan, Madhurja Buragohain, Sooraj Kunnikuruvan",
+                journal: "Batteries & Supercaps",
+                details: "90 (29), 10206-10217",
+                year: 2023,
+                link: "https://doi.org/10.1002/batt.202200430",
+                image: "https://chemistry-europe.onlinelibrary.wiley.com/cms/asset/7d0b8233-d866-4a08-8a55-c4f369122524/batt202200430-toc-0001-m.png"
+            },
+            {
+                id: 14,
+                title: "Topochemical syntheses of polyarylopeptides involving large molecular motions: Frustrated monomer packing leads to the formation of polymer blends",
+                authors: "Cijil Raju, Kozhukunnon Mridula, Nikitha Srinivasan, Sooraj Kunnikuruvan, Kana M Sureshan",
+                journal: "Angewandte Chemie",
+                details: "90 (29), 10206-10217",
+                year: 2023,
+                link: "https://doi.org/10.1002/ange.202306504",
+                image: "https://onlinelibrary.wiley.com/cms/asset/e8000c62-cb33-41ae-a088-5fe8a55ae151/ange202306504-toc-0001-m.png"
+            },
+            {
+                id: 13,
+                title: "Topochemical cycloaddition reaction between an azide and an internal alkyne",
+                authors: "Cijil Raju, Sooraj Kunnikuruvan, Kana M Sureshan",
+                journal: "Angewandte Chemie",
+                details: "90 (29), 10206-10217",
+                year: 2022,
+                link: "https://doi.org/10.1002/ange.202210453",
+                image: "https://onlinelibrary.wiley.com/cms/asset/f2b7bc77-b0b1-4472-9636-44ca5f025ecf/ange202210453-toc-0001-m.jpg"
+            }
+
+        ].sort((a, b) => b.year - a.year); // Pre-sort by year descending
+
+        // --- Utility Functions ---
+
+        /**
+         * Extracts the clean domain name (e.g., pubs.acs.org) from a full URL.
+         * NOTE: This function is kept but no longer used in the modal to meet the user's requirement.
+         */
+        function getDomain(url) {
+            try {
+                const hostname = new URL(url).hostname;
+                return hostname.startsWith('www.') ? hostname.substring(4) : hostname;
+            } catch {
+                return 'External Source';
+            }
+        }
+
+        // --- Modal Control Functions ---
+        
+        /**
+         * Opens the publication details modal.
+         * @param {number} id - The ID of the publication to display.
+         */
+        function openPublicationModal(id) {
+            const pub = publicationsData.find(p => p.id === id);
+            if (!pub) return;
+
+            const modal = document.getElementById('publication-modal');
+            
+            // Populate modal content
+            document.getElementById('modal-title').textContent = pub.title;
+            document.getElementById('modal-authors').textContent = pub.authors;
+            document.getElementById('modal-citation').textContent = `${pub.journal}, ${pub.details} (${pub.year})`;
+            
+            // --- MODIFICATION HERE: Use the full link ---
+            document.getElementById('modal-domain').textContent = pub.link; 
+            // ---------------------------------------------
+            
+            document.getElementById('modal-link-button').href = pub.link;
+            
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = pub.image;
+            modalImage.onerror = () => {
+                 modalImage.src = 'https://placehold.co/400x300/e5e7eb/6b7280?text=Abstract+Figure+Not+Available';
+            };
+
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // Prevent background scrolling
+            feather.replace(); // Ensure icons in modal button are rendered
+        }
+
+        /**
+         * Closes the publication details modal.
+         * @param {Event} event - Optional click event to check if the click was outside the content.
+         */
+        function closePublicationModal(event) {
+            const modal = document.getElementById('publication-modal');
+            // Check if click was on the modal backdrop or the close button
+            if (!event || event.target.id === 'publication-modal' || event.target.closest('#modal-close-btn')) {
+                modal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+
+        // --- Rendering Functions ---
+
+        /**
+         * Generates the HTML string for a single publication card.
+         */
+        function createPublicationCard(pub) {
+            return `
+                <div onclick="openPublicationModal(${pub.id})" data-pub-id="${pub.id}"
+                    class="publication-card flex bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden cursor-pointer">
+                    
+                    <!-- Publication Image/Figure (1/3 width on desktop) -->
+                    <div class="flex-shrink-0 w-1/3 md:w-1/4 bg-gray-50 border-r border-gray-100 p-4 flex items-center justify-center">
+                        <img src="${pub.image}" 
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x300/e5e7eb/6b7280?text=Abstract'"
+                            alt="Graphical abstract for ${pub.title}" 
+                            class="w-full h-auto object-contain rounded-lg max-h-32 md:max-h-full">
+                    </div>
+                    
+                    <!-- Publication Details (2/3 width on desktop) -->
+                    <div class="flex-grow p-4 md:p-6 flex flex-col justify-center">
+                        <div>
+                            <!-- Title -->
+                            <h3 class="text-base md:text-lg font-semibold text-gray-900 leading-snug mb-1">
+                                ${pub.title}
+                            </h3>
+                            <!-- Authors -->
+                            <p class="text-xs text-gray-600 mb-1 line-clamp-1">
+                                ${pub.authors}
+                            </p>
+                            <!-- Journal/Publisher and Year -->
+                            <p class="text-xs font-medium text-blue-700">
+                                ${pub.journal} <span class="text-gray-500">(${pub.year})</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            `;
+        }
+
+        /**
+         * Renders all publications grouped by year in descending order.
+         */
+        function renderPublications() {
+            const publicationsList = document.getElementById('publications-list');
+            
+            if (!publicationsData || publicationsData.length === 0) {
+                publicationsList.innerHTML = '<p class="text-center text-gray-500">No publications found yet.</p>';
+                return;
+            }
+            
+            // 1. Group publications by year
+            const publicationsByYear = publicationsData.reduce((acc, pub) => {
+                const year = pub.year;
+                if (!acc[year]) {
+                    acc[year] = [];
+                }
+                acc[year].push(pub);
+                return acc;
+            }, {});
+
+            // 2. Sort years descending (newest first)
+            const sortedYears = Object.keys(publicationsByYear).sort((a, b) => b - a);
+
+            let publicationsHtml = '';
+
+            // 3. Generate HTML sections for each year
+            for (const year of sortedYears) {
+                publicationsHtml += `
+                    <div id="year-${year}" class="mb-12">
+                        <h3 class="text-3xl font-extrabold text-gray-900 mb-6 border-b-4 border-blue-600 inline-block pr-8 pb-1">
+                            ${year}
+                        </h3>
+                        <div class="space-y-6">
+                            ${publicationsByYear[year].map(pub => createPublicationCard(pub)).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            publicationsList.innerHTML = publicationsHtml;
+            
+            feather.replace();
+        }
+
+        // --- Initializers and Event Listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.setAttribute('data-feather', 'menu');
+                } else {
+                    icon.setAttribute('data-feather', 'x');
+                }
+                feather.replace(); // Update icon state
+            });
+            
+            // Render the publication cards
+            renderPublications();
+
+            // Initial icon replacement for header/footer
+            feather.replace();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborations | CCIC | IIT Madras</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Load Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    
+    <style>
+        /* Apply the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom class for section transitions */
+        .section-container {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Keyframes for the image slideshow on the index page */
+        @keyframes fadeEffect {
+            0% { opacity: 0; transform: scale(1.05); }
+            5% { opacity: 1; transform: scale(1); }
+            20% { opacity: 1; transform: scale(1); }
+            25% { opacity: 0; transform: scale(1.05); }
+            100% { opacity: 0; }
+        }
+
+        .slideshow-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation-name: fadeEffect;
+            animation-duration: 30s; /* 5s per image * 6 images */
+            animation-iteration-count: infinite;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* Apply staggered animation delays */
+        .slideshow-image:nth-child(1) { animation-delay: 0s; }
+        .slideshow-image:nth-child(2) { animation-delay: 5s; }
+        .slideshow-image:nth-child(3) { animation-delay: 10s; }
+        .slideshow-image:nth-child(4) { animation-delay: 15s; }
+        .slideshow-image:nth-child(5) { animation-delay: 20s; }
+        .slideshow-image:nth-child(6) { animation-delay: 25s; }
+        
+        /* Style for active navigation link */
+        .nav-link.active {
+            color: #2563EB; /* blue-600 */
+            font-weight: 600;
+            /* Visual indicator that the link is active on the current page */
+            border-bottom: 2px solid #2563EB; 
+            padding-bottom: 2px;
+        }
+
+        /* Styles for Photo Gallery Modal */
+        #gallery-modal.hidden {
+            display: none;
+        }
+        
+        .section {
+            scroll-margin-top: 80px; /* Adjust for fixed header height */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                
+                <!-- Left Side: Logo, Title, and Icons -->
+                <div class="flex items-center space-x-3">
+                    <!-- Placeholder logo, replace 'IMAGE/LOGO/CCIC_logo.png' -->
+                    <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e0e7ff/312e81?text=CCIC';" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
+                    <!-- FIX: Removed target="_blank" from internal home link -->
+                    <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
+                    <div class="flex items-center space-x-3">
+                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
+                            <i data-feather="mail" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>      
+                
+                <!-- 
+                  FIX: The extra </div> was here, breaking the layout. It has been removed.
+                  The <nav> and <button> are now correctly inside the 'flex justify-between' container.
+                -->
+
+                <!-- Right Side: Desktop Navigation -->
+                <!-- Set current page to 'collab' to highlight the correct link -->
+                <nav class="hidden md:flex items-center space-x-8" data-current-page="collab">
+                    <!-- FIX: Removed target="_blank" from internal links -->
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
+                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
+                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
+                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
+                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
+                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <!-- FIX: Removed target="_blank" from internal links -->
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
+            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Title Header -->
+        <section class="bg-indigo-50 pt-24 pb-16"> <!-- Added padding-top to account for fixed header -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+                    Our Network
+                </h1>
+                <p class="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
+                    Our lab actively collaborates with leading industries, academic partners, and visionary sponsors to advance solutions for the challenges of tomorrow.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Collaborators Section -->
+        <!-- Added 'section' class for scroll-margin -->
+        <section id="collaborators" class="py-16 sm:py-24 bg-white section-container section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-indigo-600 uppercase tracking-wide">Partnerships</h2>
+                    <p class="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">
+                        Our Collaborators
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
+                        We are proud to work with leading institutions and researchers from around the world.
+                    </p>
+                </div>
+                
+                <!-- Grid of Logos -->
+                <div class="mt-12">
+                    <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                        <!-- Logo Item 1 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://www.iisertvm.ac.in/files/get_file/7f24d240521d99071c93af3917215ef7" alt="Logo of University A">
+                        </div>
+                        <!-- Logo Item 2 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJfAAM_y7NyBToT1J3lrrynH3UR5nR-WddVQ&s" alt="Logo of Tech Institute">
+                        </div>
+                        <!-- Logo Item 3 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://upload.wikimedia.org/wikipedia/en/thumb/3/36/IIT-BHU_Logo.svg/1181px-IIT-BHU_Logo.svg.png" alt="Logo of Global Research">
+                        </div>
+                        <!-- Logo Item 4 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://cdn.universitykart.com//Content/upload/admin/uhjjm31d.wuj.png" alt="Logo of Bio-Med Corp">
+                        </div>
+                        <!-- Logo Item 5 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://www.drupal.org/files/styles/grid-4-2x/public/bar-ilan-university-logo.png?itok=BtP0hVC5" alt="Logo of Data Science Inc">
+                        </div>
+                        <!-- Logo Item 6 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://iisc.ac.in/wp-content/uploads/2020/08/IISc_Master_Seal.jpg" alt="Logo of National Lab">
+                        </div>
+                        <!-- Logo Item 7 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://www.iitm.ac.in/themes/custom/iitm/assets/images/iitm_logo.png" alt="Logo of Future Systems">
+                        </div>
+                        <!-- Logo Item 8 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://upload.wikimedia.org/wikipedia/en/a/a4/Academy_of_Scientific_and_Innovative_Research.png" alt="Logo of Eco Innovate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- START: Collaboration Work Section -->
+        <section id="collaboration" class="py-16 sm:py-24 bg-gray-50 section-container section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-indigo-600 uppercase tracking-wide">Collaboration Work</h2>
+                    <p class="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">
+                        Collaboration Projects
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
+                        Highlights of successful projects completed with our partners.
+                    </p>
+                </div>
+                
+                <!-- Grid of Project Cards -->
+                <!-- UPDATED: Changed grid to 4 columns on large screens -->
+                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                    
+                    <!-- Project Card 1 (Finished) -->
+                    <!-- UPDATED: Removed image div -->
+                    <div class="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
+                        <div class="flex-1 p-6 flex flex-col justify-between">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center mb-2">
+                                    <p class="text-sm font-medium text-emerald-600">
+                                        <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Materials Science</span>
+                                    </p>
+                                    <!-- UPDATED: Made year larger -->
+                                    <span class="text-base font-semibold text-gray-500">2023</span>
+                                </div>
+                                <a href="#" class="block mt-2">
+                                    <p class="text-xl font-semibold text-gray-900">Project Delta: Catalyst Design</p>
+                                    <p class="mt-3 text-base text-gray-500">
+                                        Successfully developed a novel computational model for designing high-efficiency industrial catalysts.
+                                    </p>
+                                    <p class="mt-3 text-sm text-gray-600">
+                                        <span class="font-semibold">Collaborator:</span> Prof. John Doe, MIT
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="mt-6 flex items-center justify-between">
+                                <span class="text-sm font-medium text-gray-500">Status: <span class="text-blue-600">Completed</span></span>
+                                <a href="#" target="_blank" class="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-800">
+                                    View Paper
+                                    <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 2 (Finished) -->
+                    <!-- UPDATED: Removed image div -->
+                    <div class="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
+                        <div class="flex-1 p-6 flex flex-col justify-between">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center mb-2">
+                                    <p class="text-sm font-medium text-red-600">
+                                        <span class="inline-block bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Pharmaceuticals</span>
+                                    </p>
+                                    <!-- UPDATED: Made year larger -->
+                                    <span class="text-base font-semibold text-gray-500">2022</span>
+                                </div>
+                                <a href="#" class="block mt-2">
+                                    <p class="text-xl font-semibold text-gray-900">Project Epsilon: Drug Interaction</p>
+                                    <p class="mt-3 text-base text-gray-500">
+                                        Completed a comprehensive simulation of protein-ligand binding for a new drug candidate.
+                                    </p>
+                                    <p class="mt-3 text-sm text-gray-600">
+                                        <span class="font-semibold">Collaborator:</span> Dr. Jane Smith, Pfizer
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="mt-6 flex items-center justify-between">
+                                <span class="text-sm font-medium text-gray-500">Status: <span class="text-blue-600">Completed</span></span>
+                                <a href="#" target="_blank" class="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-800">
+                                    View Paper
+                                    <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 3 (Finished) -->
+                    <!-- UPDATED: Removed image div -->
+                    <div class="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
+                        <div class="flex-1 p-6 flex flex-col justify-between">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center mb-2">
+                                    <p class="text-sm font-medium text-orange-600">
+                                        <span class="inline-block bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Energy Sector</span>
+                                    </p>
+                                    <!-- UPDATED: Made year larger -->
+                                    <span class="text-base font-semibold text-gray-500">2021</span>
+                                </div>
+                                <a href="#" class="block mt-2">
+                                    <p class="text-xl font-semibold text-gray-900">Project Zeta: Battery Management</p>
+                                    <p class="mt-3 text-base text-gray-500">
+                                        Simulated and optimized thermal management systems for next-generation EV batteries.
+                                    </p>
+                                    <p class="mt-3 text-sm text-gray-600">
+                                        <span class="font-semibold">Collaborator:</span> Dr. A. Kumar, IISc
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="mt-6 flex items-center justify-between">
+                                <span class="text-sm font-medium text-gray-500">Status: <span class="text-blue-600">Completed</span></span>
+                                <a href="#" target="_blank" class="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-800">
+                                    View Paper
+                                    <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 (Finished) -->
+                    <!-- ADDED: New card -->
+                    <div class="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
+                        <div class="flex-1 p-6 flex flex-col justify-between">
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center mb-2">
+                                    <p class="text-sm font-medium text-cyan-600">
+                                        <span class="inline-block bg-cyan-100 text-cyan-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Simulation</span>
+                                    </p>
+                                    <span class="text-base font-semibold text-gray-500">2020</span>
+                                </div>
+                                <a href="#" class="block mt-2">
+                                    <p class="text-xl font-semibold text-gray-900">Project Omega: Fluid Dynamics</p>
+                                    <p class="mt-3 text-base text-gray-500">
+                                        Advanced CFD simulations for optimizing industrial chemical reactors.
+                                    </p>
+                                    <p class="mt-3 text-sm text-gray-600">
+                                        <span class="font-semibold">Collaborator:</span> Shell Global
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="mt-6 flex items-center justify-between">
+                                <span class="text-sm font-medium text-gray-500">Status: <span class="text-blue-600">Completed</span></span>
+                                <a href="#" target="_blank" class="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-800">
+                                    View Paper
+                                    <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ADDED: "More" button -->
+                <div class="mt-16 text-center">
+                    <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition-colors">
+                        View All Finished Projects
+                        <i data-feather="arrow-right" class="ml-2 h-5 w-5"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+        <!-- END: Collaboration Work Section -->
+
+
+        <!-- Projects Section -->
+        <!-- Added 'section' class for scroll-margin -->
+        <!-- CHANGED: bg-gray-50 to bg-white to alternate with new section -->
+        <section id="projects" class="py-16 sm:py-24 bg-white section-container section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-indigo-600 uppercase tracking-wide">Our Work</h2>
+                    <p class="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">
+                        Our Projects
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
+                        A selection of our ongoing and completed research projects.
+                    </p>
+                </div>
+                
+                <!-- Grid of Project Cards -->
+                <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    
+                    <!-- Project Card 1 -->
+                    <div class="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
+                        <div class="flex-shrink-0">
+                            <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/93c5fd/1e3a8a?text=SERB+Project&font=inter" alt="SERB Project">
+                        </div>
+                        <div class="flex-1 p-6 flex flex-col justify-between">
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-indigo-600">
+                                    <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full">AI & Machine Learning</span>
+                                </p>
+                                <a href="#" class="block mt-2">
+                                    <p class="text-xl font-semibold text-gray-900">Project Alpha: Ethical AI</p>
+                                    <p class="mt-3 text-base text-gray-500">
+                                        Developing frameworks for auditable and fair machine learning models in critical systems.
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="mt-4">
+                                <span class="text-sm font-medium text-gray-500">Status: <span class="text-green-600">Ongoing</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 2 -->
+                    <div class="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
+                        <div class="flex-shrink-0">
+                            <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/a7f3d0/064e3b?text=INSPIRE+Project&font=inter" alt="INSPIRE Project">
+                        </div>
+                        <div class="flex-1 p-6 flex flex-col justify-between">
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-green-600">
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Biotechnology</span>
+                                </p>
+                                <a href="#" class="block mt-2">
+                                    <p class="text-xl font-semibold text-gray-900">Project Beta: Gene Sequencing</p>
+                                    <p class="mt-3 text-base text-gray-500">
+                                        Using novel computational methods to accelerate genomic data analysis for personalized medicine.
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="mt-4">
+                                <span class="text-sm font-medium text-gray-500">Status: <span class="text-blue-600">Completed</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 3 -->
+                    <div class="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
+                        <div class="flex-shrink-0">
+                            <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/fecaca/991b1b?text=SERB+Project&font=inter" alt="SERB Project">
+                        </div>
+                        <div class="flex-1 p-6 flex flex-col justify-between">
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-red-600">
+                                    <span class="inline-block bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Quantum Computing</span>
+                                </p>
+                                <a href="#" class="block mt-2">
+                                    <p class="text-xl font-semibold text-gray-900">Project Gamma: Q-Sim</p>
+                                    <p class="mt-3 text-base text-gray-500">
+                                        Exploring quantum algorithm simulations for complex material science problems.
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="mt-4">
+                                <span class="text-sm font-medium text-gray-500">Status: <span class="text-yellow-600">In Progress</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Section -->
+        <!-- Added 'section' class for scroll-margin -->
+        <!-- CHANGED: bg-white to bg-gray-50 to alternate with new section -->
+        <section id="sponsors" class="py-16 sm:py-24 bg-gray-50 section-container section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-base font-semibold text-indigo-600 uppercase tracking-wide">Support</h2>
+                    <p class="mt-2 text-3xl font-bold text-gray-900 sm:text-4xl">
+                        Our Fundings
+                    </p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
+                        We are grateful for the generous support from our funding agencies who make our research possible.
+                    </p>
+                </div>
+                
+                <!-- Grid of Logos -->
+                <div class="mt-12">
+                    <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                        <!-- Logo Item 1 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://online-inspire.gov.in/images/dst-logo.jpg" alt="Logo of National Foundation">
+                        </div>
+                        <!-- Logo Item 2 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://upload.wikimedia.org/wikipedia/en/e/e1/Science_and_Engineering_Research_Board.png" alt="Logo of Tech Corp Grant">
+                        </div>
+                        <!-- Logo Item 3 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://upload.wikimedia.org/wikipedia/commons/5/57/Pfizer_%282021%29.svg" alt="Logo of Future Ventures">
+                        </div>
+                        <!-- Logo Item 4 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://cammd.iitm.ac.in/assets/img/CAMMD.png" alt="Logo of Government Agency">
+                        </div>
+                        <!-- Logo Item 5 -->
+                        <div class="flex justify-center items-center p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <img class="max-h-16 w-full object-contain" src="https://www.iitm.ac.in/themes/custom/iitm/assets/images/iitm_logo.png" alt="Logo of Government Agency">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+            <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
+        </div>
+    </footer>
+
+    <!-- Gallery Modal (from new HTML) -->
+    <div id="gallery-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl max-h-full w-full h-auto p-4 relative">
+            <button id="modal-close-btn" class="absolute -top-4 -right-4 bg-white rounded-full p-2 z-10">
+                <i data-feather="x" class="text-gray-800"></i>
+            </button>
+            <img id="modal-image" src="" alt="Gallery image" class="w-full h-auto max-h-[80vh] object-contain rounded-md">
+            <p id="modal-caption" class="text-center text-gray-700 mt-4"></p>
+        </div>
+    </div>
+    
+    <!-- Global script (assuming it handles mobile menu, etc.) -->
+    <!-- You will need to create this 'script.js' file or merge logic -->
+    <!-- <script src="script.js"></script> --> <!-- Commented out to prevent 404 error, as file is not provided -->
+    
+    <!-- Inline script for page-specific logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Find the nav bar, which is now marked with 'data-current-page="collab"'
+            const nav = document.querySelector('nav[data-current-page="collab"]');
+            if (nav) {
+                // Find the 'Collaborations' link and add the 'active' class
+                const activeLink = nav.querySelector('a[href="collab.html"]');
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+            
+            // Initialize feather icons
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+
+            // Set current year in footer
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // Mobile menu logic (if not in a global script.js)
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Close mobile menu when a link is clicked
+            // Check if mobileMenu exists before querying it
+            if (mobileMenu) {
+                const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Modal logic (if not in a global script.js)
+            const modal = document.getElementById('gallery-modal');
+            const closeBtn = document.getElementById('modal-close-btn');
+            if(modal && closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    modal.classList.add('hidden');
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+

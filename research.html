@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Computational Catalysis and Interfacial Chemistry | IIT Madras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+    <style>
+        /* Common styles can be placed here if needed, or in a separate style.css */
+        .nav-link.active {
+            color: #2563EB; /* blue-600 */
+            font-weight: 600;
+            position: relative;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #2563EB;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        #research-modal.hidden {
+            display: none;
+        }
+        
+        .clamp-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 8; /* You can change this number (e.g., 6, 8, 10) */
+            -webkit-box-orient: vertical;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
+                    <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
+                                            <div class="flex items-center space-x-3">
+                    <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
+                        <i data-feather="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
+                        <i data-feather="mail" class="w-5 h-5"></i>
+                    </a>
+                </div>
+                
+        </div>      
+
+                <nav class="hidden md:flex items-center space-x-8" data-current-page="research">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
+                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
+                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
+                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
+                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
+                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
+            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- RESEARCH Section -->
+        <section id="research-main" class="section bg-white py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Our Research Focus Areas</h1>
+                    <p class="mt-4 text-gray-600 max-w-3xl mx-auto">We focus on key areas of theoretical and computational chemistry to address challenges in sustainable energy, chemical synthesis, and materials discovery.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Research Area 1 -->
+                    <div class="research-card cursor-pointer bg-blue-50 border border-blue-200 rounded-xl text-center transform hover:-translate-y-2 transition-transform duration-300 flex flex-col hover:shadow-xl shadow-lg overflow-hidden"
+                         data-title="Acid-Catalysed Interfacial Reaction for Cellulose to Biofuel Production"
+                         data-img="IMAGE/RESEARCH/jogesh.png"
+                         data-description="The conversion of cellulose, a major component of biomass, into biofuel is a promising path for sustainable energy production. However, this process faces significant challenges, particularly when conducted in aqueous solutions, which are essential for practical applications to reduce production costs. To address these challenges and improve reaction yields, various strategies have been developed over the years. One particularly effective approach is the use of biphasic media, which combine aqueous and non-aqueous phases. This biphasic system has been found to significantly enhance the efficiency of cellulose-based biofuel production. Our research will focus on investigating the properties of some of the interesting biphasic liquid media, with a specific emphasis on understanding their interfacial structure and its impact on chemical reactions relevant to cellulose-based biofuel production. The studies conducted are expected to provide valuable insights for optimizing the kinetics and selectivity of these reactions in a cost-effective manner. This will be achieved through the manipulation of the interfacial structure using appropriate additives.">
+                        <img src="IMAGE/RESEARCH/jogesh.png" alt="Acid-Catalysed Interfacial Reaction for Cellulose to Biofuel Production" class="w-full aspect-video object-contain bg-white pointer-events-none">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h2 class="text-lg font-semibold mb-3">Acid-Catalysed Interfacial Reaction for Cellulose to Biofuel Production</h2>
+                            <p class="text-gray-600 text-sm clamp-text text-justify">The conversion of cellulose, a major component of biomass, into biofuel is a promising path for sustainable energy production. However, this process faces significant challenges, particularly when conducted in aqueous solutions, which are essential for practical applications to reduce production costs. To address these challenges and improve reaction yields, various strategies have been developed over the years. 
+One particularly effective approach is the use of biphasic media, which combine aqueous and non-aqueous phases. This biphasic system has been found to significantly enhance the efficiency of cellulose-based biofuel production. Our research will focus on investigating the properties of some of the interesting biphasic liquid media, with a specific emphasis on understanding their interfacial structure and its impact on chemical reactions relevant to cellulose-based biofuel production.
+The studies conducted are expected to provide valuable insights for optimizing the kinetics and selectivity of these reactions in a cost-effective manner. This will be achieved through the manipulation of the interfacial structure using appropriate additives.</p>
+                            <span class="text-blue-600 font-semibold text-sm mt-auto pt-2 inline-block">Read more...</span>
+                        </div>
+                    </div>
+                    <!-- Research Area 2 -->
+                    <div class="research-card cursor-pointer bg-green-50 border border-green-200 rounded-xl text-center transform hover:-translate-y-2 transition-transform duration-300 flex flex-col hover:shadow-xl shadow-lg overflow-hidden"
+                         data-title="Exploring The Mechanism of Formation, Structure, and Properties of Electrode-Electrolyte Interface in Li-ion and Post Li-ion Batteries"
+                         data-img="IMAGE/RESEARCH/madhurja.png"
+                         data-description="The research is dedicated to addressing the critical challenge of energy storage in the face of rising energy consumption and dwindling fossil fuel reserves. Efficient energy storage emerges as a pivotal solution. Li-ion batteries (LIBs) have garnered widespread attention due to their exceptional energy and power densities, making them ideal for applications in portable electronic devices. However, to fully harness their potential in the electric vehicle (EV) industry, significant improvements in energy density, safety, and cost-effectiveness are essential. Consequently, this research is committed to advancing the field by focusing on the development of high-performance electrodes and electrolytes, guided by insights from atomistic simulations and free energy computations. The key objectives include the identification of suitable dopants to enhance the electrochemical performance and stability of existing cathode materials, analyzing the formation, structure, and properties of the electrode-electrolyte interface in Li and post-Li ion batteries to engineer improvements in their electrochemical performance and safety attributes, and developing electrolytes with superior stability and ion diffusion properties through insights from free energy computations and atomistic simulations. It aims to pave the way for more efficient and sustainable energy storage solutions.">
+                        <img src="IMAGE/RESEARCH/madhurja.png" alt="Electrocatalysis" class="w-full aspect-video object-contain bg-white pointer-events-none">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h2 class="text-lg font-semibold mb-3">Exploring The Mechanism of Formation, Structure, and Properties of Electrode-Electrolyte Interface in Li-ion and Post Li-ion Batteries</h2>
+                            <p class="text-gray-600 text-sm clamp-text text-justify">The research is dedicated to addressing the critical challenge of energy storage in the face of rising energy consumption and dwindling fossil fuel reserves. Efficient energy storage emerges as a pivotal solution. Li-ion batteries (LIBs) have garnered widespread attention due to their exceptional energy and power densities, making them ideal for applications in portable electronic devices. However, to fully harness their potential in the electric vehicle (EV) industry, significant improvements in energy density, safety, and cost-effectiveness are essential. Consequently, this research is committed to advancing the field by focusing on the development of high-performance electrodes and electrolytes, guided by insights from atomistic simulations and free energy computations. The key objectives include the identification of suitable dopants to enhance the electrochemical performance and stability of existing cathode materials, analyzing the formation, structure, and properties of the electrode-electrolyte interface in Li and post-Li ion batteries to engineer improvements in their electrochemical performance and safety attributes, and developing electrolytes with superior stability and ion diffusion properties through insights from free energy computations and atomistic simulations. It aims to pave the way for more efficient and sustainable energy storage solutions.</p>
+                            <span class="text-blue-600 font-semibold text-sm mt-auto pt-2 inline-block">Read more...</span>
+                        </div>
+                    </div>
+                    <!-- Research Area 3 -->
+                    <div class="research-card cursor-pointer bg-yellow-50 border border-yellow-200 rounded-xl text-center transform hover:-translate-y-2 transition-transform duration-300 flex flex-col hover:shadow-xl shadow-lg overflow-hidden"
+                         data-title="Machine Learning-Driven Enhancement of Transition Metal Sulfide Catalyst for Electrochemical Nitrogen Reduction Reaction (eNRR)"
+                         data-img="IMAGE/RESEARCH/sudhin.png"
+                         data-description="The research area primarily focuses on catalysis, particularly in the context of the electrochemical nitrogen reduction reaction (eNRR). A significant facet of this research involves the development of catalysts, with a particular emphasis on transition metal sulphides. The objective is to design catalyst materials that exhibit robust performance in eNRR, ultimately contributing to the sustainable production of ammonia. One key aspect revolves around harnessing the capabilities of machine learning (ML) to guide and inform the rational design of these catalyst materials. Theoretical calculations such as density functional theory (DFT) are employed, providing insights into the intricate chemical processes at play. Ab initio molecular dynamics (AIMD) simulations, along with enhanced sampling techniques like metadynamics, are integral components of the research methodology, aiding in the exploration of catalytic activity, reaction kinetics, and thermodynamics. Through an interdisciplinary approach that combines chemistry, materials science, and data-driven techniques, we aim to develop catalysts that are not only highly effective but also environmentally sustainable, thereby contributing to the advancement of eco-friendly ammonia production.">
+                        <img src="IMAGE/RESEARCH/sudhin.png" alt="Surface Science" class="w-full aspect-video object-contain bg-white pointer-events-none">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h2 class="text-lg font-semibold mb-3">Machine Learning-Driven Enhancement of Transition Metal Sulfide Catalyst for Electrochemical Nitrogen Reduction Reaction (eNRR)</h2>
+                            <p class="text-gray-600 text-sm clamp-text text-justify">The research area primarily focuses on catalysis, particularly in the context of the electrochemical nitrogen reduction reaction (eNRR). A significant facet of this research involves the development of catalysts, with a particular emphasis on transition metal sulphides. The objective is to design catalyst materials that exhibit robust performance in eNRR, ultimately contributing to the sustainable production of ammonia. One key aspect revolves around harnessing the capabilities of machine learning (ML) to guide and inform the rational design of these catalyst materials. 
+Theoretical calculations such as density functional theory (DFT) are employed, providing insights into the intricate chemical processes at play. Ab initio molecular dynamics (AIMD) simulations, along with enhanced sampling techniques like metadynamics, are integral components of the research methodology, aiding in the exploration of catalytic activity, reaction kinetics, and thermodynamics. Through an interdisciplinary approach that combines chemistry, materials science, and data-driven techniques, we aim to develop catalysts that are not only highly effective but also environmentally sustainable, thereby contributing to the advancement of eco-friendly ammonia production.</p>
+                            <span class="text-blue-600 font-semibold text-sm mt-auto pt-2 inline-block">Read more...</span>
+                        </div>
+                    </div>
+                    <!-- Research Area 4 -->
+                    <div class="research-card cursor-pointer bg-purple-50 border border-purple-200 rounded-xl text-center transform hover:-translate-y-2 transition-transform duration-300 flex flex-col hover:shadow-xl shadow-lg overflow-hidden"
+                         data-title="Confined Catalysis"
+                         data-img="https://placehold.co/400x250/F3E8FF/8B5CF6?text=Confined+Catalysis"
+                         data-description="We explore the principles of confined catalysis, where the reactivity and selectivity of chemical reactions are enhanced by enclosing catalysts within nanostructured environments like zeolites or metal-organic frameworks (MOFs). Our computational studies aim to understand how confinement affects molecular adsorption, transition state energies, and product distribution, providing insights for designing highly efficient and selective catalytic systems for a wide range of industrial applications.">
+                        <img src="https://placehold.co/400x250/F3E8FF/8B5CF6?text=Confined+Catalysis" alt="Materials Informatics" class="w-full aspect-video object-contain bg-white pointer-events-none">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h2 class="text-lg font-semibold mb-3">Confined Catalysis</h2>
+                            <p class="text-gray-600 text-sm clamp-text text-justify">We explore the principles of confined catalysis, where the reactivity and selectivity of chemical reactions are enhanced by enclosing catalysts within nanostructured environments like zeolites or metal-organic frameworks (MOFs). Our computational studies aim to understand how confinement affects molecular adsorption, transition state energies, and product distribution, providing insights for designing highly efficient and selective catalytic systems for a wide range of industrial applications.</p>
+                            <span class="text-blue-600 font-semibold text-sm mt-auto pt-2 inline-block">Read more...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CALL TO ACTION to view publications/team -->
+        <section class="bg-gray-50 py-16">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">See the Impact of Our Work</h3>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Explore our full list of publications and meet the dedicated team that conducts this research.</p>
+                <div class="mt-8 space-x-4">
+                    <a href="publications.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">View Publications</a>
+                    <a href="team.html" class="text-blue-600 border border-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">Meet the Team</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Research Detail Modal -->
+    <div id="research-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
+        <!-- MODIFICATION: Added max-h-[90vh] and overflow-y-auto to this div -->
+        <div id="modal-content" class="bg-white rounded-lg max-w-3xl w-full p-8 relative transform transition-all duration-300 scale-95 opacity-0 max-h-[90vh] overflow-y-auto">
+            <button id="modal-close-btn" class="absolute top-4 right-4 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full p-2 z-10">
+                <i data-feather="x" class="w-6 h-6"></i>
+            </button>
+            <img id="modal-image" src="" alt="Research area image" class="w-full h-64 object-contain bg-gray-50 rounded-md mb-6">
+            <h2 id="modal-title" class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"></h2>
+            <!-- MODIFICATION: Removed max-h-[40vh] and overflow-y-auto from this inner div -->
+            <div>
+                <p id="modal-description" class="text-gray-700 leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+            <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Feather Icons
+        feather.replace();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        });
+
+        // Specific script for research.html to highlight the current page
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.querySelector('nav[data-current-page="research"]');
+            nav.querySelector('a[href="research.html"]').classList.add('active');
+
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+            mobileLinks.forEach(link => {
+                if(link.getAttribute('href') === 'research.html') {
+                    link.classList.add('bg-gray-100', 'font-semibold');
+                }
+            });
+
+            // Research Modal Logic
+            const researchModal = document.getElementById('research-modal');
+            const modalContent = document.getElementById('modal-content');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const modalImage = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const researchCards = document.querySelectorAll('.research-card');
+
+            const openModal = (card) => {
+                modalImage.src = card.dataset.img;
+                modalTitle.textContent = card.dataset.title;
+                // Use the full description from the data attribute for the modal
+                const fullDescription = card.getAttribute('data-description');
+                modalDescription.textContent = fullDescription;
+                researchModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                setTimeout(() => {
+                    modalContent.classList.remove('scale-95', 'opacity-0');
+                    modalContent.classList.add('scale-100', 'opacity-100');
+                }, 10); // small delay to allow transition
+            };
+
+            const closeModal = () => {
+                modalContent.classList.add('scale-95', 'opacity-0');
+                modalContent.classList.remove('scale-100', 'opacity-100');
+                document.body.style.overflow = ''; // Restore background scrolling
+                setTimeout(() => {
+                        researchModal.classList.add('hidden');
+                }, 300); // match transition duration
+            };
+
+            researchCards.forEach(card => {
+                card.addEventListener('click', () => openModal(card));
+            });
+            
+            modalCloseBtn.addEventListener('click', closeModal);
+
+            researchModal.addEventListener('click', (e) => {
+                // if the click is on the dark background, close the modal
+                if (e.target === researchModal) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !researchModal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
