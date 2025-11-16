@@ -15,6 +15,7 @@
         .nav-link.active {
             color: #2563EB; /* blue-600 */
             font-weight: 600;
+            border-bottom: 2px solid #2563EB; /* Added underline to match Research page */
         }
     </style>
 </head>
@@ -24,9 +25,9 @@
         <div class="container mx-auto px-6">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                    <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
+                    <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
                     <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
-                                        <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-3">
                     <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
                         <i data-feather="linkedin" class="w-5 h-5"></i>
                     </a>
@@ -34,8 +35,8 @@
                         <i data-feather="mail" class="w-5 h-5"></i>
                     </a>
                 </div>
-				
-		</div>		
+               
+        </div>       
 
                 <nav class="hidden md:flex items-center space-x-8" data-current-page="team">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
@@ -72,10 +73,10 @@
                     <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Meet the Team</h1>
                     <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Our group is composed of dedicated researchers and students passionate about advancing computational chemistry.</p>
                 </div>
-                
+               
                 <div class="mb-16">
                     <h3 class="text-2xl font-bold text-center mb-8">Researchers & Students</h3>
-                      <!-- PI included here for data rendering structure -->
+                     <!-- PI included here for data rendering structure -->
                     <div class="max-w-xl mx-auto bg-gray-50 rounded-lg p-6 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 shadow-md mb-12">
                         <img src="IMAGE/PROFILE/soorajK.jpg" onerror="this.onerror=null;this.src='https://placehold.co/128x128/666/fff?text=SK';" alt="Dr. Sooraj Kunnikuruvan" class="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md flex-shrink-0">
                         <div>
@@ -93,12 +94,12 @@
                             <p class="text-gray-600 mt-2 text-sm">Dr. Kunnikuruvan's research focuses on chemical reactions at interfaces, energy storage, catalysis, and renewable energy production, employing DFT and ab initio molecular dynamics.</p>
                         </div>
                     </div>
-                    
+                   
                     <div id="team-members-list" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
                         <!-- Content from script.js will be injected here -->
                     </div>
                 </div>
-                
+               
                 <div>
                     <h3 class="text-2xl font-bold text-center mb-8">Alumni</h3>
                     <div class="mb-12">
@@ -135,25 +136,25 @@
         // --- DATA ---
         const teamMembers = [
             { name: "Jogeshwar Chhatria", role: "PhD Scholar", joiningDate: "July 2022",
-			 linkedin: "https://www.linkedin.com/in/jogeswar-chhatria-6538362b4/",
-			 email: "cy22d017@smail.iiitm.ac.in", imageUrl: "IMAGE/PROFILE/jogesh.jpg" },
+             linkedin: "https://www.linkedin.com/in/jogeswar-chhatria-6538362b4/",
+             email: "cy22d017@smail.iiitm.ac.in", imageUrl: "IMAGE/PROFILE/jogesh.jpg" },
             { name: "Madhurja Buragohain", role: "PhD Scholar", joiningDate: "July 2022",
-			 linkedin: "https://www.linkedin.com/in/mburagohain/", imageUrl: "IMAGE/PROFILE/madhurja.jpg", email: "cy22d015@smail.iiitm.ac.in" },
+             linkedin: "https://www.linkedin.com/in/mburagohain/", imageUrl: "IMAGE/PROFILE/madhurja.jpg", email: "cy22d015@smail.iiitm.ac.in" },
             { name: "Sudhin R", role: "PhD Scholar", joiningDate: "July 2023",
-			 linkedin: "https://www.linkedin.com/in/sudhin-r/", email: "cy23d024@smail.iitm.ac.in", imageUrl: "IMAGE/PROFILE/sudhin.jpg" },
+             linkedin: "https://www.linkedin.com/in/sudhin-r/", email: "cy23d024@smail.iitm.ac.in", imageUrl: "IMAGE/PROFILE/sudhin.jpg" },
             { name: "Athira J", role: "PhD Scholar", joiningDate: "July 2024",
-			 linkedin: "https://www.linkedin.com/in/athira-jayasankar-867b46214/", email: "cy24d300@smail.iitm.ac.in", imageUrl: "IMAGE/PROFILE/athira.jpg" },
+             linkedin: "https://www.linkedin.com/in/athira-jayasankar-867b46214/", email: "cy24d300@smail.iitm.ac.in", imageUrl: "IMAGE/PROFILE/athira.jpg" },
             { name: "Anjana Vijayan", role: "PhD Scholar", joiningDate: "July 2025",
-			 linkedin: "#", email: "cy25d037@smail.iiitm.ac.in", imageUrl: "IMAGE/PROFILE/anjana.jpg" },
+             linkedin: "#", email: "cy25d037@smail.iiitm.ac.in", imageUrl: "IMAGE/PROFILE/anjana.jpg" },
             { name: "Stuti Gupta", role: "Project Associate", joiningDate: "July 2025",
-			 linkedin: "https://www.linkedin.com/in/stuti-gupta-24285b215/", email: "guptastuti012@gmail.com", imageUrl: "IMAGE/PROFILE/stuti.jpg" },
+             linkedin: "https://www.linkedin.com/in/stuti-gupta-24285b215/", email: "guptastuti012@gmail.com", imageUrl: "IMAGE/PROFILE/stuti.jpg" },
             { name: "Ankan Kamila", role: "M.Sc Student", joiningDate: "July 2025",
-			 linkedin: "https://www.linkedin.com/in/ankan-kamila-25a615354/", email: "cy24c013@smail.iiitm.ac.in", imageUrl: "IMAGE/PROFILE/ankan.jpg" },
+             linkedin: "https://www.linkedin.com/in/ankan-kamila-25a615354/", email: "cy24c013@smail.iiitm.ac.in", imageUrl: "IMAGE/PROFILE/ankan.jpg" },
             { name: "Himadri Mittal", role: "M.Sc Student", joiningDate: "July 2025",
-			 linkedin: "https://www.linkedin.com/in/mittalhimadri15/", email: "cy24c033@smail.iiitm.ac.in", imageUrl: "IMAGE/PROFILE/himadri.jpg" },
+             linkedin: "https://www.linkedin.com/in/mittalhimadri15/", email: "cy24c033@smail.iiitm.ac.in", imageUrl: "IMAGE/PROFILE/himadri.jpg" },
             { name: "Devanand CS", role: "Project Student", joiningDate: "August 2025",
              linkedin: "https://www.linkedin.com/in/devanand-c-s-418466222/", email: "ic43373@imail.iitm.ac.in", imageUrl: "X"} 
-		];
+        ];
 
         const postdocAlumni = [
             { name: "Dr. Pragin", role: "Works at TCS", where: "Post Doc, (July 2023-July 2024)", imageUrl: "https://media.licdn.com/dms/image/v2/C4D03AQF974LO3rXxyQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1639644538545?e=1762992000&v=beta&t=a6TIrzfEmawvkJZ27FebI7-_dNw-Ya9QzU3DeVQ5xcE"  },
@@ -161,7 +162,7 @@
         ];
 
         const mscAlumni = [
-			{ name: "Stuti Gupta", role: "Project Associate at CCIC", where: "MSc, 2025", imageUrl: "IMAGE/PROFILE/stuti.jpg" },
+            { name: "Stuti Gupta", role: "Project Associate at CCIC", where: "MSc, 2025", imageUrl: "IMAGE/PROFILE/stuti.jpg" },
             { name: "Amiya Paul", role: "Phd at  University of North Carolina at Chapel Hill", where: "MSc, 2024", imageUrl: "XXX" },
 
         ];
@@ -227,8 +228,19 @@
             renderTeam(postdocAlumni, 'team-alumni-postdoc-list');
             renderTeam(mscAlumni, 'team-alumni-msc-list');
             renderTeam(internAlumni, 'team-alumni-intern-list');
-            
+           
             feather.replace();
+
+            // Auto-highlight active nav link
+            const nav = document.querySelector('nav[data-current-page]');
+            if (nav) {
+                const page = nav.getAttribute('data-current-page');
+                // Select the link where href matches the page name + .html
+                const activeLink = nav.querySelector(`a[href="${page}.html"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
 
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -256,20 +268,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
