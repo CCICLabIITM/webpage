@@ -16,6 +16,9 @@
             font-weight: 600;
             border-bottom: 2px solid #2563EB;
         }
+        .github-card:hover .github-icon {
+            transform: rotate(12deg) scale(1.1);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-['Inter',_sans-serif]">
@@ -86,11 +89,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-
     <script>
         // --- SOFTWARE DATA ---
-        // Added 'logo' field to each entry. Default points to a generic path you can replace.
         const softwareCategories = [
             {
                 title: "Quantum Chemistry & DFT",
@@ -109,9 +109,43 @@
                 tools: [
                     { name: "LAMMPS", desc: "Large-scale Atomic/Molecular Massively Parallel Simulator", link: "https://www.lammps.org/", logo: "https://www.lammps.org/movies/logo.gif" },
                     { name: "GROMACS", desc: "Molecular dynamics for soft matter", link: "https://www.gromacs.org/", logo: "https://www.gromacs.org/_static/gmx_logo_blue.png" },
-                    { name: "VASP", desc: "Vienna Ab initio Simulation Package", link: "https://www.vasp.at/", logo: "https://www.vasp.at/images/logo.png" },
-                    { name: "CP2K", desc: "Ab initio Molecular Dynamics", link: "https://www.cp2k.org/", logo: "https://www.cp2k.org/_media/wiki:logo.png" },
                     { name: "CPMD", desc: "Car-Parrinello Molecular Dynamics", link: "https://www.theochem.ruhr-uni-bochum.de/~legacy.akohlmey/cpmd-tutor/index.html", logo: "https://avatars.githubusercontent.com/u/121256706?s=200&v=4" }
+                ]
+            },
+            {
+                title: "Python Codes & Scripts",
+                description: "Custom scripts and open-source libraries for workflow automation and analysis.",
+                icon: "terminal",
+                isCodeSection: true,
+                tools: [
+                    { 
+                        name: "Pymatgen", 
+                        desc: "Robust library for materials analysis and workflow management.", 
+                        link: "https://github.com/materialsproject/pymatgen", 
+                        logo: "https://pymatgen.org/_static/pymatgen.png",
+                        isGithub: true 
+                    },
+                    { 
+                        name: "CatKit", 
+                        desc: "Tools for surface science and catalysis research.", 
+                        link: "https://github.com/SUNCAT-Center/catkit", 
+                        logo: "https://raw.githubusercontent.com/SUNCAT-Center/catkit/master/doc/source/_static/logo.png",
+                        isGithub: true 
+                    },
+                    { 
+                        name: "CCIC Utilities", 
+                        desc: "In-house Python collection for parsing VASP/CP2K outputs and generating surface models.", 
+                        link: "https://github.com/", 
+                        logo: "", 
+                        isGithub: true 
+                    },
+                    { 
+                        name: "ASE", 
+                        desc: "Atomic Simulation Environment - a set of tools for setting up, manipulating, and analyzing atomistic simulations.", 
+                        link: "https://github.com/rosswhitfield/ase", 
+                        logo: "https://ase-lib.org/_static/ase256.png",
+                        isGithub: true 
+                    }
                 ]
             },
             {
@@ -122,18 +156,16 @@
                     { name: "TensorFlow", desc: "End-to-end open source machine learning platform", link: "https://www.tensorflow.org/", logo: "https://www.gstatic.com/devrel-devsite/prod/ve08add287a6b4bdf8961ab8a1be50bf551be3816cdd70b7cc934114ff3ad5f10/tensorflow/images/lockup.svg" },
                     { name: "PyTorch", desc: "Deep learning framework", link: "https://pytorch.org/", logo: "https://pytorch.org/wp-content/uploads/2024/10/logo.svg" },
                     { name: "Scikit-Learn", desc: "Machine learning in Python", link: "https://scikit-learn.org/", logo: "https://scikit-learn.org/stable/_static/scikit-learn-logo-without-subtitle.svg" },
-                    { name: "DeepMD-kit", desc: "Deep learning based potential energy surfaces", link: "https://docs.deepmodeling.com/projects/deepmd/en/stable/index.html", logo: "https://docs.deepmodeling.com/projects/deepmd/en/stable/_static/logo.svg" },
-                    { name: "ASE", desc: "Atomic Simulation Environment", link: "https://wiki.fysik.dtu.dk/ase/", logo: "https://ase-lib.org/_static/ase256.png" }
+                    { name: "DeepMD-kit", desc: "Deep learning based potential energy surfaces", link: "https://docs.deepmodeling.com/projects/deepmd/en/stable/index.html", logo: "https://docs.deepmodeling.com/projects/deepmd/en/stable/_static/logo.svg" }
                 ]
             },
-             {
+            {
                 title: "Visualization & Analysis",
                 description: "Tools for visualizing atomic structures and analyzing simulation trajectories.",
                 icon: "eye",
                 tools: [
                     { name: "VESTA", desc: "Visualization for Electronic and STructural Analysis", link: "https://jp-minerals.org/vesta/en/", logo: "https://jp-minerals.org/vesta/img/banner-logo.png" },
                     { name: "OVITO", desc: "Open Visualization Tool", link: "https://www.ovito.org/", logo: "https://www.ovito.org/_astro/ovito_logo_256.BAk4uGrH_Z1vNrrm.webp" },
-                    { name: "Molden", desc: "Open Visualization Tool", link: "https://www.theochem.ru.nl/molden/", logo: "https://www.theochem.ru.nl/molden/pictures/molden.gif" },
                     { name: "VMD", desc: "Visual Molecular Dynamics", link: "https://www.ks.uiuc.edu/Research/vmd/", logo: "https://www.ks.uiuc.edu/Research/vmd/images/vmd_logo_left.gif" }
                 ]
             }
@@ -149,45 +181,48 @@
             softwareCategories.forEach(cat => {
                 const section = document.createElement('div');
                 
-                // Create grid for tools
                 let toolsHtml = '';
                 cat.tools.forEach(tool => {
-                    // Generate initials as fallback for logo
                     const initials = tool.name.substring(0, 2).toUpperCase();
+                    const isGithub = tool.isGithub || false;
                     
                     toolsHtml += `
-                        <a href="${tool.link}" target="_blank" class="group bg-gray-50 p-4 rounded-lg border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all duration-300 flex items-center space-x-4">
+                        <a href="${tool.link}" target="_blank" class="group github-card bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
                             <!-- Logo Box -->
-                            <div class="flex-shrink-0 bg-white p-2 rounded-md shadow-sm border border-gray-100 h-40 w-40 flex items-center justify-center">
+                            <div class="flex-shrink-0 bg-white p-2 rounded-lg shadow-sm border border-gray-100 h-24 w-24 flex items-center justify-center overflow-hidden">
                                 <img src="${tool.logo || ''}" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=${initials}';" alt="${tool.name}" class="max-h-full max-w-full object-contain">
                             </div>
                             
                             <!-- Content -->
                             <div class="flex-grow">
                                 <div class="flex items-center justify-between">
-                                     <h4 class="font-bold text-gray-900 group-hover:text-blue-700 transition-colors">${tool.name}</h4>
-                                     <i data-feather="external-link" class="w-4 h-4 text-gray-300 group-hover:text-blue-500"></i>
+                                    <h4 class="font-bold text-gray-900 group-hover:text-blue-700 transition-colors flex items-center">
+                                        ${tool.name}
+                                        ${isGithub ? '<i data-feather="github" class="github-icon w-4 h-4 ml-2 text-gray-400 transition-transform"></i>' : ''}
+                                    </h4>
+                                    <i data-feather="external-link" class="w-4 h-4 text-gray-300 group-hover:text-blue-500"></i>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-1 line-clamp-2">${tool.desc}</p>
+                                <p class="text-xs md:text-sm text-gray-600 mt-1 line-clamp-2">${tool.desc}</p>
+                                ${isGithub ? '<span class="text-[10px] font-semibold text-blue-600 uppercase tracking-wider mt-2 block">View on GitHub</span>' : ''}
                             </div>
                         </a>
                     `;
                 });
 
                 section.innerHTML = `
-                    <div class="flex items-center mb-6">
-                        <div class="p-3 bg-blue-100 rounded-full text-blue-600 mr-4">
+                    <div class="flex items-center mb-8">
+                        <div class="p-3 bg-blue-100 rounded-xl text-blue-600 mr-4 shadow-sm">
                             <i data-feather="${cat.icon}" class="w-6 h-6"></i>
                         </div>
                         <div>
                             <h2 class="text-2xl font-bold text-gray-800">${cat.title}</h2>
-                            <p class="text-gray-500">${cat.description}</p>
+                            <p class="text-gray-500 text-sm md:text-base">${cat.description}</p>
                         </div>
                     </div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 ml-0 md:ml-16">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                         ${toolsHtml}
                     </div>
-                    <hr class="mt-12 border-gray-100">
+                    <hr class="mt-16 border-gray-100">
                 `;
                 container.appendChild(section);
             });
@@ -198,18 +233,36 @@
             }
         }
 
-        // --- INIT ---
-        document.addEventListener('DOMContentLoaded', () => {
-            renderSoftwares();
-            if (window.feather) feather.replace();
+        // --- NAVIGATION & MENU LOGIC ---
+        function initNavigation() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
 
-             // Auto-highlight active nav link
+            // Auto-highlight active nav link
             const nav = document.querySelector('nav[data-current-page]');
             if (nav) {
                 const page = nav.getAttribute('data-current-page');
-                const activeLink = nav.querySelector(`a[href="${page}.html"]`);
-                if (activeLink) activeLink.classList.add('active');
+                // Since this file is softwares.html, but nav link is softwares.html
+                const activeLinks = document.querySelectorAll(`a[href="softwares.html"]`);
+                activeLinks.forEach(link => link.classList.add('active'));
             }
+
+            // Update footer year
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+        }
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSoftwares();
+            initNavigation();
+            if (window.feather) feather.replace();
         });
     </script>
 </body>
