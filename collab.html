@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects & Collaborations | CCIC | IIT Madras</title>
     
-    <!-- Load Tailwind CSS -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖥</text></svg>">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Load Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Load Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
     
     <style>
@@ -25,13 +24,11 @@
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-    <!-- Header & Navigation -->
     <header class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.src='https://placehold.co/100x100/e0e7ff/312e81?text=CCIC'" alt="CCIC Logo" class="h-12 w-auto rounded object-cover">
                 <a href="index.html" class="text-xl font-bold text-slate-900 tracking-tight">CCIC@IITM</a>
-                <!-- Social Icons in Header -->
                 <div class="flex items-center space-x-3">
                     <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
                         <i data-feather="linkedin" class="w-5 h-5"></i>
@@ -43,18 +40,23 @@
             </div>
             
             <nav class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
-                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
-                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
-                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
+                <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
+                <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
+                <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
+                <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
+                <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
                 <a href="collab.html" class="text-blue-600 font-bold border-b-2 border-blue-600 pb-1">Collaborations</a>
-                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
-                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
-                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
-                    <a href="contact.html" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
+                <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
+                <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
+                <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
+                <a href="contact.html" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
             </nav>
+
+            <button class="md:hidden text-slate-600" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-feather="menu"></i>
+            </button>
         </div>
+
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
             <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
@@ -67,15 +69,10 @@
             <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Teaching</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
         </div>
-            <button class="md:hidden text-slate-600">
-                <i data-feather="menu"></i>
-            </button>
-        </div>
     </header>
 
     <main class="pt-28 pb-20">
         
-        <!-- Section 1: Funded Projects -->
         <section class="py-12 bg-white border-b border-slate-100">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
@@ -84,12 +81,10 @@
                     <div class="h-1 w-20 bg-blue-600 mx-auto mt-4 rounded-full"></div>
                 </div>
                 <div id="funded-projects-container" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <!-- Cards injected by JS -->
-                </div>
+                    </div>
             </div>
         </section>
 
-        <!-- Section 2: Collaborations -->
         <section class="py-20 bg-slate-50">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
@@ -98,12 +93,10 @@
                     <div class="h-1 w-20 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
                 </div>
                 <div id="collab-projects-container" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <!-- Cards injected by JS -->
-                </div>
+                    </div>
             </div>
         </section>
 
-        <!-- Section 3: Fundings (Logo Cards) -->
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
@@ -112,14 +105,12 @@
                     <p class="mt-4 text-slate-500 max-w-2xl mx-auto">We are grateful for the support from these prestigious agencies that make our research possible.</p>
                 </div>
                 <div id="sponsors-container" class="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
-                    <!-- Cards injected by JS -->
-                </div>
+                    </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Updated Footer to match index.html -->
     <footer class="bg-gray-800 text-gray-300 py-8">
         <div class="container mx-auto px-6 text-center">
             <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
@@ -198,7 +189,6 @@
             }
         ];
 
-
         /*************************************************************************
          * AUTOMATION LOGIC
          *************************************************************************/
@@ -266,4 +256,3 @@
     </script>
 </body>
 </html>
-
