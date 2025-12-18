@@ -64,9 +64,14 @@
                 <div class="flex items-center space-x-3">
                     <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
                     <a href="index.html" class="text-xl font-bold text-gray-900 tracking-tight">CCIC@IITM</a>
-                    <div class="hidden sm:flex items-center space-x-3 ml-4 border-l pl-4 border-gray-200">
-                        <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors"><i data-feather="linkedin" class="w-4 h-4"></i></a>
-                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-400 hover:text-blue-600 transition-colors"><i data-feather="mail" class="w-4 h-4"></i></a>
+                    <!-- Social Icons beside CCIC as requested -->
+                    <div class="flex items-center space-x-3">
+                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
+                            <i data-feather="mail" class="w-5 h-5"></i>
+                        </a>
                     </div>
                 </div>
               
@@ -118,27 +123,15 @@
         </section>
     </main>
 
-    <footer class="bg-slate-900 text-slate-400 py-12 relative z-10">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-b border-slate-800 pb-8 mb-8">
-                <div class="text-center md:text-left">
-                    <h3 class="text-white font-bold text-lg mb-2">CCIC Group</h3>
-                    <p class="text-sm max-w-sm">Dedicated to exploring complex interfacial phenomena through the lens of computational science.</p>
-                </div>
-                <div class="flex justify-center md:justify-end space-x-6">
-                    <a href="#" class="hover:text-white transition-colors"><i data-feather="twitter"></i></a>
-                    <a href="#" class="hover:text-white transition-colors"><i data-feather="github"></i></a>
-                    <a href="#" class="hover:text-white transition-colors"><i data-feather="external-link"></i></a>
-                </div>
-            </div>
-            <div class="text-center text-sm">
-                <p>&copy; <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC).</p>
-                <p class="mt-2">Department of Chemistry, <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:text-blue-300 underline underline-offset-4">Indian Institute of Technology Madras</a></p>
-            </div>
+    <!-- Footer updated to match Projects & Collaborations page -->
+    <footer class="bg-gray-800 text-gray-300 py-8 relative z-10">
+        <div class="container mx-auto px-6 text-center">
+            <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+            <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
         </div>
     </footer>
     
-    <!-- Background Animation Logic: Visible Graphene -->
+    <!-- Background Animation Logic -->
     <script>
         (function() {
             const canvas = document.getElementById('canvas-bg');
@@ -290,7 +283,7 @@
                                         <div class="flex justify-between items-start mb-6">
                                             <span class="bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-widest shadow-sm">
                                                 ${course.code}
-                                            </span>
+                                            </span> 
                                             <div class="text-blue-600">
                                                 <i data-feather="bookmark" class="w-5 h-5"></i>
                                             </div>
@@ -325,14 +318,19 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+            const yearSpan = document.getElementById('current-year');
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+            
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-                feather.replace();
-            });
+            if(btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                    feather.replace();
+                });
+            }
             setTimeout(renderTeaching, 400);
+            feather.replace();
         });
     </script>
 </body>
