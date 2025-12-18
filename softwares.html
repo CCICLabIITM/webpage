@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softwares | Computational Catalysis and Interfacial Chemistry | IIT Madras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <style>
+        .nav-link.active {
+            color: #2563EB;
+            font-weight: 600;
+            border-bottom: 2px solid #2563EB;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-['Inter',_sans-serif]">
+
+    <!-- Header -->
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
+                    <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8" data-current-page="softwares">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
+                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
+                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
+                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
+                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
+                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
+                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
+                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
+            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Teaching</a>
+            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <section class="section bg-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Computational Tools & Resources</h1>
+                    <p class="mt-4 text-gray-600 max-w-2xl mx-auto">We utilize a wide array of state-of-the-art software packages for Quantum Chemistry, Molecular Dynamics simulations, and Machine Learning applications.</p>
+                </div>
+
+                <!-- Software Categories Container -->
+                <div id="software-container" class="space-y-16">
+                    <!-- Content will be injected here via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="current-year">2025</span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        // --- SOFTWARE DATA ---
+        // Added 'logo' field to each entry. Default points to a generic path you can replace.
+        const softwareCategories = [
+            {
+                title: "Quantum Chemistry & DFT",
+                description: "Electronic structure calculations for catalysis and material design.",
+                icon: "cpu", 
+                tools: [
+                    { name: "VASP", desc: "Vienna Ab initio Simulation Package", link: "https://www.vasp.at/", logo: "https://www.vasp.at/images/logo.png" },
+                    { name: "CP2K", desc: "Ab initio Molecular Dynamics", link: "https://www.cp2k.org/", logo: "https://www.cp2k.org/_media/wiki:logo.png" },
+                    { name: "Quantum ESPRESSO", desc: "Electronic-structure calculations", link: "https://www.quantum-espresso.org/", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Quantum_ESPRESSO_logo.jpg/250px-Quantum_ESPRESSO_logo.jpg" },
+                    { name: "Gaussian", desc: "Electronic structure modeling", link: "https://gaussian.com/", logo: "https://gaussian.com/wp-content/uploads/2016/07/logo_image14.bmp" }
+                ]
+            },
+            {
+                title: "Molecular Dynamics (MD)",
+                description: "Large-scale simulations of atomic motions and thermodynamic properties.",
+                icon: "activity",
+                tools: [
+                    { name: "LAMMPS", desc: "Large-scale Atomic/Molecular Massively Parallel Simulator", link: "https://www.lammps.org/", logo: "https://www.lammps.org/movies/logo.gif" },
+                    { name: "GROMACS", desc: "Molecular dynamics for soft matter", link: "https://www.gromacs.org/", logo: "https://www.gromacs.org/_static/gmx_logo_blue.png" },
+                    { name: "CPMD", desc: "Car-Parrinello Molecular Dynamics", link: "https://www.theochem.ruhr-uni-bochum.de/~legacy.akohlmey/cpmd-tutor/index.html", logo: "https://avatars.githubusercontent.com/u/121256706?s=200&v=4" }
+                ]
+            },
+            {
+                title: "Machine Learning (ML)",
+                description: "Data-driven approaches for property prediction and potential generation.",
+                icon: "layers",
+                tools: [
+                    { name: "TensorFlow", desc: "End-to-end open source machine learning platform", link: "https://www.tensorflow.org/", logo: "IMAGE/SOFTWARE/tensorflow.png" },
+                    { name: "PyTorch", desc: "Deep learning framework", link: "https://pytorch.org/", logo: "IMAGE/SOFTWARE/pytorch.png" },
+                    { name: "Scikit-Learn", desc: "Machine learning in Python", link: "https://scikit-learn.org/", logo: "IMAGE/SOFTWARE/sklearn.png" },
+                    { name: "DeepMD-kit", desc: "Deep learning based potential energy surfaces", link: "http://www.deepmd.org/", logo: "IMAGE/SOFTWARE/deepmd.png" },
+                    { name: "ASE", desc: "Atomic Simulation Environment", link: "https://wiki.fysik.dtu.dk/ase/", logo: "IMAGE/SOFTWARE/ase.png" }
+                ]
+            },
+             {
+                title: "Visualization & Analysis",
+                description: "Tools for visualizing atomic structures and analyzing simulation trajectories.",
+                icon: "eye",
+                tools: [
+                    { name: "VESTA", desc: "Visualization for Electronic and STructural Analysis", link: "https://jp-minerals.org/vesta/en/", logo: "https://jp-minerals.org/vesta/img/banner-logo.png" },
+                    { name: "OVITO", desc: "Open Visualization Tool", link: "https://www.ovito.org/", logo: "https://www.ovito.org/_astro/ovito_logo_256.BAk4uGrH_Z1vNrrm.webp" },
+                    { name: "VMD", desc: "Visual Molecular Dynamics", link: "https://www.ks.uiuc.edu/Research/vmd/", logo: "https://www.ks.uiuc.edu/Research/vmd/images/vmd_logo_left.gif" }
+                ]
+            }
+        ];
+
+        // --- RENDER FUNCTION ---
+        function renderSoftwares() {
+            const container = document.getElementById('software-container');
+            if (!container) return;
+
+            container.innerHTML = '';
+
+            softwareCategories.forEach(cat => {
+                const section = document.createElement('div');
+                
+                // Create grid for tools
+                let toolsHtml = '';
+                cat.tools.forEach(tool => {
+                    // Generate initials as fallback for logo
+                    const initials = tool.name.substring(0, 2).toUpperCase();
+                    
+                    toolsHtml += `
+                        <a href="${tool.link}" target="_blank" class="group bg-gray-50 p-4 rounded-lg border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all duration-300 flex items-center space-x-4">
+                            <!-- Logo Box -->
+                            <div class="flex-shrink-0 bg-white p-2 rounded-md shadow-sm border border-gray-100 h-40 w-40 flex items-center justify-center">
+                                <img src="${tool.logo || ''}" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=${initials}';" alt="${tool.name}" class="max-h-full max-w-full object-contain">
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="flex-grow">
+                                <div class="flex items-center justify-between">
+                                     <h4 class="font-bold text-gray-900 group-hover:text-blue-700 transition-colors">${tool.name}</h4>
+                                     <i data-feather="external-link" class="w-4 h-4 text-gray-300 group-hover:text-blue-500"></i>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-1 line-clamp-2">${tool.desc}</p>
+                            </div>
+                        </a>
+                    `;
+                });
+
+                section.innerHTML = `
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-blue-100 rounded-full text-blue-600 mr-4">
+                            <i data-feather="${cat.icon}" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">${cat.title}</h2>
+                            <p class="text-gray-500">${cat.description}</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 ml-0 md:ml-16">
+                        ${toolsHtml}
+                    </div>
+                    <hr class="mt-12 border-gray-100">
+                `;
+                container.appendChild(section);
+            });
+            
+            // Remove the last HR
+            if (container.lastElementChild && container.lastElementChild.querySelector('hr')) {
+                container.lastElementChild.querySelector('hr').remove();
+            }
+        }
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSoftwares();
+            if (window.feather) feather.replace();
+
+             // Auto-highlight active nav link
+            const nav = document.querySelector('nav[data-current-page]');
+            if (nav) {
+                const page = nav.getAttribute('data-current-page');
+                const activeLink = nav.querySelector(`a[href="${page}.html"]`);
+                if (activeLink) activeLink.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
