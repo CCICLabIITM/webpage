@@ -30,6 +30,15 @@
                 <div class="flex items-center space-x-3">
                     <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
                     <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
+                    <!-- Added social icons beside the CCIC brand -->
+                    <div class="flex items-center space-x-3">
+                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
+                            <i data-feather="mail" class="w-5 h-5"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Navigation -->
@@ -41,9 +50,9 @@
                     <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
                     <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
                     <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
-                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
+                    <a href="softwares.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
                     <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
-                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold shadow-md">Join Us</a>
                 </nav>
 
                 <button id="mobile-menu-btn" class="md:hidden">
@@ -54,16 +63,16 @@
         
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
-            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
-            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
-            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
-            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
-            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
-            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
-            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Tools</a>
-            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Teaching</a>
-            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">News</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Gallery</a>
+            <a href="softwares.html" class="block py-3 px-6 text-blue-600 font-bold bg-blue-50 border-l-4 border-blue-600">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Teaching</a>
+            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Join Us</a>
         </div>
     </header>
 
@@ -77,15 +86,17 @@
 
                 <!-- Software Categories Container -->
                 <div id="software-container" class="space-y-16">
-                    <!-- Content will be injected here via JavaScript -->
+                    <!-- Content injected by JS -->
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Updated Footer to match Teaching/Collaborations page -->
     <footer class="bg-gray-800 text-gray-300 py-8">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="current-year">2025</span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+            <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+            <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
         </div>
     </footer>
 
@@ -163,12 +174,10 @@
         function renderSoftwares() {
             const container = document.getElementById('software-container');
             if (!container) return;
-
             container.innerHTML = '';
 
             softwareCategories.forEach(cat => {
                 const section = document.createElement('div');
-                
                 let toolsHtml = '';
                 cat.tools.forEach(tool => {
                     const initials = tool.name.substring(0, 2).toUpperCase();
@@ -176,12 +185,9 @@
                     
                     toolsHtml += `
                         <a href="${tool.link}" target="_blank" class="group github-card bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 flex items-center space-x-4">
-                            <!-- Logo Box -->
                             <div class="flex-shrink-0 bg-white p-2 rounded-lg shadow-sm border border-gray-100 h-24 w-24 flex items-center justify-center overflow-hidden">
                                 <img src="${tool.logo || ''}" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=${initials}';" alt="${tool.name}" class="max-h-full max-w-full object-contain">
                             </div>
-                            
-                            <!-- Content -->
                             <div class="flex-grow">
                                 <div class="flex items-center justify-between">
                                     <h4 class="font-bold text-gray-900 group-hover:text-blue-700 transition-colors flex items-center">
@@ -214,39 +220,25 @@
                 `;
                 container.appendChild(section);
             });
-            
-            // Remove the last HR
+
             if (container.lastElementChild && container.lastElementChild.querySelector('hr')) {
                 container.lastElementChild.querySelector('hr').remove();
             }
         }
 
-        // --- NAVIGATION & MENU LOGIC ---
         function initNavigation() {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-            
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
                 });
             }
 
-            // Auto-highlight active nav link
-            const nav = document.querySelector('nav[data-current-page]');
-            if (nav) {
-                const page = nav.getAttribute('data-current-page');
-                // Since this file is softwares.html, but nav link is softwares.html
-                const activeLinks = document.querySelectorAll(`a[href="softwares.html"]`);
-                activeLinks.forEach(link => link.classList.add('active'));
-            }
-
-            // Update footer year
             const yearSpan = document.getElementById('current-year');
             if (yearSpan) yearSpan.textContent = new Date().getFullYear();
         }
 
-        // --- INIT ---
         document.addEventListener('DOMContentLoaded', () => {
             renderSoftwares();
             initNavigation();
