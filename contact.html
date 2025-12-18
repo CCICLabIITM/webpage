@@ -22,9 +22,24 @@
         .section {
              min-height: calc(100vh - 5rem); /* Adjust for header height */
         }
+
+        /* NEW: Colorful Animated Background */
+        .colorful-bg {
+            /* A vibrant gradient: Blue -> Purple -> Cyan -> Greenish Teal */
+            background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #06b6d4, #10b981);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            background-attachment: fixed; /* Keeps background fixed during scroll */
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="colorful-bg text-gray-800">
 
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
@@ -40,8 +55,8 @@
                         <i data-feather="mail" class="w-5 h-5"></i>
                     </a>
                 </div>
-				
-		</div>		
+               
+        </div>       
 
                 <nav class="hidden md:flex items-center space-x-8" data-current-page="contact">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
@@ -51,6 +66,8 @@
                     <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
                     <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
                     <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
+                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
+                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
                     <a href="contact.html" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
                 </nav>
                 <button id="mobile-menu-btn" class="md:hidden">
@@ -64,25 +81,37 @@
             <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
             <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
             <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
-			<a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
             <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
-            <a href="contact.html" class="block py-3 px-6 text-blue-600 font-semibold bg-blue-50/50 border-l-4 border-blue-600 mobile-link active">Join Us</a>
+            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Teaching</a>
+            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
         </div>
     </header>
 
     <main class="pt-20">
-        <section id="contact" class="section bg-blue-700 text-white py-20 flex items-center justify-center">
+        <!-- Modified Section: Removed bg-blue-700, added transparent background logic -->
+        <section id="contact" class="section py-20 flex items-center justify-center">
             <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Join Our Team</h1>
-                <p class="mt-4 max-w-2xl mx-auto text-lg text-blue-100">We are always looking for talented and motivated PhD students and postdoctoral researchers to join our lab. If you are passionate about computational chemistry, we would love to hear from you.</p>
-                <div class="mt-8">
-                    <a href="mailto:soorajk@iitm.ac.in" class="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:scale-105">Contact Dr. Kunnikuruvan</a>
-                </div>
-                <div class="mt-12 text-blue-100 space-y-1">
-                        <p class="font-semibold text-white">Computational Catalysis and Interfacial Chemistry (CCIC)</p>
-                        <p>Department of Chemistry, IIT Madras, 351(New Building)</p>
+                
+                <!-- Glassmorphism Card Container -->
+                <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-10 md:p-16">
+                    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">Join Our Team</h1>
+                    <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-600">We are always looking for talented and motivated PhD students and postdoctoral researchers to join our lab. If you are passionate about computational chemistry, we would love to hear from you.</p>
+                    
+                    <div class="mt-10">
+                        <a href="mailto:soorajk@iitm.ac.in" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                            Contact Dr. Kunnikuruvan
+                        </a>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-gray-200 text-gray-700 space-y-2">
+                        <p class="font-bold text-gray-900 text-lg">Computational Catalysis and Interfacial Chemistry (CCIC)</p>
+                        <p>Department of Chemistry, IIT Madras, 351 (New Building)</p>
                         <p>Chennai, Tamil Nadu, 600036</p>
-                   </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -157,11 +186,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
