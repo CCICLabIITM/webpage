@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
-    <link rel="stylesheet" href="style.css"> <style>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
         /* Keyframes for the image slideshow on the index page */
         @keyframes fadeEffect {
             0% { opacity: 0; transform: scale(1.05); }
@@ -41,7 +42,7 @@
         .slideshow-image:nth-child(4) { animation-delay: 15s; }
         .slideshow-image:nth-child(5) { animation-delay: 20s; }
         .slideshow-image:nth-child(6) { animation-delay: 25s; }
-        
+       
         /* Style for active navigation link */
         .nav-link.active {
             color: #2563EB; /* blue-600 */
@@ -55,7 +56,7 @@
         #gallery-modal.hidden {
             display: none;
         }
-        
+       
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -63,9 +64,25 @@
         .section {
             scroll-margin-top: 80px; /* Adjust for fixed header height */
         }
+
+        /* NEW: Colorful Animated Background */
+        .colorful-bg {
+            /* A vibrant gradient: Blue -> Purple -> Cyan -> Greenish Teal */
+            background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #06b6d4, #10b981);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            background-attachment: fixed; /* Keeps background fixed during scroll */
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<!-- Added colorful-bg class here -->
+<body class="colorful-bg text-gray-800">
 
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
@@ -81,17 +98,19 @@
                         <i data-feather="mail" class="w-5 h-5"></i>
                     </a>
                 </div>
-				
-		</div>		
-				
+               
+        </div>       
+               
                 <nav class="hidden md:flex items-center space-x-8" data-current-page="home">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
                     <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
                     <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
                     <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
                     <a href="news.html"  class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
-					<a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
+                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
                     <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
+                                        <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
+                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
                     <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
                 </nav>
                 <button id="mobile-menu-btn" class="md:hidden">
@@ -100,13 +119,15 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-			<a href="index.html" class="block py-3 px-6 text-blue-600 font-semibold bg-blue-50/50 border-l-4 border-blue-600 mobile-link active">Home</a>
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
             <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
             <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
             <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
             <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
-			<a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
             <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
+                        <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Teaching</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
         </div>
     </header>
@@ -124,7 +145,7 @@
                 </div>
                 <div class="absolute inset-0 bg-black/60"></div>
             </div>
-            
+           
             <div class="container mx-auto px-6 py-20 md:py-32 text-center relative z-10">
                 <h1 class="text-4xl md:text-6xl font-bold leading-tight">Computational Catalysis and Interfacial Chemistry (CCIC)</h1>
                 <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">Machine Learning • ab initio MD • Classical MD • Metadynamics • DFT</p>
@@ -133,8 +154,9 @@
                 </div>
             </div>
         </section>
-        
-        <section class="section bg-white py-20">
+       
+        <!-- Changed bg-white to bg-white/90 backdrop-blur-md to see the colorful background -->
+        <section class="section bg-white/90 backdrop-blur-md py-20">
             <div class="container mx-auto px-6 text-center max-w-4xl">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Welcome to CCIC Lab at IIT Madras </h2>
                 <p class="text-lg text-gray-700 leading-relaxed text-justify">Welcome to the Computational Catalysis and Interfacial Chemistry (CCIC) research group led by Dr. Sooraj Kunnikuruvan.
@@ -156,12 +178,13 @@
                 </div>
             </div>
         </section>
-        
-        <section class="section bg-gray-50 py-16">
+       
+        <!-- Changed bg-gray-50 to bg-white/80 backdrop-blur-md -->
+        <section class="section bg-white/80 backdrop-blur-md py-16">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Principal Investigator</h2>
                 <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-                    
+                   
                     <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
                         <div class="flex-shrink-0">
                             <img src="IMAGE/PROFILE/soorajK.jpg" 
@@ -178,10 +201,10 @@
                             <p class="text-lg text-blue-600 mb-6">Indian Institute of Technology Madras Chennai-600036, INDIA</p>
                         </div>
                     </div>
-                    
+                   
                     <h4 class="text-2xl font-bold text-center text-gray-900 mt-8 mb-6 border-t pt-6">Principal Investigator Contact</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                        
+                       
                         <div class="bg-blue-50/70 p-4 rounded-xl border-2 border-blue-200 shadow-md hover:shadow-lg hover:shadow-blue-200 transition-shadow duration-300 flex flex-col items-center space-y-2">
                             <i data-feather="mail" class="w-8 h-8 text-blue-600"></i>
                             <span class="text-sm font-semibold text-gray-600">Email Address</span>
@@ -203,7 +226,7 @@
                 </div>
             </div>
         </section>
-        
+       
     </main>
 
     <footer class="bg-gray-800 text-gray-300 py-8">
@@ -222,20 +245,20 @@
             <p id="modal-caption" class="text-center text-gray-700 mt-4"></p>
         </div>
     </div>
-    
+   
     <script src="script.js"></script>
     <script>
         // Specific script for index.html to highlight the current page
         document.addEventListener('DOMContentLoaded', () => {
              const nav = document.querySelector('nav[data-current-page="home"]');
-             nav.querySelector('a[href="index.html"]').classList.add('active');
-             
+             if(nav) nav.querySelector('a[href="index.html"]').classList.add('active');
+            
              // Initialize feather icons (This is OK to run again, just in case)
              feather.replace();
 
              // Set current year in footer (This is also OK to run again)
              document.getElementById('current-year').textContent = new Date().getFullYear();
-             
+            
              // --- FIXED ---
              // The mobile menu toggle logic has been REMOVED from this file.
              // It is now handled only by the global 'script.js' file,
@@ -258,14 +281,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
