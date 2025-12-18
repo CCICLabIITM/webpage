@@ -10,51 +10,82 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
-    <link rel="stylesheet" href="style.css"> <!-- Linked common styles -->
-
-    <!-- Styles for news card truncation and the new modal -->
+    
     <style>
-      /* Style for the truncated excerpt on the card */
-      div#news-list .excerpt-container p {
-          /* Truncate text to 3 lines */
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 3; /* Limit to 3 lines */
-          overflow: hidden;
-          text-overflow: ellipsis;
-      }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: transparent;
+        }
 
-      /* Styles for the news modal */
-      #news-modal {
-          /* Added for fade-in/out transition */
-          transition: opacity 0.3s ease;
-      }
-      
-      #news-modal-content {
-          /* Make the modal content area scrollable if it's too tall */
-          max-height: 90vh;
-          overflow-y: auto;
-      }
+        /* Animated Background Canvas */
+        #canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #f8fafc; 
+        }
+
+        /* Style for the truncated excerpt on the card */
+        div#news-list .excerpt-container p {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Styles for the news modal */
+        #news-modal {
+            transition: opacity 0.3s ease;
+        }
+        
+        #news-modal-content {
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .nav-link.active {
+            color: #2563eb; 
+            font-weight: 600;
+            border-bottom: 2px solid #2563eb;
+        }
+
+        .news-card-trigger {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="text-gray-800 relative">
+
+    <canvas id="canvas-bg"></canvas>
 
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                     <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover" onerror="this.style.display='none'; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=CCIC&font=inter';">
-                    <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
+                    <a href="index.html" class="text-xl font-bold text-gray-900 tracking-tight">CCIC@IITM</a>
                 </div>
                 <nav class="hidden md:flex items-center space-x-8" data-current-page="news">
-                    <a href="index.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="research.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
-                    <a href="team.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
-                    <a href="publications.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
-                    <a href="news.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
-    				<a href="collab.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
-                    <a href="gallery.html" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
-                    <a href="contact.html" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
+                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
+                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
+                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
+                    <a href="news.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
+                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
+                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
+                                        <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
+                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all text-sm font-bold shadow-md shadow-blue-100">Join Us</a>
                 </nav>
                 <button id="mobile-menu-btn" class="md:hidden">
                     <i data-feather="menu"></i>
@@ -62,100 +93,252 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
-            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
-            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
-            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
-            <a href="news.html" class="block py-3 px-6 text-blue-600 font-semibold bg-blue-50/50 border-l-4 border-blue-600 mobile-link active">News</a>
-			<a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
-            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
-            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-blue-600 font-bold bg-blue-50">News</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700">Gallery</a>
+            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Teaching</a>
+            <a href="contact.html" class="block py-3 px-6 text-gray-700">Join Us</a>
         </div>
     </header>
 
-    <main class="pt-20">
+    <main class="pt-32">
         <!-- NEWS Section -->
-        <section id="news" class="section py-20 bg-white">
+        <section id="news" class="section py-12 relative z-10">
              <div class="container mx-auto px-6">
                  <div class="text-center mb-16">
-                     <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Latest News</h1>
-                     <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Updates on our research, achievements, and events.</p>
+                     <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Latest News</h1>
+                     <p class="mt-4 text-gray-600 max-w-2xl mx-auto glass-panel p-4 rounded-2xl">Updates on our research breakthroughs, student achievements, and academic milestones.</p>
                  </div>
-                 <div id="news-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                     <!-- Dynamic news items will be rendered here by script.js -->
+                 <div id="news-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                     <!-- Dynamic news items will be rendered here -->
                  </div>
              </div>
         </section>
 
-        <!-- Gallery Modal (Included for consistent script linking) -->
-        <div id="gallery-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
-            <div class="bg-white rounded-lg max-w-4xl max-h-full w-full h-auto p-4 relative">
-                <button id="modal-close-btn" class="absolute -top-4 -right-4 bg-white rounded-full p-2 z-10">
-                    <i data-feather="x" class="text-gray-800"></i>
-                </button>
-                <img id="modal-image" src="" alt="Gallery image" class="w-full h-auto max-h-[80vh] object-contain rounded-md">
-                <p id="modal-caption" class="text-center text-gray-700 mt-4"></p>
-            </div>
-        </div>
-
         <!-- News Modal -->
-        <div id="news-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4 opacity-0">
-            <!-- Modal wrapper for content and centering -->
-            <div class="bg-white rounded-lg max-w-3xl w-full relative" id="news-modal-content-wrapper">
-                <!-- Close Button -->
-                <button id="news-modal-close-btn" class="absolute -top-3 -right-3 bg-white rounded-full p-2 z-10 shadow-lg transition-transform hover:scale-110">
+        <div id="news-modal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 opacity-0">
+            <div class="bg-white rounded-3xl max-w-3xl w-full relative shadow-2xl overflow-hidden" id="news-modal-content-wrapper">
+                <button id="news-modal-close-btn" class="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 z-10 shadow-lg transition-transform hover:scale-110">
                     <i data-feather="x" class="text-gray-800"></i>
                 </button>
                 
-                <!-- Scrollable Content Area -->
-                <div id="news-modal-content" class="rounded-lg overflow-hidden">
-                    <img id="news-modal-image" src="" alt="News image" class="w-full h-64 object-cover">
-                    <div class="p-6 md:p-8">
-                        <p id="news-modal-date" class="text-sm text-gray-500 mb-2"></p>
-                        <h2 id="news-modal-title" class="text-2xl font-bold text-gray-900 mb-4"></h2>
-                        <!-- Full excerpt text will be injected here -->
-                        <div id="news-modal-excerpt" class="text-gray-700 space-y-4">
+                <div id="news-modal-content">
+                    <img id="news-modal-image" src="" alt="News image" class="w-full h-72 object-cover">
+                    <div class="p-8 md:p-10">
+                        <p id="news-modal-date" class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3"></p>
+                        <h2 id="news-modal-title" class="text-3xl font-extrabold text-gray-900 mb-6 leading-tight"></h2>
+                        <div id="news-modal-excerpt" class="text-gray-600 space-y-4 leading-relaxed text-lg">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </main>
 
-    <footer class="bg-gray-800 text-gray-300 py-8">
+    <footer class="bg-slate-900 text-slate-400 py-12 relative z-10">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
-            <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
+            <p>&copy; <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC).</p>
+            <p class="text-sm mt-2">Department of Chemistry, <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:text-blue-300 underline underline-offset-4">Indian Institute of Technology Madras</a></p>
         </div>
     </footer>
     
-    <script src="script.js"></script>
+    <!-- News-Specific Background Animation: High Visibility Graphene -->
     <script>
-        // Specific script for news.html to highlight the current page
-        document.addEventListener('DOMContentLoaded', () => {
-             const nav = document.querySelector('nav[data-current-page="news"]');
-             if (nav) {
-                const link = nav.querySelector('a[href="news.html"]');
-                if (link) {
-                    link.classList.add('active');
-                }
-             }
-             
-             // Highlight mobile link
-             const mobileNav = document.querySelector('#mobile-menu');
-             if (mobileNav) {
-                const mobileLink = mobileNav.querySelector('a[href="news.html"]');
-                if (mobileLink) {
-                    mobileLink.classList.add('active', 'bg-gray-100');
-                }
-             }
-        });
+        (function() {
+            const canvas = document.getElementById('canvas-bg');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let driftX = 0;
+            let driftY = 0;
 
+            const hexSize = 50; // Larger hexagons for better visibility
+            const lineOpacity = 0.12;
+            const nodeOpacity = 0.2;
+
+            function resize() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+            }
+
+            // High Visibility Graphene Sheet Background
+            function drawGraphene() {
+                ctx.clearRect(0, 0, width, height);
+                
+                // Very subtle movement
+                driftX += 0.15;
+                driftY += 0.1;
+
+                const colWidth = hexSize * Math.sqrt(3);
+                const rowHeight = hexSize * 1.5;
+
+                ctx.save();
+                ctx.translate(driftX % colWidth - colWidth, driftY % (rowHeight * 2) - rowHeight * 2);
+
+                for (let y = -rowHeight; y < height + rowHeight * 3; y += rowHeight) {
+                    for (let x = -colWidth; x < width + colWidth * 2; x += colWidth) {
+                        const cx = x + (Math.floor(y / rowHeight) % 2 === 0 ? 0 : colWidth / 2);
+                        
+                        // Draw Hexagon Lines
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(37, 99, 235, ${lineOpacity})`;
+                        ctx.lineWidth = 1.2;
+
+                        for (let i = 0; i < 6; i++) {
+                            const angle = (Math.PI / 3) * i;
+                            const px = cx + hexSize * Math.cos(angle);
+                            const py = y + hexSize * Math.sin(angle);
+                            if (i === 0) ctx.moveTo(px, py);
+                            else ctx.lineTo(px, py);
+                        }
+                        ctx.closePath();
+                        ctx.stroke();
+
+                        // Draw Atomic Nodes at vertices
+                        for (let i = 0; i < 6; i++) {
+                            const angle = (Math.PI / 3) * i;
+                            const px = cx + hexSize * Math.cos(angle);
+                            const py = y + hexSize * Math.sin(angle);
+                            
+                            ctx.beginPath();
+                            ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+                            ctx.fillStyle = `rgba(37, 99, 235, ${nodeOpacity})`;
+                            ctx.fill();
+                        }
+                    }
+                }
+                ctx.restore();
+            }
+
+            function animate() {
+                drawGraphene();
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', resize);
+            resize();
+            animate();
+        })();
+    </script>
+
+    <script>
+        // --- NEWS DATA ---
+        const newsItems = [
+            { 
+                title: "Madhurja’s Latest Paper Publication",
+                date: "October 16, 2025",
+                excerpt: "We're happy to share our new article on solid electrolyte interphase (SEI) formation in Li metal batteries, published in ACS Applied Energy Materials.", 
+                imageUrl: "https://pubs.acs.org/cms/10.1021/acsaem.5c02340/asset/images/medium/ae5c02340_0009.gif" 
+            },
+            { 
+                title: "Mr. Madhurja recieves best oral presentation award",
+                date: "September 8, 2025",
+                excerpt: "We are proud to share that Madhurjya Buragohain received the Best Oral Presentation Award at the Chemistry In-House Symposium (CiHS)-2025, organized by the Department of Chemistry, IIT Madras.", 
+                imageUrl: "https://media.licdn.com/dms/image/v2/D5622AQHNvXkunRhQEA/feedshare-shrink_800/B56ZkvLm_RHAAg-/0/1757433202892?e=1762992000&v=beta&t=zCDPbYtLTTWBZRzHbcPXvBVoWZ1Vi9aFI4eWvPFAhnU" 
+            },
+            { 
+                title: "Mr. Sudhin R recieves best poster award",
+                date: "August 28, 2025",
+                excerpt: "We are delighted to share that Sudhin R. from our CCIC lab has been awarded the Best Poster Award at the National Symposium on Electrochemical Science and Technology (NSEST-2025).", 
+                imageUrl: "https://media.licdn.com/dms/image/v2/D5622AQHh6w4E_zQbfw/feedshare-shrink_800/B56ZkPgRKYG4Ak-/0/1756901744882?e=1762992000&v=beta&t=HjjZJY9-lxE2bjNGcKdrpsey8vRTmzJjhPZlsHazZWM" 
+            },
+            { 
+                title: "CCIC welcomes new PhD students",
+                date: "August 1, 2025", 
+                excerpt: "We are excited to welcome Anjana Vijayan to the lab. She will be working on solid-electrolyte interfaces and computational battery modeling.", 
+                imageUrl: "https://placehold.co/400x250/3b82f6/FFFFFF?text=Welcome+Anjana" 
+            },
+            { 
+                title: "Ms. Stuti awarded the prestigious Prof. V. Ramamurthy Endowment Award",
+                date: "August 17, 2025", 
+                excerpt: "We’re delighted to share that STUTI GUPTA, an MSc student from our lab, has been awarded the prestigious Prof. V. Ramamurthy Endowment Award for Best MSc Thesis.", 
+                imageUrl: "https://media.licdn.com/dms/image/v2/D4D22AQEOQACqZH_iUg/feedshare-shrink_800/B4DZgXFofgGsAg-/0/1752734011582?e=1762992000&v=beta&t=WqXHvqZPvyeqHuxHf8YNwwOqjxQT9vfsGWH2D96oZQ0" 
+            },
+            { 
+                title: "Mr. Jogesh recieves best poster award",
+                date: "November 6, 2024", 
+                excerpt: "A big congratulations to Jogeswar Chhatria, who has been awarded the Best Poster in Theoretical Chemistry at the Chemistry In-House Symposium 2024.", 
+                imageUrl: "https://media.licdn.com/dms/image/v2/D5622AQFsTpi-yk5J4g/feedshare-shrink_800/feedshare-shrink_800/0/1730884396137?e=1762992000&v=beta&t=Kh6PMJ3rd7N-4lbIXIvmdpw6tOENiAxVDaXUzLQINxc" 
+            }
+        ];
+
+        function renderNews() {
+            const list = document.getElementById('news-list');
+            if (!list) return;
+
+            list.innerHTML = '';
+            newsItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'news-card-trigger bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col cursor-pointer hover:shadow-xl hover:-translate-y-2 border border-slate-100 group';
+                
+                card.dataset.title = item.title;
+                card.dataset.date = item.date;
+                card.dataset.excerpt = item.excerpt;
+                card.dataset.image = item.imageUrl;
+
+                card.innerHTML = `
+                    <div class="relative overflow-hidden h-52">
+                        <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+                    </div>
+                    <div class="p-7 flex flex-col flex-grow">
+                        <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-3">${item.date}</p>
+                        <h3 class="font-bold text-lg mb-4 text-slate-900 leading-tight group-hover:text-blue-600 transition-colors">${item.title}</h3>
+                        <div class="excerpt-container text-slate-500 text-sm mb-6 flex-grow leading-relaxed">
+                            <p>${item.excerpt}</p>
+                        </div>
+                        <div class="mt-auto flex items-center text-blue-600 text-xs font-bold uppercase tracking-wider">
+                            Read Detail <i data-feather="arrow-right" class="w-3 h-3 ml-2"></i>
+                        </div>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+            feather.replace();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            renderNews();
+
+            const newsModal = document.getElementById('news-modal');
+            const openNewsModal = (card) => {
+                const { title, date, excerpt, image } = card.dataset;
+                document.getElementById('news-modal-image').src = image;
+                document.getElementById('news-modal-date').textContent = date;
+                document.getElementById('news-modal-title').textContent = title;
+                document.getElementById('news-modal-excerpt').innerHTML = excerpt.split('\n').map(p => `<p>${p}</p>`).join('');
+
+                newsModal.classList.remove('hidden');
+                setTimeout(() => newsModal.classList.remove('opacity-0'), 10);
+            };
+
+            const closeNewsModal = () => {
+                newsModal.classList.add('opacity-0');
+                setTimeout(() => newsModal.classList.add('hidden'), 300);
+            };
+
+            document.getElementById('news-list').addEventListener('click', (e) => {
+                const trigger = e.target.closest('.news-card-trigger');
+                if (trigger) openNewsModal(trigger);
+            });
+
+            document.getElementById('news-modal-close-btn').addEventListener('click', closeNewsModal);
+            newsModal.addEventListener('click', (e) => { if (e.target === newsModal) closeNewsModal(); });
+            
+            const mbBtn = document.getElementById('mobile-menu-btn');
+            const mbMenu = document.getElementById('mobile-menu');
+            mbBtn.addEventListener('click', () => {
+                mbMenu.classList.toggle('hidden');
+                feather.replace();
+            });
+        });
     </script>
 </body>
 </html>
-
-
-
-
