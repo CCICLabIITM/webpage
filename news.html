@@ -74,6 +74,15 @@
                 <div class="flex items-center space-x-3">
                     <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover" onerror="this.style.display='none'; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=CCIC&font=inter';">
                     <a href="index.html" class="text-xl font-bold text-gray-900 tracking-tight">CCIC@IITM</a>
+                    <!-- Social Icons beside CCIC Brand -->
+                    <div class="flex items-center space-x-3">
+                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
+                            <i data-feather="mail" class="w-5 h-5"></i>
+                        </a>
+                    </div>
                 </div>
                 <nav class="hidden md:flex items-center space-x-8" data-current-page="news">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
@@ -83,7 +92,7 @@
                     <a href="news.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
                     <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
                     <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
-                                        <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
+                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
                     <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
                     <a href="contact.html" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all text-sm font-bold shadow-md shadow-blue-100">Join Us</a>
                 </nav>
@@ -93,21 +102,20 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Home</a>
-            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Research</a>
-            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Team</a>
-            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Publications</a>
+            <a href="index.html" class="block py-3 px-6 text-gray-700">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-gray-700">Publications</a>
             <a href="news.html" class="block py-3 px-6 text-blue-600 font-bold bg-blue-50">News</a>
             <a href="collab.html" class="block py-3 px-6 text-gray-700">Collaborations</a>
             <a href="gallery.html" class="block py-3 px-6 text-gray-700">Gallery</a>
-            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Tools</a>
-            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Teaching</a>
+            <a href="softwares.html" class="block py-3 px-6 text-gray-700">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700">Teaching</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700">Join Us</a>
         </div>
     </header>
 
     <main class="pt-32">
-        <!-- NEWS Section -->
         <section id="news" class="section py-12 relative z-10">
              <div class="container mx-auto px-6">
                  <div class="text-center mb-16">
@@ -126,7 +134,6 @@
                 <button id="news-modal-close-btn" class="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 z-10 shadow-lg transition-transform hover:scale-110">
                     <i data-feather="x" class="text-gray-800"></i>
                 </button>
-                
                 <div id="news-modal-content">
                     <img id="news-modal-image" src="" alt="News image" class="w-full h-72 object-cover">
                     <div class="p-8 md:p-10">
@@ -140,14 +147,15 @@
         </div>
     </main>
 
-    <footer class="bg-slate-900 text-slate-400 py-12 relative z-10">
+    <!-- Footer Updated to Match Tools Page -->
+    <footer class="bg-gray-800 text-gray-300 py-8 relative z-10">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC).</p>
-            <p class="text-sm mt-2">Department of Chemistry, <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:text-blue-300 underline underline-offset-4">Indian Institute of Technology Madras</a></p>
+            <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+            <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
         </div>
     </footer>
     
-    <!-- News-Specific Background Animation: High Visibility Graphene -->
+    <!-- Background Animation Logic -->
     <script>
         (function() {
             const canvas = document.getElementById('canvas-bg');
@@ -156,7 +164,7 @@
             let driftX = 0;
             let driftY = 0;
 
-            const hexSize = 50; // Larger hexagons for better visibility
+            const hexSize = 50; 
             const lineOpacity = 0.12;
             const nodeOpacity = 0.2;
 
@@ -167,11 +175,8 @@
                 canvas.height = height;
             }
 
-            // High Visibility Graphene Sheet Background
             function drawGraphene() {
                 ctx.clearRect(0, 0, width, height);
-                
-                // Very subtle movement
                 driftX += 0.15;
                 driftY += 0.1;
 
@@ -184,8 +189,6 @@
                 for (let y = -rowHeight; y < height + rowHeight * 3; y += rowHeight) {
                     for (let x = -colWidth; x < width + colWidth * 2; x += colWidth) {
                         const cx = x + (Math.floor(y / rowHeight) % 2 === 0 ? 0 : colWidth / 2);
-                        
-                        // Draw Hexagon Lines
                         ctx.beginPath();
                         ctx.strokeStyle = `rgba(37, 99, 235, ${lineOpacity})`;
                         ctx.lineWidth = 1.2;
@@ -200,12 +203,10 @@
                         ctx.closePath();
                         ctx.stroke();
 
-                        // Draw Atomic Nodes at vertices
                         for (let i = 0; i < 6; i++) {
                             const angle = (Math.PI / 3) * i;
                             const px = cx + hexSize * Math.cos(angle);
                             const py = y + hexSize * Math.sin(angle);
-                            
                             ctx.beginPath();
                             ctx.arc(px, py, 2.5, 0, Math.PI * 2);
                             ctx.fillStyle = `rgba(37, 99, 235, ${nodeOpacity})`;
@@ -310,7 +311,9 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+            const yearSpan = document.getElementById('current-year');
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+            
             renderNews();
 
             const newsModal = document.getElementById('news-modal');
@@ -340,14 +343,14 @@
             
             const mbBtn = document.getElementById('mobile-menu-btn');
             const mbMenu = document.getElementById('mobile-menu');
-            mbBtn.addEventListener('click', () => {
-                mbMenu.classList.toggle('hidden');
-                feather.replace();
-            });
+            if(mbBtn && mbMenu) {
+                mbBtn.addEventListener('click', () => {
+                    mbMenu.classList.toggle('hidden');
+                    feather.replace();
+                });
+            }
+            feather.replace();
         });
     </script>
 </body>
 </html>
-
-
-
