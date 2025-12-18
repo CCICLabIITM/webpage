@@ -10,26 +10,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
-    <link rel="stylesheet" href="style.css"> </head>
-<body class="bg-gray-50 text-gray-800">
+    <link rel="stylesheet" href="style.css"> 
+    
+    <style>
+        .animated-gradient {
+            /* Soft scientific colors: Light Blue, Light Teal, Pale Indigo, White */
+            background: linear-gradient(-45deg, #e0f2fe, #f0fdf4, #eef2ff, #f8fafc);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="animated-gradient text-gray-800 min-h-screen flex flex-col">
 
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between gap-8">
                 <div class="flex items-center space-x-3">
                     <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
-                    <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
-                                        <div class="flex items-center space-x-3">
-                    <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
-                        <i data-feather="linkedin" class="w-5 h-5"></i>
-                    </a>
-                    <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
-                        <i data-feather="mail" class="w-5 h-5"></i>
-                    </a>
-                </div>
-				
-		</div>		
-
+                    <a href="index.html" class="text-xl font-bold text-gray-900 whitespace-nowrap">CCIC@IITM</a>
+                    <div class="flex items-center space-x-3">
+                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
+                            <i data-feather="mail" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>      
+                   
                 <nav class="hidden md:flex items-center space-x-8" data-current-page="gallery">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
                     <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
@@ -38,7 +53,9 @@
                     <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
                     <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
                     <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
-                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
+                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
+                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold whitespace-nowrap">Join Us</a>
                 </nav>
                 <button id="mobile-menu-btn" class="md:hidden">
                     <i data-feather="menu"></i>
@@ -51,13 +68,16 @@
             <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
             <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
             <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
-			<a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
-            <a href="gallery.html" class="block py-3 px-6 text-blue-600 font-semibold bg-blue-50/50 border-l-4 border-blue-600 mobile-link active">Gallery</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
+            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Teaching</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
         </div>
     </header>
-<main class="pt-20">
-        <section id="gallery" class="section bg-gray-50 py-20">
+
+    <main class="pt-20 flex-grow">
+        <section id="gallery" class="section bg-transparent py-20">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                      <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Photo Gallery</h1>
@@ -67,7 +87,7 @@
                      </div>
             </div>
         </section>
-         
+       
         <div id="gallery-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
             <div class="bg-white rounded-lg max-w-4xl max-h-full w-full h-auto p-4 relative">
                 <button id="modal-close-btn" class="absolute -top-4 -right-4 bg-white rounded-full p-2 z-10">
@@ -79,28 +99,41 @@
         </div>
 
     </main>
-<footer class="bg-gray-800 text-gray-300 py-8">
+
+    <footer class="bg-gray-800 text-gray-300 py-8">
         <div class="container mx-auto px-6 text-center">
             <p>&copy; <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
             <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
         </div>
     </footer>
 
+    <script>
+        const galleryImages = [
+            { src: "IMAGE/Gallery/Aug2_2025.png", caption: "Good food, great company • Soumya’s Farewell Dinner • 02/08/25" },
+            { src: "IMAGE/Gallery/Oct9_2024.png", caption: "Celebrating teamwork, curiosity, and countless hours at the bench with a well-deserved dinner outing. Oct 2, 2024, was a night to remember for our incredible lab family!" },
+            { src: "IMAGE/Gallery/13_August ‎2023.png", caption: "Caption" },
+            { src: "IMAGE/Gallery/14Aug.2023.png", caption: "Caption" },
+            { src: "IMAGE/Gallery/29July_2023.png", caption: "Caption" },
+            { src: "IMAGE/Gallery/07August_2023.png", caption: "Caption" },
+            { src: "IMAGE/Gallery/21_September_2023.png", caption: "Caption" },
+            { src: "IMAGE/Gallery/10Oct_2023.png", caption: "Great vibes, amazing team • Lab dinner • 10/10/23" }
+        ];
+    </script>
+
     <script src="script.js"></script>
     <script>
         // Specific script for gallery.html to highlight the current page
         document.addEventListener('DOMContentLoaded', () => {
              const nav = document.querySelector('nav[data-current-page="gallery"]');
-             nav.querySelector('a[href="gallery.html"]').classList.add('active');
+             if(nav) {
+                 const link = nav.querySelector('a[href="gallery.html"]');
+                 if(link) link.classList.add('active');
+             }
              // Manually run renderGallery() since it only runs if the element exists and we need it to run here
-             renderGallery();
+             if (typeof renderGallery === 'function') {
+                renderGallery();
+             }
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
