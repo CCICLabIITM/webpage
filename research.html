@@ -32,7 +32,7 @@
         #research-modal.hidden {
             display: none;
         }
-        
+       
         .clamp-text {
             overflow: hidden;
             text-overflow: ellipsis;
@@ -41,9 +41,24 @@
             -webkit-box-orient: vertical;
         }
 
+        /* NEW: Colorful Animated Background */
+        .colorful-bg {
+            /* A vibrant gradient: Blue -> Purple -> Cyan -> Greenish Teal */
+            background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #06b6d4, #10b981);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            background-attachment: fixed; /* Keeps background fixed during scroll */
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="colorful-bg text-gray-800">
 
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
@@ -51,7 +66,7 @@
                 <div class="flex items-center space-x-3">
                     <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
                     <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
-                                            <div class="flex items-center space-x-3">
+                    <div class="flex items-center space-x-3">
                     <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
                         <i data-feather="linkedin" class="w-5 h-5"></i>
                     </a>
@@ -59,8 +74,8 @@
                         <i data-feather="mail" class="w-5 h-5"></i>
                     </a>
                 </div>
-                
-        </div>      
+               
+        </div>       
 
                 <nav class="hidden md:flex items-center space-x-8" data-current-page="research">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
@@ -70,6 +85,8 @@
                     <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
                     <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
                     <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
+                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
+                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
                     <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
                 </nav>
                 <button id="mobile-menu-btn" class="md:hidden">
@@ -79,19 +96,22 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
-            <a href="research.html" class="block py-3 px-6 text-blue-600 font-semibold bg-blue-50/50 border-l-4 border-blue-600 mobile-link active">Research</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
             <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
             <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
             <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
-			<a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
             <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
+            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Teaching</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
         </div>
     </header>
 
     <main class="pt-20">
         <!-- RESEARCH Section -->
-        <section id="research-main" class="section bg-white py-20">
+        <!-- Changed bg-white to bg-white/90 backdrop-blur-md for transparency -->
+        <section id="research-main" class="section bg-white/90 backdrop-blur-md py-20">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Our Research Focus Areas</h1>
@@ -138,6 +158,19 @@ Theoretical calculations such as density functional theory (DFT) are employed, p
                         </div>
                     </div>
                     <!-- Research Area 4 -->
+                    <div class="research-card cursor-pointer bg-yellow-50 border border-red-200 rounded-xl text-center transform hover:-translate-y-2 transition-transform duration-300 flex flex-col hover:shadow-xl shadow-lg overflow-hidden"
+                         data-title="Machine Learning-Driven Enhancement of Transition Metal Sulfide Catalyst for Electrochemical Nitrogen Reduction Reaction (eNRR)"
+                         data-img="IMAGE/RESEARCH/sudhin.png"
+                         data-description="The research area primarily focuses on catalysis, particularly in the context of the electrochemical nitrogen reduction reaction (eNRR). A significant facet of this research involves the development of catalysts, with a particular emphasis on transition metal sulphides. The objective is to design catalyst materials that exhibit robust performance in eNRR, ultimately contributing to the sustainable production of ammonia. One key aspect revolves around harnessing the capabilities of machine learning (ML) to guide and inform the rational design of these catalyst materials. Theoretical calculations such as density functional theory (DFT) are employed, providing insights into the intricate chemical processes at play. Ab initio molecular dynamics (AIMD) simulations, along with enhanced sampling techniques like metadynamics, are integral components of the research methodology, aiding in the exploration of catalytic activity, reaction kinetics, and thermodynamics. Through an interdisciplinary approach that combines chemistry, materials science, and data-driven techniques, we aim to develop catalysts that are not only highly effective but also environmentally sustainable, thereby contributing to the advancement of eco-friendly ammonia production.">
+                        <img src="IMAGE/RESEARCH/sudhin.png" alt="Surface Science" class="w-full aspect-video object-contain bg-white pointer-events-none">
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h2 class="text-lg font-semibold mb-3">Machine Learning-Driven Enhancement of Transition Metal Sulfide Catalyst for Electrochemical Nitrogen Reduction Reaction (eNRR)</h2>
+                            <p class="text-gray-600 text-sm clamp-text text-justify">The research area primarily focuses on catalysis, particularly in the context of the electrochemical nitrogen reduction reaction (eNRR). A significant facet of this research involves the development of catalysts, with a particular emphasis on transition metal sulphides. The objective is to design catalyst materials that exhibit robust performance in eNRR, ultimately contributing to the sustainable production of ammonia. One key aspect revolves around harnessing the capabilities of machine learning (ML) to guide and inform the rational design of these catalyst materials. 
+Theoretical calculations such as density functional theory (DFT) are employed, providing insights into the intricate chemical processes at play. Ab initio molecular dynamics (AIMD) simulations, along with enhanced sampling techniques like metadynamics, are integral components of the research methodology, aiding in the exploration of catalytic activity, reaction kinetics, and thermodynamics. Through an interdisciplinary approach that combines chemistry, materials science, and data-driven techniques, we aim to develop catalysts that are not only highly effective but also environmentally sustainable, thereby contributing to the advancement of eco-friendly ammonia production.</p>
+                            <span class="text-blue-600 font-semibold text-sm mt-auto pt-2 inline-block">Read more...</span>
+                        </div>
+                    </div>
+                    <!-- Research Area 4 -->
                     <div class="research-card cursor-pointer bg-purple-50 border border-purple-200 rounded-xl text-center transform hover:-translate-y-2 transition-transform duration-300 flex flex-col hover:shadow-xl shadow-lg overflow-hidden"
                          data-title="Confined Catalysis"
                          data-img="https://placehold.co/400x250/F3E8FF/8B5CF6?text=Confined+Catalysis"
@@ -151,19 +184,7 @@ Theoretical calculations such as density functional theory (DFT) are employed, p
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- CALL TO ACTION to view publications/team -->
-        <section class="bg-gray-50 py-16">
-            <div class="container mx-auto px-6 text-center">
-                <h3 class="text-3xl font-bold text-gray-800 mb-4">See the Impact of Our Work</h3>
-                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Explore our full list of publications and meet the dedicated team that conducts this research.</p>
-                <div class="mt-8 space-x-4">
-                    <a href="publications.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">View Publications</a>
-                    <a href="team.html" class="text-blue-600 border border-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">Meet the Team</a>
-                </div>
-            </div>
-        </section>
+
     </main>
     
     <!-- Research Detail Modal -->
@@ -219,7 +240,7 @@ Theoretical calculations such as density functional theory (DFT) are employed, p
         // Specific script for research.html to highlight the current page
         document.addEventListener('DOMContentLoaded', () => {
             const nav = document.querySelector('nav[data-current-page="research"]');
-            nav.querySelector('a[href="research.html"]').classList.add('active');
+            if(nav) nav.querySelector('a[href="research.html"]').classList.add('active');
 
             const mobileLinks = document.querySelectorAll('#mobile-menu a');
             mobileLinks.forEach(link => {
@@ -254,25 +275,26 @@ Theoretical calculations such as density functional theory (DFT) are employed, p
             const closeModal = () => {
                 modalContent.classList.add('scale-95', 'opacity-0');
                 modalContent.classList.remove('scale-100', 'opacity-100');
-                document.body.style.overflow = ''; // Restore background scrolling
                 setTimeout(() => {
-                        researchModal.classList.add('hidden');
+                    researchModal.classList.add('hidden');
+                    document.body.style.overflow = ''; // Restore background scrolling
                 }, 300); // match transition duration
             };
 
             researchCards.forEach(card => {
                 card.addEventListener('click', () => openModal(card));
             });
-            
+
             modalCloseBtn.addEventListener('click', closeModal);
 
+            // Close modal when clicking outside
             researchModal.addEventListener('click', (e) => {
-                // if the click is on the dark background, close the modal
                 if (e.target === researchModal) {
                     closeModal();
                 }
             });
 
+            // Close modal on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && !researchModal.classList.contains('hidden')) {
                     closeModal();
@@ -282,5 +304,3 @@ Theoretical calculations such as density functional theory (DFT) are employed, p
     </script>
 </body>
 </html>
-
-
