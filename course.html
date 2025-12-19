@@ -14,13 +14,13 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Applied Slate-50 background directly */
+            background-color: #f8fafc;
         }
         
-        .nav-link.active, .mobile-link.active {
-            color: #2563eb; 
+        .nav-link.active {
+            color: #2563EB;
             font-weight: 600;
-            border-bottom: 2px solid #2563eb;
+            border-bottom: 2px solid #2563EB;
         }
         
         .course-card {
@@ -40,68 +40,82 @@
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
+
+        /* Smooth mobile menu transition */
+        #mobile-menu { transition: all 0.3s ease-in-out; }
     </style>
 </head>
 <body class="text-gray-800 relative">
 
+    <!-- Header optimized to match index.html and contact.html mobile view -->
     <header id="header" class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
-                    <a href="index.html" class="text-xl font-bold text-gray-900 tracking-tight">CCIC@IITM</a>
-                    <div class="flex items-center space-x-3">
-                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
-                            <i data-feather="linkedin" class="w-5 h-5"></i>
-                        </a>
-                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
-                            <i data-feather="mail" class="w-5 h-5"></i>
-                        </a>
-                    </div>
+        <div class="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2 md:space-x-3">
+                <!-- Optimized Logo Size for Mobile (h-8) vs Desktop (h-12) -->
+                <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-8 md:h-12 w-auto rounded object-cover">
+                
+                <!-- Optimized Text Size for Mobile (text-sm) vs Desktop (text-xl) -->
+                <a href="index.html" class="text-sm sm:text-lg md:text-xl font-bold text-slate-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
+                
+                <!-- Social Icons: Visible on mobile, spacing optimized -->
+                <div class="flex items-center space-x-2 md:space-x-3 pl-2 border-l border-gray-200 ml-1 md:ml-2">
+                    <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
+                        <i data-feather="linkedin" class="w-4 h-4 md:w-5 md:h-5"></i>
+                    </a>
+                    <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
+                        <i data-feather="mail" class="w-4 h-4 md:w-5 md:h-5"></i>
+                    </a>
                 </div>
-              
-                <nav class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
-                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
-                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
-                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
-                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
-                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
-                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
-                    <a href="course.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
-                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold shadow-md">Join Us</a>
-                </nav>
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors">
-                    <i data-feather="menu" class="w-6 h-6 text-gray-700"></i>
-                </button>
             </div>
+           
+            <!-- Desktop Nav (Hidden on Mobile) -->
+            <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Home</a>
+                <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Research</a>
+                <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Team</a>
+                <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Publications</a>
+                <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">News</a>
+                <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Collaborations</a>
+                <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Gallery</a>
+                <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Tools</a>
+                <a href="course.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Teaching</a>
+                <a href="contact.html" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-xs lg:text-sm font-semibold">Join Us</a>
+            </nav>
+
+            <!-- Mobile Hamburger Button (Visible ONLY on Mobile) -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2 hover:bg-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <i data-feather="menu"></i>
+            </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Home</a>
-            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Research</a>
-            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Team</a>
-            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Publications</a>
-            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">News</a>
-            <a href="collab.html" class="block py-3 px-6 text-gray-700">Collaborations</a>
-            <a href="gallery.html" class="block py-3 px-6 text-gray-700">Gallery</a>
-            <a href="softwares.html" class="block py-3 px-6 text-gray-700">Tools</a>
-            <a href="course.html" class="block py-3 px-6 text-blue-600 font-bold bg-blue-50 border-l-4 border-blue-600 mobile-link active">Teaching</a>
-            <a href="contact.html" class="block py-3 px-6 text-gray-700">Join Us</a>
+
+        <!-- Mobile Menu Dropdown (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 max-h-[80vh] overflow-y-auto shadow-lg">
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">News</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Gallery</a>
+            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-blue-600 font-bold bg-blue-50 border-l-4 border-blue-600 border-b border-gray-50">Teaching</a>
+            <a href="contact.html" class="block py-4 px-6 text-center bg-gray-50 mt-2">
+                <span class="inline-block w-full bg-blue-600 text-white py-2 rounded-lg font-semibold">Join Us</span>
+            </a>
         </div>
     </header>
 
-    <main class="pt-32">
+    <main class="pt-24 md:pt-28">
         <section class="section py-12 relative z-10">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Academic Teaching</h2>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Academic Teaching</h2>
                 <p class="mt-4 text-gray-600 font-medium max-w-2xl mx-auto glass-header p-4 rounded-2xl shadow-sm">
                     A comprehensive overview of courses instructed by Dr. Sooraj K. at IIT Madras.
                 </p>
             </div>
         </section>
 
-        <section id="teaching-list" class="container mx-auto px-6 pb-24 relative z-10">
+        <section id="teaching-list" class="container mx-auto px-4 md:px-6 pb-24 relative z-10">
             <div class="flex justify-center p-12">
                 <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
             </div>
@@ -186,28 +200,28 @@
                                 <h3 class="text-2xl font-bold text-gray-900 pr-4">${level} Courses</h3>
                                 <div class="h-px bg-gradient-to-r from-blue-600 to-transparent flex-grow"></div>
                             </div>
-                           
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                          
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                                 ${groups[level].map(course => `
-                                    <div class="course-card bg-white rounded-2xl p-7 flex flex-col h-full relative overflow-hidden group">
+                                    <div class="course-card bg-white rounded-2xl p-6 md:p-7 flex flex-col h-full relative overflow-hidden group">
                                         <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-10 -mt-10 transition-all group-hover:scale-110"></div>
-                                      
+                                     
                                         <div class="flex justify-between items-start mb-6">
                                             <span class="bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-widest shadow-sm">
                                                 ${course.code}
                                             </span> 
-                                            <div class="text-blue-600">
+                                            <div class="text-blue-600 z-10">
                                                 <i data-feather="bookmark" class="w-5 h-5"></i>
                                             </div>
                                         </div>
 
-                                        <h4 class="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-blue-700 transition-colors">${course.title}</h4>
-                                      
-                                        <p class="text-gray-500 text-sm mb-8 flex-grow leading-relaxed">
+                                        <h4 class="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-blue-700 transition-colors z-10">${course.title}</h4>
+                                     
+                                        <p class="text-gray-500 text-sm mb-8 flex-grow leading-relaxed z-10">
                                             ${course.description}
                                         </p>
 
-                                        <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-5">
+                                        <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-5 z-10">
                                             <div class="flex items-center text-gray-500">
                                                 <i data-feather="calendar" class="w-4 h-4 mr-2 text-blue-500"></i>
                                                 <span class="text-xs font-semibold">${course.semester}</span>
@@ -232,7 +246,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const yearSpan = document.getElementById('current-year');
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
-            
+           
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
             if(btn && menu) {
@@ -241,6 +255,19 @@
                     feather.replace();
                 });
             }
+            
+            // Shrink header on scroll (added to match other pages)
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-2');
+                    header.classList.remove('py-4');
+                } else {
+                    header.classList.add('py-4');
+                    header.classList.remove('py-2');
+                }
+            });
+
             setTimeout(renderTeaching, 400);
             feather.replace();
         });
