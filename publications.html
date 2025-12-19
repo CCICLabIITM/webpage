@@ -14,20 +14,9 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: transparent; /* Make body transparent for canvas */
+            background-color: #f0f4f8; /* Applied background color directly here */
         }
         
-        /* Animated Background Canvas */
-        #canvas-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Behind everything */
-            background-color: #f0f4f8; /* Slightly darker cool gray base for contrast */
-        }
-
         .nav-link.active, .mobile-link.active {
             color: #2563eb; /* Blue-600 */
             font-weight: 600;
@@ -52,8 +41,6 @@
 </head>
 <body class="text-gray-800 relative">
 
-    <canvas id="canvas-bg"></canvas>
-
     <header id="header" class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -69,7 +56,7 @@
                         </a>
                     </div>
                 </div>
-               
+              
                 <nav class="hidden md:flex items-center space-x-8" data-current-page="publications">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
                     <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
@@ -110,13 +97,13 @@
                         Click on a card below to see the full citation and link to the external article.
                     </p>
                 </div>
-               
+              
                 <div id="publications-list" class="space-y-10 max-w-full mx-auto">
                     <div class="text-center p-8 text-gray-500">
                         Loading publications...
                     </div>
                 </div>
-               
+              
                 <div class="text-center mt-12">
                     <a href="https://scholar.google.com/citations?user=DCJi8BkAAAAJ&hl=en" target="_blank" class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all shadow-md hover:shadow-lg">
                         View All on Google Scholar
@@ -131,26 +118,26 @@
                 <button id="modal-close-btn" class="absolute -top-3 -right-3 bg-white rounded-full p-2 z-10 shadow-lg border border-gray-200 hover:bg-gray-100 transition-colors" onclick="closePublicationModal()">
                     <i data-feather="x" class="text-gray-800 w-6 h-6"></i>
                 </button>
-               
+              
                 <div class="flex flex-col md:flex-row">
                     <div class="md:w-1/3 flex-shrink-0 bg-gray-50 p-6 flex items-center justify-center rounded-t-xl md:rounded-l-xl md:rounded-t-none">
                         <img id="modal-image" src="" alt="Graphical abstract" class="w-full h-auto object-contain rounded-lg shadow-md max-h-96 md:max-h-full">
                     </div>
-                  
+                 
                     <div class="md:w-2/3 p-6 md:p-8">
                         <h2 id="modal-title" class="text-2xl font-bold text-gray-900 mb-4 leading-tight"></h2>
-                      
+                     
                         <div class="space-y-4 text-gray-700">
                             <div>
                                 <h4 class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-1">Authors</h4>
                                 <p id="modal-authors" class="text-base"></p>
                             </div>
-                          
+                         
                             <div>
                                 <h4 class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-1">Journal & Citation</h4>
                                 <p id="modal-citation" class="text-base font-medium"></p>
                             </div>
-                          
+                         
                             <div>
                                 <h4 class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-1">Source Link</h4>
                                 <p id="modal-domain" class="text-sm break-all font-mono bg-gray-100 p-2 rounded-lg"></p>
@@ -176,105 +163,6 @@
         </div>
     </footer>
     
-    <script>
-        (function() {
-            const canvas = document.getElementById('canvas-bg');
-            const ctx = canvas.getContext('2d');
-            let width, height;
-            let particles = [];
-            
-            // --- HIGH VISIBILITY CONFIGURATION ---
-            const particleCount = 85; // Increased count
-            const connectionDistance = 160; 
-            const particleSpeed = 0.6; 
-            // Darker Blue, Higher Opacity (0.7)
-            const particleColor = 'rgba(37, 99, 235, 0.7)'; 
-            // Darker Blue Lines, Higher Opacity (0.35)
-            const lineColor = 'rgba(37, 99, 235, 0.35)';
-            const lineWidth = 1.5; // Thicker lines
-
-            function resize() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                canvas.width = width;
-                canvas.height = height;
-            }
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.vx = (Math.random() - 0.5) * particleSpeed;
-                    this.vy = (Math.random() - 0.5) * particleSpeed;
-                    // Larger particles on average (2px to 5px)
-                    this.size = Math.random() * 3 + 2; 
-                }
-
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-
-                    // Bounce off edges
-                    if (this.x < 0 || this.x > width) this.vx *= -1;
-                    if (this.y < 0 || this.y > height) this.vy *= -1;
-                }
-
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = particleColor;
-                    ctx.fill();
-                }
-            }
-
-            function initParticles() {
-                particles = [];
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            function animate() {
-                ctx.clearRect(0, 0, width, height);
-                
-                // Draw connections
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < connectionDistance) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = lineColor;
-                            ctx.lineWidth = lineWidth; // Use thicker line width
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-
-                // Update and draw particles
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-
-                requestAnimationFrame(animate);
-            }
-
-            window.addEventListener('resize', () => {
-                resize();
-                initParticles();
-            });
-
-            resize();
-            initParticles();
-            animate();
-        })();
-    </script>
-
     <script>
         // --- Publication Data ---
         const publicationsData = [
@@ -567,4 +455,3 @@
     </script>
 </body>
 </html>
-
