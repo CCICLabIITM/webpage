@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact & Join Us | Computational Catalysis and Interfacial Chemistry | IIT Madras</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <script src="https://unpkg.com/feather-icons"></script>
+    
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖥</text></svg>">
+    
     <style>
         /* Basic styles for navigation and active states */
         body {
@@ -18,6 +23,7 @@
         .nav-link.active {
             color: #2563EB; /* blue-600 */
             font-weight: 600;
+            border-bottom: 2px solid #2563EB;
         }
         .section {
              min-height: calc(100vh - 5rem); /* Adjust for header height */
@@ -37,84 +43,95 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+        
+        /* Smooth mobile menu transition */
+        #mobile-menu { transition: all 0.3s ease-in-out; }
     </style>
 </head>
 <body class="colorful-bg text-gray-800">
 
-    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
-                    <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
-                    <div class="flex items-center space-x-3">
+    <!-- Header optimized to match index.html mobile view -->
+    <header id="header" class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2 md:space-x-3">
+                <!-- Optimized Logo Size for Mobile (h-8) vs Desktop (h-12) -->
+                <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.src='https://placehold.co/100x100/e0e7ff/312e81?text=CCIC'" alt="CCIC Logo" class="h-8 md:h-12 w-auto rounded object-cover">
+                
+                <!-- Optimized Text Size for Mobile (text-sm) vs Desktop (text-xl) -->
+                <a href="index.html" class="text-sm sm:text-lg md:text-xl font-bold text-slate-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
+                
+                <!-- Social Icons: Visible on mobile, spacing optimized -->
+                <div class="flex items-center space-x-2 md:space-x-3 pl-2 border-l border-gray-200 ml-1 md:ml-2">
                     <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
-                        <i data-feather="linkedin" class="w-5 h-5"></i>
+                        <i data-feather="linkedin" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </a>
                     <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
-                        <i data-feather="mail" class="w-5 h-5"></i>
+                        <i data-feather="mail" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </a>
                 </div>
-               
-        </div>       
-
-                <nav class="hidden md:flex items-center space-x-8" data-current-page="contact">
-                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
-                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
-                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
-                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
-                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
-                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
-                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
-                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
-                    <a href="contact.html" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold">Join Us</a>
-                </nav>
-                <button id="mobile-menu-btn" class="md:hidden">
-                    <i data-feather="menu" class="text-gray-700"></i>
-                </button>
             </div>
+           
+            <!-- Desktop Nav (Hidden on Mobile) -->
+            <nav class="hidden md:flex items-center space-x-6 lg:space-x-8" data-current-page="contact">
+                <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Home</a>
+                <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Research</a>
+                <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Team</a>
+                <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Publications</a>
+                <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">News</a>
+                <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Collaborations</a>
+                <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Gallery</a>
+                <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Tools</a>
+                <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-sm lg:text-base">Teaching</a>
+                <a href="contact.html" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-xs lg:text-sm font-semibold">Join Us</a>
+            </nav>
+
+            <!-- Mobile Hamburger Button (Visible ONLY on Mobile) -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-600 p-2 hover:bg-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <i data-feather="menu"></i>
+            </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
-            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
-            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
-            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Publications</a>
-            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
-            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
-            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
-            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Tools</a>
-            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Teaching</a>
-            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
+
+        <!-- Mobile Menu Dropdown (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 max-h-[80vh] overflow-y-auto shadow-lg">
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">News</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Gallery</a>
+            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b border-gray-50">Teaching</a>
+            <a href="contact.html" class="block py-4 px-6 text-center bg-gray-50 mt-2">
+                <span class="inline-block w-full bg-blue-600 text-white py-2 rounded-lg font-semibold">Join Us</span>
+            </a>
         </div>
     </header>
 
-    <main class="pt-20">
-        <!-- Modified Section: Removed bg-blue-700, added transparent background logic -->
-        <section id="contact" class="section py-20 flex items-center justify-center">
+    <main class="pt-24 md:pt-28 pb-12">
+        <section id="contact" class="section py-10 md:py-20 flex items-center justify-center">
             <div class="container mx-auto px-6 text-center">
-                
+               
                 <!-- Glassmorphism Card Container -->
-                <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-10 md:p-16">
-                    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">Join Our Team</h1>
-                    <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-600">We are always looking for talented and motivated PhD students and postdoctoral researchers to join our lab. If you are passionate about computational chemistry, we would love to hear from you.</p>
-                    
+                <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 md:p-16">
+                    <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">Join Our Team</h1>
+                    <p class="mt-6 max-w-2xl mx-auto text-base md:text-lg text-gray-600">We are always looking for talented and motivated PhD students and postdoctoral researchers to join our lab. If you are passionate about computational chemistry, we would love to hear from you.</p>
+                   
                     <div class="mt-10">
-                        <a href="mailto:soorajk@iitm.ac.in" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        <a href="mailto:soorajk@iitm.ac.in" class="inline-block bg-blue-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1">
                             Contact Dr. Kunnikuruvan
                         </a>
                     </div>
 
                     <div class="mt-12 pt-8 border-t border-gray-200 text-gray-700 space-y-2">
-                        <p class="font-bold text-gray-900 text-lg">Computational Catalysis and Interfacial Chemistry (CCIC)</p>
-                        <p>Department of Chemistry, IIT Madras, 351 (New Building)</p>
-                        <p>Chennai, Tamil Nadu, 600036</p>
+                        <p class="font-bold text-gray-900 text-base md:text-lg">Computational Catalysis and Interfacial Chemistry (CCIC)</p>
+                        <p class="text-sm md:text-base">Department of Chemistry, IIT Madras, 351 (New Building)</p>
+                        <p class="text-sm md:text-base">Chennai, Tamil Nadu, 600036</p>
                     </div>
                 </div>
 
             </div>
         </section>
-
     </main>
 
     <footer class="bg-gray-800 text-gray-300 py-8">
@@ -131,43 +148,41 @@
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        
+        if(mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
         // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        const yearSpan = document.getElementById('current-year');
+        if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
         // Specific script for contact.html to highlight the current page nav link
         document.addEventListener('DOMContentLoaded', () => {
             const nav = document.querySelector('nav[data-current-page="contact"]');
-            const joinUsLink = nav.querySelector('a[href="contact.html"]');
-            if(joinUsLink) {
-                 joinUsLink.classList.remove('bg-blue-600', 'text-white', 'hover:bg-blue-700', 'nav-link');
-                 joinUsLink.classList.add('active', 'bg-blue-600', 'text-white', 'px-4', 'py-2', 'rounded-md');
+            
+            // Highlight the Desktop button as active
+            if(nav) {
+                const joinUsLink = nav.querySelector('a[href="contact.html"]');
+                if(joinUsLink) {
+                     // Ensure it looks active/pressed
+                     joinUsLink.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                     joinUsLink.classList.add('bg-blue-800', 'ring-2', 'ring-offset-2', 'ring-blue-600'); 
+                }
             }
 
-            // More robust active link highlighting based on current page
-            const currentPage = 'contact.html'; // Set this for each page
-            const navLinks = document.querySelectorAll('nav .nav-link');
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                     if(link.textContent === 'Join Us') {
-                        link.classList.remove('text-gray-600', 'hover:text-blue-600', 'font-medium', 'transition-colors');
-                     }
-                } else if(link.textContent === 'Join Us') {
-                    // keep default style for join us if not active
-                }
-                else {
-                    link.classList.remove('active');
-                }
-            });
-
-             const mobileLinks = document.querySelectorAll('#mobile-menu a');
-              mobileLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('bg-gray-100', 'font-semibold');
+            // Highlight mobile menu link
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+             mobileLinks.forEach(link => {
+                if (link.getAttribute('href') === 'contact.html') {
+                    // Update the button inside mobile menu
+                    const span = link.querySelector('span');
+                    if(span) {
+                        span.classList.remove('bg-blue-600');
+                        span.classList.add('bg-blue-800');
+                    }
                 }
              });
         });
@@ -186,4 +201,3 @@
     </script>
 </body>
 </html>
-
