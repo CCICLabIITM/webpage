@@ -38,7 +38,7 @@
                     </a>
                 </div>
             </div>
-            
+           
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
                 <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
@@ -72,7 +72,7 @@
     </header>
 
     <main class="pt-28 pb-20">
-        
+       
         <section class="py-12 bg-white border-b border-slate-100">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
@@ -81,7 +81,7 @@
                     <div class="h-1 w-20 bg-blue-600 mx-auto mt-4 rounded-full"></div>
                 </div>
                 <div id="funded-projects-container" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    </div>
+                   </div>
             </div>
         </section>
 
@@ -93,7 +93,7 @@
                     <div class="h-1 w-20 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
                 </div>
                 <div id="collab-projects-container" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    </div>
+                   </div>
             </div>
         </section>
 
@@ -105,7 +105,7 @@
                     <p class="mt-4 text-slate-500 max-w-2xl mx-auto">We are grateful for the support from these prestigious agencies that make our research possible.</p>
                 </div>
                 <div id="sponsors-container" class="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
-                    </div>
+                   </div>
             </div>
         </section>
 
@@ -146,7 +146,7 @@
         const COLLABORATIONS = [
             {
                 projectTitle: "Computational and Experimental Insights on the Role of ZnO Nanoplatelets Coated Separator in Stabilizing Lithium Metal Anodes",
-                partnerName: "Dr. Rosy",
+                collaborator: "Dr. Rosy",
                 institution: "IIT BHU",
                 logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxWCy6gmC9JJnfb0hrJH1IzGbSw4LVpMcf5w&s",
                 status: "Completed",
@@ -156,7 +156,7 @@
             },
             {
                 projectTitle: "Self‐Healing, Ga‐Sb Alloy Confined Sn Anode for Stable Na‐Ion Storage in Glyme Based Electrolytes",
-                partnerName: "Dr. Thangavelu Palaniselvam",
+                collaborator: "Dr. Thangavelu Palaniselvam",
                 institution: "IIT Madras",
                 logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/1200px-IIT_Madras_Logo.svg.png",
                 status: "Completed",
@@ -220,7 +220,12 @@
                 <div class="project-card bg-white border border-slate-200 rounded-3xl overflow-hidden transition-all duration-300 shadow-sm flex flex-col h-full">
                     <div class="p-8 text-center flex-grow">
                         <img src="${c.logo}" alt="${c.institution}" class="h-20 w-20 mx-auto mb-6 object-contain">
-                        <h4 class="text-indigo-600 font-bold text-lg mb-1">${c.partnerName}</h4>
+                        
+                        <span class="inline-block bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2 py-1 rounded-md mb-2 uppercase tracking-wider">
+                            Collaborator
+                        </span>
+                        
+                        <h4 class="text-slate-900 font-bold text-lg mb-1">${c.collaborator}</h4>
                         <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-6">${c.institution}</p>
                         <h3 class="text-lg font-bold text-slate-900 mb-3 leading-tight">${c.projectTitle}</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">${c.description}</p>
@@ -247,7 +252,7 @@
             // Update footer year
             const yearSpan = document.getElementById('current-year');
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
-            
+           
             // Re-init icons
             if (typeof feather !== 'undefined') feather.replace();
         }
@@ -256,5 +261,3 @@
     </script>
 </body>
 </html>
-
-
