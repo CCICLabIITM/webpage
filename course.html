@@ -14,20 +14,9 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: transparent;
+            background-color: #f8fafc; /* Applied Slate-50 background directly */
         }
         
-        /* Animated Background Canvas */
-        #canvas-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-color: #f8fafc; 
-        }
-
         .nav-link.active, .mobile-link.active {
             color: #2563eb; 
             font-weight: 600;
@@ -55,16 +44,12 @@
 </head>
 <body class="text-gray-800 relative">
 
-    <canvas id="canvas-bg"></canvas>
-
-    <!-- Navigation -->
     <header id="header" class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                     <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
                     <a href="index.html" class="text-xl font-bold text-gray-900 tracking-tight">CCIC@IITM</a>
-                    <!-- Social Icons beside CCIC as requested -->
                     <div class="flex items-center space-x-3">
                         <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
                             <i data-feather="linkedin" class="w-5 h-5"></i>
@@ -123,7 +108,6 @@
         </section>
     </main>
 
-    <!-- Footer updated to match Projects & Collaborations page -->
     <footer class="bg-gray-800 text-gray-300 py-8 relative z-10">
         <div class="container mx-auto px-6 text-center">
             <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
@@ -131,78 +115,6 @@
         </div>
     </footer>
     
-    <!-- Background Animation Logic -->
-    <script>
-        (function() {
-            const canvas = document.getElementById('canvas-bg');
-            const ctx = canvas.getContext('2d');
-            let width, height;
-            let driftX = 0;
-            let driftY = 0;
-
-            const hexSize = 50; 
-            const lineOpacity = 0.12;
-            const nodeOpacity = 0.2;
-
-            function resize() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                canvas.width = width;
-                canvas.height = height;
-            }
-
-            function drawGraphene() {
-                ctx.clearRect(0, 0, width, height);
-                driftX += 0.15;
-                driftY += 0.1;
-
-                const colWidth = hexSize * Math.sqrt(3);
-                const rowHeight = hexSize * 1.5;
-
-                ctx.save();
-                ctx.translate(driftX % colWidth - colWidth, driftY % (rowHeight * 2) - rowHeight * 2);
-
-                for (let y = -rowHeight; y < height + rowHeight * 3; y += rowHeight) {
-                    for (let x = -colWidth; x < width + colWidth * 2; x += colWidth) {
-                        const cx = x + (Math.floor(y / rowHeight) % 2 === 0 ? 0 : colWidth / 2);
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(37, 99, 235, ${lineOpacity})`;
-                        ctx.lineWidth = 1.2;
-                        for (let i = 0; i < 6; i++) {
-                            const angle = (Math.PI / 3) * i;
-                            const px = cx + hexSize * Math.cos(angle);
-                            const py = y + hexSize * Math.sin(angle);
-                            if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
-                        }
-                        ctx.closePath();
-                        ctx.stroke();
-
-                        for (let i = 0; i < 6; i++) {
-                            const angle = (Math.PI / 3) * i;
-                            const px = cx + hexSize * Math.cos(angle);
-                            const py = y + hexSize * Math.sin(angle);
-                            ctx.beginPath();
-                            ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-                            ctx.fillStyle = `rgba(37, 99, 235, ${nodeOpacity})`;
-                            ctx.fill();
-                        }
-                    }
-                }
-                ctx.restore();
-            }
-
-            function animate() {
-                drawGraphene();
-                requestAnimationFrame(animate);
-            }
-
-            window.addEventListener('resize', resize);
-            resize();
-            animate();
-        })();
-    </script>
-
-    <!-- Content Logic -->
     <script>
         const courses = [
             {
@@ -274,12 +186,12 @@
                                 <h3 class="text-2xl font-bold text-gray-900 pr-4">${level} Courses</h3>
                                 <div class="h-px bg-gradient-to-r from-blue-600 to-transparent flex-grow"></div>
                             </div>
-                            
+                           
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 ${groups[level].map(course => `
                                     <div class="course-card bg-white rounded-2xl p-7 flex flex-col h-full relative overflow-hidden group">
                                         <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-10 -mt-10 transition-all group-hover:scale-110"></div>
-                                        
+                                      
                                         <div class="flex justify-between items-start mb-6">
                                             <span class="bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-widest shadow-sm">
                                                 ${course.code}
@@ -290,7 +202,7 @@
                                         </div>
 
                                         <h4 class="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-blue-700 transition-colors">${course.title}</h4>
-                                        
+                                      
                                         <p class="text-gray-500 text-sm mb-8 flex-grow leading-relaxed">
                                             ${course.description}
                                         </p>
