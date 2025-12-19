@@ -14,18 +14,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: transparent;
-        }
-
-        /* Animated Background Canvas */
-        #canvas-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-color: #f8fafc; 
+            background-color: #f8fafc; /* Applied slate-50 background directly */
         }
 
         /* Style for the truncated excerpt on the card */
@@ -66,15 +55,12 @@
 </head>
 <body class="text-gray-800 relative">
 
-    <canvas id="canvas-bg"></canvas>
-
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                     <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover" onerror="this.style.display='none'; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=CCIC&font=inter';">
                     <a href="index.html" class="text-xl font-bold text-gray-900 tracking-tight">CCIC@IITM</a>
-                    <!-- Social Icons beside CCIC Brand -->
                     <div class="flex items-center space-x-3">
                         <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
                             <i data-feather="linkedin" class="w-5 h-5"></i>
@@ -123,12 +109,10 @@
                      <p class="mt-4 text-gray-600 max-w-2xl mx-auto glass-panel p-4 rounded-2xl">Updates on our research breakthroughs, student achievements, and academic milestones.</p>
                  </div>
                  <div id="news-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                     <!-- Dynamic news items will be rendered here -->
-                 </div>
+                     </div>
              </div>
         </section>
 
-        <!-- News Modal -->
         <div id="news-modal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 opacity-0">
             <div class="bg-white rounded-3xl max-w-3xl w-full relative shadow-2xl overflow-hidden" id="news-modal-content-wrapper">
                 <button id="news-modal-close-btn" class="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 z-10 shadow-lg transition-transform hover:scale-110">
@@ -147,7 +131,6 @@
         </div>
     </main>
 
-    <!-- Footer Updated to Match Tools Page -->
     <footer class="bg-gray-800 text-gray-300 py-8 relative z-10">
         <div class="container mx-auto px-6 text-center">
             <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
@@ -155,79 +138,6 @@
         </div>
     </footer>
     
-    <!-- Background Animation Logic -->
-    <script>
-        (function() {
-            const canvas = document.getElementById('canvas-bg');
-            const ctx = canvas.getContext('2d');
-            let width, height;
-            let driftX = 0;
-            let driftY = 0;
-
-            const hexSize = 50; 
-            const lineOpacity = 0.12;
-            const nodeOpacity = 0.2;
-
-            function resize() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                canvas.width = width;
-                canvas.height = height;
-            }
-
-            function drawGraphene() {
-                ctx.clearRect(0, 0, width, height);
-                driftX += 0.15;
-                driftY += 0.1;
-
-                const colWidth = hexSize * Math.sqrt(3);
-                const rowHeight = hexSize * 1.5;
-
-                ctx.save();
-                ctx.translate(driftX % colWidth - colWidth, driftY % (rowHeight * 2) - rowHeight * 2);
-
-                for (let y = -rowHeight; y < height + rowHeight * 3; y += rowHeight) {
-                    for (let x = -colWidth; x < width + colWidth * 2; x += colWidth) {
-                        const cx = x + (Math.floor(y / rowHeight) % 2 === 0 ? 0 : colWidth / 2);
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(37, 99, 235, ${lineOpacity})`;
-                        ctx.lineWidth = 1.2;
-
-                        for (let i = 0; i < 6; i++) {
-                            const angle = (Math.PI / 3) * i;
-                            const px = cx + hexSize * Math.cos(angle);
-                            const py = y + hexSize * Math.sin(angle);
-                            if (i === 0) ctx.moveTo(px, py);
-                            else ctx.lineTo(px, py);
-                        }
-                        ctx.closePath();
-                        ctx.stroke();
-
-                        for (let i = 0; i < 6; i++) {
-                            const angle = (Math.PI / 3) * i;
-                            const px = cx + hexSize * Math.cos(angle);
-                            const py = y + hexSize * Math.sin(angle);
-                            ctx.beginPath();
-                            ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-                            ctx.fillStyle = `rgba(37, 99, 235, ${nodeOpacity})`;
-                            ctx.fill();
-                        }
-                    }
-                }
-                ctx.restore();
-            }
-
-            function animate() {
-                drawGraphene();
-                requestAnimationFrame(animate);
-            }
-
-            window.addEventListener('resize', resize);
-            resize();
-            animate();
-        })();
-    </script>
-
     <script>
         // --- NEWS DATA ---
         const newsItems = [
@@ -354,4 +264,3 @@
     </script>
 </body>
 </html>
-
