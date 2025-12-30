@@ -10,9 +10,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖥</text></svg>">
-    <link rel="stylesheet" href="style.css"> 
+    
     <style>
-        /* Keyframes for the image slideshow on the index page */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Using the colorful background requested in original index, but can be switched to slate-50 if preferred */
+            background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #06b6d4, #10b981);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            background-attachment: fixed;
+        }
+
+        /* Header & Nav Styles matched to Publications */
+        .nav-link.active, .mobile-link.active {
+            color: #2563eb; /* Blue-600 */
+            font-weight: 600;
+            border-bottom: 2px solid #2563eb;
+        }
+        
+        .nav-link {
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        /* Slideshow Animation */
         @keyframes fadeEffect {
             0% { opacity: 0; transform: scale(1.05); }
             5% { opacity: 1; transform: scale(1); }
@@ -21,8 +42,6 @@
             100% { opacity: 0; }
         }
 
-        /* --- FIX 1: Added explicit styles for the container --- */
-        /* Without this, the absolute images might collapse or overflow */
         .slideshow-container {
             position: relative;
             width: 100%;
@@ -44,67 +63,41 @@
             transition: transform 0.5s ease-in-out;
         }
 
-        /* Apply staggered animation delays */
+        /* Staggered animation delays */
         .slideshow-image:nth-child(1) { animation-delay: 0s; }
         .slideshow-image:nth-child(2) { animation-delay: 5s; }
         .slideshow-image:nth-child(3) { animation-delay: 10s; }
         .slideshow-image:nth-child(4) { animation-delay: 15s; }
         .slideshow-image:nth-child(5) { animation-delay: 20s; }
         .slideshow-image:nth-child(6) { animation-delay: 25s; }
-        
-        /* Style for active navigation link */
-        .nav-link.active {
-            color: #2563EB; /* blue-600 */
-            font-weight: 600;
-            border-bottom: 2px solid #2563EB; 
-            padding-bottom: 2px;
-        }
-
-        /* Styles for Photo Gallery Modal */
-        #gallery-modal.hidden {
-            display: none;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .section {
-            scroll-margin-top: 80px; /* Adjust for fixed header height */
-        }
-
-        /* NEW: Colorful Animated Background */
-        .colorful-bg {
-            /* A vibrant gradient: Blue -> Purple -> Cyan -> Greenish Teal */
-            background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #06b6d4, #10b981);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            background-attachment: fixed; /* Keeps background fixed during scroll */
-        }
 
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+
+        .section {
+            scroll-margin-top: 80px;
+        }
     </style>
 </head>
 
-<body class="colorful-bg text-gray-800">
+<body class="text-gray-800 relative">
 
-    <!-- Header Updated to match News Roadmap style -->
+    <!-- Header Updated to match Publications Style -->
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo & Brand Section -->
                 <div class="flex items-center gap-2 sm:gap-4 shrink-0">
-                    <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover" onerror="this.style.display='none'; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=CCIC&font=inter';">
+                    <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover">
                     
-                    <!-- Text size matched to News page -->
+                    <!-- Text size matched -->
                     <a href="index.html" class="text-sm sm:text-lg font-bold text-gray-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
                     
-                    <!-- Social Icons: No separator line, colorful -->
-                    <div class="hidden sm:flex items-center space-x-2 sm:space-x-3 ml-2">
+                    <!-- Social Icons: Changed 'hidden sm:flex' to 'flex' to show on mobile -->
+                    <div class="flex items-center space-x-1 sm:space-x-3 ml-1 sm:ml-2">
                         <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors p-1" title="LinkedIn">
                             <i data-feather="linkedin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
@@ -113,9 +106,9 @@
                         </a>
                     </div>
                 </div>
-
+               
                 <!-- Desktop Nav (Visible from 700px upwards) -->
-                <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6" data-current-page="home">
+                <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6">
                     <a href="index.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
                     <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Research</a>
                     <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Team</a>
@@ -136,7 +129,8 @@
         </div>
 
         <!-- Mobile Menu (Dropdown for screens smaller than 700px) -->
-        <div id="mobile-menu" class="hidden min-[700px]:hidden bg-white border-t border-gray-200 shadow-lg max-h-[80vh] overflow-y-auto">
+        <!-- Added absolute positioning to overlay content like Publications page -->
+        <div id="mobile-menu" class="hidden min-[700px]:hidden bg-white border-t border-gray-200 shadow-lg max-h-[80vh] overflow-y-auto absolute w-full left-0 top-full">
             <a href="index.html" class="block py-3 px-6 text-blue-600 font-bold bg-blue-50 border-l-4 border-blue-600">Home</a>
             <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Research</a>
             <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Team</a>
@@ -148,7 +142,7 @@
             <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Teaching</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Join Us</a>
             
-            <!-- Mobile Social Links -->
+            <!-- Mobile Social Links (Kept as backup) -->
             <div class="flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden">
                 <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
                     <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
@@ -255,9 +249,9 @@
         
     </main>
 
-    <footer class="bg-gray-800 text-gray-300 py-8">
+    <footer class="bg-gray-800 text-gray-300 py-8 relative z-10">
         <div class="container mx-auto px-6 text-center">
-            <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+            <p>&copy; <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
             <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
         </div>
     </footer>
@@ -272,10 +266,9 @@
         </div>
     </div>
     
-    <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-             // Mobile Menu Logic (Copied from News Roadmap)
+             // Mobile Menu Logic
              const mbBtn = document.getElementById('mobile-menu-btn');
              const mbMenu = document.getElementById('mobile-menu');
              if(mbBtn && mbMenu) {
@@ -285,9 +278,6 @@
                  });
              }
 
-             const nav = document.querySelector('nav[data-current-page="home"]');
-             if(nav) nav.querySelector('a[href="index.html"]').classList.add('active');
-            
              feather.replace();
 
              const yearElem = document.getElementById('current-year');
@@ -295,12 +285,12 @@
                  yearElem.textContent = new Date().getFullYear();
              }
             
-             // Fallback slideshow if script.js fails to load
+             // Ensure slideshow starts effectively
              let slideIndex = 0;
              function showSlides() {
                  let slides = document.getElementsByClassName("slideshow-image");
                  if(slides.length > 0) {
-                     // CSS handles the animation
+                     // CSS handles the animation, this just confirms existence
                  }
              }
              showSlides();
