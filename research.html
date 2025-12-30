@@ -12,7 +12,10 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖥</text></svg>">
 
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f8fafc; /* Slate-50 to match News page */
+        }
         
         /* Custom Scrollbar */
         .custom-scroll::-webkit-scrollbar { width: 8px; }
@@ -21,69 +24,70 @@
         .custom-scroll::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
 
         /* Navigation Highlight */
-        .nav-link.active { color: #2563EB; font-weight: 600; position: relative; }
-        .nav-link.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background-color: #2563EB; }
+        .nav-link.active { 
+            color: #2563EB; 
+            font-weight: 600; 
+            border-bottom: 2px solid #2563EB; 
+        }
 
         /* Text Clamping */
         .clamp-text { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; }
-
-        /* Animated Background */
-        .colorful-bg {
-            background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #06b6d4, #10b981);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            background-attachment: fixed;
-        }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
     </style>
 </head>
-<body class="colorful-bg text-gray-800">
+<body class="bg-slate-50 text-gray-800">
 
-    <!-- NAVIGATION BAR -->
+    <!-- Header Updated to match News/Home Roadmap style -->
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4">
+        <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <img id="group-logo" src="IMAGE/LOGO/CCIC_logo.png" alt="Logo" class="h-12 w-auto rounded-md object-cover bg-white">
-                    <a href="index.html" class="text-xl font-bold text-gray-900 group-name truncate max-w-[200px] md:max-w-none">CCIC@IITM</a>
-                    <div class="hidden sm:flex items-center space-x-3 border-l pl-3 ml-3 border-gray-200">
-                        <a id="linkedin-link" href="#" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors"><i data-feather="linkedin" class="w-5 h-5"></i></a>
-                        <a id="email-link" href="#" class="text-gray-600 hover:text-blue-600 transition-colors"><i data-feather="mail" class="w-5 h-5"></i></a>
+                <!-- Logo & Brand Section -->
+                <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+                    <img id="group-logo" src="IMAGE/LOGO/CCIC_logo.png" alt="Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover bg-white" onerror="this.style.display='none';">
+                    
+                    <!-- Text size matched to News/Home page -->
+                    <a href="index.html" class="text-sm sm:text-lg font-bold text-gray-900 tracking-tight whitespace-nowrap group-name">CCIC@IITM</a>
+                    
+                    <!-- Social Icons: Changed 'hidden sm:flex' to 'flex' to show on mobile -->
+                    <div class="flex items-center space-x-1 sm:space-x-3 ml-1 sm:ml-2">
+                        <a id="linkedin-link" href="#" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors p-1" title="LinkedIn">
+                            <i data-feather="linkedin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                        </a>
+                        <a id="email-link" href="#" class="text-red-500 hover:text-red-700 transition-colors p-1" title="Email">
+                            <i data-feather="mail" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Desktop Menu -->
-                <nav id="desktop-nav" class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="research.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
-                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
-                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
-                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
-                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
-                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
-                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
-                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
-                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 font-semibold text-sm transition-colors shadow-md">Join Us</a>
+                <!-- Desktop Nav (Visible from 700px upwards) -->
+                <nav id="desktop-nav" class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
+                    <a href="research.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Research</a>
+                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Team</a>
+                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Publications</a>
+                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">News</a>
+                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Collaborations</a>
+                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Gallery</a>
+                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Tools</a>
+                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Teaching</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-3 py-1.5 lg:px-5 lg:py-2 rounded-full hover:bg-blue-700 transition-all text-xs lg:text-sm font-bold shadow-md shadow-blue-100 whitespace-nowrap">Join Us</a>
                 </nav>
 
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
-                    <i data-feather="menu"></i>
+                <!-- Mobile Menu Button (Visible on screens smaller than 700px) -->
+                <button id="mobile-menu-btn" class="min-[700px]:hidden p-2 rounded-md hover:bg-gray-100 text-gray-600">
+                    <i data-feather="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
-        
-        <!-- Mobile Menu Container -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 py-4 px-6 flex flex-col space-y-4 shadow-lg absolute w-full left-0">
+
+        <!-- Mobile Menu (Dropdown for screens smaller than 700px) -->
+        <div id="mobile-menu" class="hidden min-[700px]:hidden bg-white border-t border-gray-200 shadow-lg max-h-[80vh] overflow-y-auto absolute w-full left-0 top-full">
             <!-- Populated by JS -->
+             <!-- Mobile Social Links will be appended by JS or can be static here -->
         </div>
     </header>
 
     <!-- MAIN CONTENT -->
-    <main class="pt-24 min-h-screen pb-12">
+    <main class="pt-28 sm:pt-32 min-h-screen pb-12">
         <section class="bg-white/95 backdrop-blur-md py-12 md:py-16 rounded-3xl mx-4 md:mx-auto container shadow-2xl">
             <div class="px-6 md:px-12">
                 <div class="text-center mb-16">
@@ -118,7 +122,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
+    <footer class="bg-gray-800 text-gray-300 py-8 mt-12 relative z-10">
         <div class="container mx-auto px-6 text-center">
             <p>&copy; <span id="current-year"></span> <span class="group-name"></span>. All Rights Reserved.</p>
             <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
@@ -235,12 +239,35 @@ dynamics for further analysis.`
             const desktopNavLinks = document.querySelectorAll('#desktop-nav a');
             desktopNavLinks.forEach(link => {
                 const clone = link.cloneNode(true);
-                clone.className = 'text-gray-600 hover:text-blue-600 font-medium py-2 block text-center border-b border-gray-100 w-full';
-                if(link.classList.contains('bg-blue-600')) {
-                    clone.className = 'bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 font-semibold text-sm inline-block w-auto mx-auto mt-2';
+                // Updated styles for mobile menu items to match updated look
+                clone.className = 'block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500';
+                
+                if(link.classList.contains('active')) {
+                     clone.className = 'block py-3 px-6 text-blue-600 font-bold bg-blue-50 border-l-4 border-blue-600';
                 }
+                
+                // Handle "Join Us" button specific style reset for mobile list
+                if(link.textContent.trim() === 'Join Us') {
+                     // Keep it consistent or style it differently? Let's keep it as a list item for consistency in mobile dropdown
+                     clone.className = 'block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500';
+                }
+
                 mobileMenu.appendChild(clone);
             });
+            
+            // Add Social Links to Mobile Menu
+            const socialDiv = document.createElement('div');
+            socialDiv.className = 'flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden';
+            socialDiv.innerHTML = `
+                <a href="${SITE_SETTINGS.linkedin}" target="_blank" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                    <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
+                </a>
+                <a href="mailto:${SITE_SETTINGS.email}" class="text-red-500 hover:text-red-700 flex items-center gap-2">
+                    <i data-feather="mail" class="w-5 h-5"></i> Email
+                </a>
+            `;
+            mobileMenu.appendChild(socialDiv);
+
 
             // 3. Color Map
             const colorClasses = {
@@ -324,18 +351,17 @@ dynamics for further analysis.`
             modal.onclick = (e) => { if(e.target === modal) closeModal(); };
             document.onkeydown = (e) => { if(e.key === 'Escape') closeModal(); };
 
-            // 6. Mobile Menu
-            const btn = document.getElementById('mobile-menu-btn');
-            const menu = document.getElementById('mobile-menu');
-            btn.onclick = () => {
-                menu.classList.toggle('hidden');
-                const icon = menu.classList.contains('hidden') ? 'menu' : 'x';
-                btn.innerHTML = `<i data-feather="${icon}"></i>`;
-                feather.replace();
-            };
+            // 6. Mobile Menu Logic (Updated to match News/Home template logic)
+            const mbBtn = document.getElementById('mobile-menu-btn');
+            const mbMenu = document.getElementById('mobile-menu');
+            if(mbBtn && mbMenu) {
+                mbBtn.onclick = () => {
+                    mbMenu.classList.toggle('hidden');
+                    feather.replace(); // Refresh icons inside menu if needed
+                };
+            }
             feather.replace();
         });
     </script>
 </body>
 </html>
-
