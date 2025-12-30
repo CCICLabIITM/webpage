@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News | Computational Catalysis and Interfacial Chemistry | IIT Madras</title>
+    <title>News Roadmap | Computational Catalysis and Interfacial Chemistry | IIT Madras</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,14 +14,14 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Applied slate-50 background directly */
+            background-color: #f8fafc;
         }
 
         /* Style for the truncated excerpt on the card */
-        div#news-list .excerpt-container p {
+        .excerpt-container p {
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2; /* Reduced to 2 for cleaner roadmap look */
             overflow: hidden;
             text-overflow: ellipsis;
         }
@@ -50,6 +50,24 @@
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Timeline Specific Styles */
+        .timeline-line {
+            position: absolute;
+            left: 2rem;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #e2e8f0;
+            border-radius: 99px;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line {
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
     </style>
 </head>
@@ -101,20 +119,28 @@
         </div>
     </header>
 
-    <main class="pt-32">
-        <section id="news" class="section py-12 relative z-10">
-             <div class="container mx-auto px-6">
+    <main class="pt-32 pb-24 min-h-screen">
+        <section id="news" class="section relative z-10">
+             <div class="container mx-auto px-4 md:px-6">
                  <div class="text-center mb-16">
-                     <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Latest News</h1>
-                     <p class="mt-4 text-gray-600 max-w-2xl mx-auto glass-panel p-4 rounded-2xl">Updates on our research breakthroughs, student achievements, and academic milestones.</p>
+                     <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Our Journey</h1>
+                     <p class="mt-4 text-gray-600 max-w-2xl mx-auto glass-panel p-4 rounded-2xl">A roadmap of our research breakthroughs, student achievements, and academic milestones through the years.</p>
                  </div>
-                 <div id="news-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                     </div>
+                 
+                 <!-- Timeline Container -->
+                 <div class="relative max-w-6xl mx-auto pb-12">
+                     <!-- Vertical Line -->
+                     <div class="timeline-line"></div>
+                     
+                     <!-- Timeline Items will be injected here -->
+                     <div id="news-timeline"></div>
+                 </div>
              </div>
         </section>
 
+        <!-- Modal (Kept same as before) -->
         <div id="news-modal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 opacity-0">
-            <div class="bg-white rounded-3xl max-w-3xl w-full relative shadow-2xl overflow-hidden" id="news-modal-content-wrapper">
+            <div class="bg-white rounded-3xl max-w-3xl w-full relative shadow-2xl overflow-hidden transform transition-all" id="news-modal-content-wrapper">
                 <button id="news-modal-close-btn" class="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 z-10 shadow-lg transition-transform hover:scale-110">
                     <i data-feather="x" class="text-gray-800"></i>
                 </button>
@@ -142,9 +168,9 @@
         // --- NEWS DATA ---
         const newsItems = [
             { 
-                title: "Mr. Sudhin R recieves best poster award",
+                title: "Mr. Sudhin R receives best poster award",
                 date: "December 06, 2025",
-                excerpt: "We are delighted to share that Sudhin R. from our CCIC lab has been awarded the Best Poster Award at the Theoritical Chemistry Symposium held in IIT Bombay (TCS-2025).", 
+                excerpt: "We are delighted to share that Sudhin R. from our CCIC lab has been awarded the Best Poster Award at the Theoretical Chemistry Symposium held in IIT Bombay (TCS-2025).", 
                 imageUrl: "IMAGE/Awards/SudhinTCS2025.jpeg" 
             },
             { 
@@ -154,13 +180,13 @@
                 imageUrl: "https://pubs.acs.org/cms/10.1021/acsaem.5c02340/asset/images/medium/ae5c02340_0009.gif" 
             },
             { 
-                title: "Mr. Madhurja recieves best oral presentation award",
+                title: "Mr. Madhurja receives best oral presentation award",
                 date: "September 8, 2025",
                 excerpt: "We are proud to share that Madhurjya Buragohain received the Best Oral Presentation Award at the Chemistry In-House Symposium (CiHS)-2025, organized by the Department of Chemistry, IIT Madras.", 
                 imageUrl: "IMAGE/Awards/MadhurjaCiSH2025.jpeg" 
             },
             { 
-                title: "Mr. Sudhin R recieves best poster award",
+                title: "Mr. Sudhin R receives best poster award",
                 date: "August 28, 2025",
                 excerpt: "We are delighted to share that Sudhin R. from our CCIC lab has been awarded the Best Poster Award at the National Symposium on Electrochemical Science and Technology (NSEST-2025).", 
                 imageUrl: "IMAGE/Awards/sudhinNSEST.jpeg" 
@@ -178,45 +204,110 @@
                 imageUrl: "IMAGE/Awards/StutiMScAward.jpeg" 
             },
             { 
-                title: "Mr. Jogesh recieves best poster award",
+                title: "Mr. Jogesh receives best poster award",
                 date: "November 6, 2024", 
                 excerpt: "A big congratulations to Jogeswar Chhatria, who has been awarded the Best Poster in Theoretical Chemistry at the Chemistry In-House Symposium 2024.", 
                 imageUrl: "IMAGE/Awards/jogeshCiSh.jpg" 
             }
         ];
 
-        function renderNews() {
-            const list = document.getElementById('news-list');
-            if (!list) return;
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
 
-            list.innerHTML = '';
-            newsItems.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'news-card-trigger bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col cursor-pointer hover:shadow-xl hover:-translate-y-2 border border-slate-100 group';
-                
-                card.dataset.title = item.title;
-                card.dataset.date = item.date;
-                card.dataset.excerpt = item.excerpt;
-                card.dataset.image = item.imageUrl;
+        function renderRoadmap() {
+            const container = document.getElementById('news-timeline');
+            if (!container) return;
 
-                card.innerHTML = `
-                    <div class="relative overflow-hidden h-52">
-                        <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
-                    </div>
-                    <div class="p-7 flex flex-col flex-grow">
-                        <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-3">${item.date}</p>
-                        <h3 class="font-bold text-lg mb-4 text-slate-900 leading-tight group-hover:text-blue-600 transition-colors">${item.title}</h3>
-                        <div class="excerpt-container text-slate-500 text-sm mb-6 flex-grow leading-relaxed">
-                            <p>${item.excerpt}</p>
-                        </div>
-                        <div class="mt-auto flex items-center text-blue-600 text-xs font-bold uppercase tracking-wider">
-                            Read Detail <i data-feather="arrow-right" class="w-3 h-3 ml-2"></i>
-                        </div>
+            // 1. Sort items by date (newest first)
+            const sortedItems = [...newsItems].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            // 2. Group items by Year
+            const groupedByYear = {};
+            sortedItems.forEach(item => {
+                const year = new Date(item.date).getFullYear();
+                if (!groupedByYear[year]) groupedByYear[year] = [];
+                groupedByYear[year].push(item);
+            });
+
+            // 3. Get Years sorted descending
+            const years = Object.keys(groupedByYear).sort((a, b) => b - a);
+
+            let html = '';
+            let globalIndex = 0; // Used for alternating Left/Right layout across years
+
+            years.forEach(year => {
+                // Add Year Badge
+                html += `
+                    <div class="flex justify-start md:justify-center items-center mb-10 pl-8 md:pl-0 relative z-10">
+                        <span class="bg-blue-600 text-white text-lg font-bold px-6 py-2 rounded-full shadow-lg border-4 border-white">
+                            ${year}
+                        </span>
                     </div>
                 `;
-                list.appendChild(card);
+
+                // Add Items for this year
+                groupedByYear[year].forEach(item => {
+                    const isLeft = globalIndex % 2 !== 0; // Alternating layout
+                    globalIndex++;
+
+                    // Conditional classes for Desktop (Left vs Right)
+                    // Mobile is always "right" side content, spacer hidden
+                    const flexDir = isLeft ? 'md:flex-row-reverse' : 'md:flex-row';
+                    const fadeDir = isLeft ? 'fade-left' : 'fade-right'; // Potential for animation later
+                    const arrowClass = isLeft 
+                        ? 'md:right-0 md:translate-x-1/2 md:border-t-transparent md:border-r-transparent md:border-b-gray-100 md:border-l-gray-100' // Arrow on right side of card (pointing left)
+                        : 'md:left-0 md:-translate-x-1/2 md:border-t-transparent md:border-l-transparent md:border-b-gray-100 md:border-r-gray-100'; // Arrow on left side of card (pointing right)
+
+                    html += `
+                        <div class="group flex flex-col md:flex-row ${flexDir} items-center justify-between mb-12 w-full">
+                            
+                            <!-- Spacer (Desktop) -->
+                            <div class="hidden md:block w-5/12"></div>
+
+                            <!-- Center Dot -->
+                            <div class="absolute left-8 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-blue-100 shadow-md transform -translate-x-1/2 z-20 group-hover:scale-150 group-hover:bg-blue-600 transition-all duration-300"></div>
+
+                            <!-- Content Card -->
+                            <div class="w-full pl-16 md:pl-0 md:w-5/12 z-10">
+                                <div class="news-card-trigger relative bg-white border border-gray-100 p-5 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group-hover:-translate-y-1"
+                                     data-title="${item.title}"
+                                     data-date="${item.date}"
+                                     data-excerpt="${item.excerpt}"
+                                     data-image="${item.imageUrl}">
+                                    
+                                    <!-- Arrow (Desktop only visual) -->
+                                    <div class="hidden md:block absolute top-6 w-4 h-4 bg-white border border-gray-100 transform rotate-45 ${arrowClass} z-0"></div>
+
+                                    <div class="relative z-10 flex flex-col sm:flex-row gap-4">
+                                        <div class="w-full sm:w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+                                            <img src="${item.imageUrl}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Thumbnail" onerror="this.src='https://placehold.co/100x100/e2e8f0/64748b?text=News'">
+                                        </div>
+                                        <div class="flex-grow">
+                                            <div class="flex items-center text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">
+                                                <i data-feather="calendar" class="w-3 h-3 mr-1"></i> ${formatDate(item.date)}
+                                            </div>
+                                            <h3 class="font-bold text-gray-900 leading-tight mb-2 group-hover:text-blue-600 transition-colors">
+                                                ${item.title}
+                                            </h3>
+                                            <div class="excerpt-container text-gray-500 text-xs leading-relaxed mb-3">
+                                                <p>${item.excerpt}</p>
+                                            </div>
+                                            <span class="text-xs font-semibold text-blue-600 flex items-center group-hover:underline">
+                                                Read More <i data-feather="chevron-right" class="w-3 h-3 ml-1"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    `;
+                });
             });
+
+            container.innerHTML = html;
             feather.replace();
         }
 
@@ -224,8 +315,9 @@
             const yearSpan = document.getElementById('current-year');
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
             
-            renderNews();
+            renderRoadmap();
 
+            // Modal Logic (Reused)
             const newsModal = document.getElementById('news-modal');
             const openNewsModal = (card) => {
                 const { title, date, excerpt, image } = card.dataset;
@@ -243,7 +335,7 @@
                 setTimeout(() => newsModal.classList.add('hidden'), 300);
             };
 
-            document.getElementById('news-list').addEventListener('click', (e) => {
+            document.getElementById('news-timeline').addEventListener('click', (e) => {
                 const trigger = e.target.closest('.news-card-trigger');
                 if (trigger) openNewsModal(trigger);
             });
