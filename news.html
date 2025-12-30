@@ -73,53 +73,74 @@
 </head>
 <body class="text-gray-800 relative">
 
+    <!-- Header Updated for Custom Breakpoint (700px) -->
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4">
+        <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover" onerror="this.style.display='none'; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=CCIC&font=inter';">
-                    <a href="index.html" class="text-xl font-bold text-gray-900 tracking-tight">CCIC@IITM</a>
-                    <div class="flex items-center space-x-3">
-                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
-                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                <!-- Logo & Brand Section -->
+                <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+                    <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-9 sm:h-12 w-auto rounded-md object-cover" onerror="this.style.display='none'; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=CCIC&font=inter';">
+                    <a href="index.html" class="text-base sm:text-xl font-bold text-gray-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
+                    
+                    <!-- Social Icons (Hidden on very small screens, visible on sm+) -->
+                    <div class="hidden sm:flex items-center space-x-2 sm:space-x-3 ml-2 border-l pl-3 border-gray-300">
+                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors p-1" title="LinkedIn">
+                            <i data-feather="linkedin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
-                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
-                            <i data-feather="mail" class="w-5 h-5"></i>
+                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors p-1" title="Email">
+                            <i data-feather="mail" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
                     </div>
                 </div>
-                <nav class="hidden md:flex items-center space-x-8" data-current-page="news">
-                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
-                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
-                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
-                    <a href="news.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
-                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
-                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
-                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
-                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
-                    <a href="contact.html" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all text-sm font-bold shadow-md shadow-blue-100">Join Us</a>
+
+                <!-- Desktop Nav (Visible from 700px upwards) -->
+                <!-- Uses min-[700px]:flex. Spacing and text size adjusted to fit tight spaces. -->
+                <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6" data-current-page="news">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
+                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Research</a>
+                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Team</a>
+                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Publications</a>
+                    <a href="news.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">News</a>
+                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Collaborations</a>
+                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Gallery</a>
+                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Tools</a>
+                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Teaching</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-3 py-1.5 lg:px-5 lg:py-2 rounded-full hover:bg-blue-700 transition-all text-xs lg:text-sm font-bold shadow-md shadow-blue-100 whitespace-nowrap">Join Us</a>
                 </nav>
-                <button id="mobile-menu-btn" class="md:hidden">
-                    <i data-feather="menu"></i>
+
+                <!-- Mobile Menu Button (Visible on screens smaller than 700px) -->
+                <button id="mobile-menu-btn" class="min-[700px]:hidden p-2 rounded-md hover:bg-gray-100 text-gray-600">
+                    <i data-feather="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <a href="index.html" class="block py-3 px-6 text-gray-700">Home</a>
-            <a href="research.html" class="block py-3 px-6 text-gray-700">Research</a>
-            <a href="team.html" class="block py-3 px-6 text-gray-700">Team</a>
-            <a href="publications.html" class="block py-3 px-6 text-gray-700">Publications</a>
-            <a href="news.html" class="block py-3 px-6 text-blue-600 font-bold bg-blue-50">News</a>
-            <a href="collab.html" class="block py-3 px-6 text-gray-700">Collaborations</a>
-            <a href="gallery.html" class="block py-3 px-6 text-gray-700">Gallery</a>
-            <a href="softwares.html" class="block py-3 px-6 text-gray-700">Tools</a>
-            <a href="course.html" class="block py-3 px-6 text-gray-700">Teaching</a>
-            <a href="contact.html" class="block py-3 px-6 text-gray-700">Join Us</a>
+
+        <!-- Mobile Menu (Dropdown for screens smaller than 700px) -->
+        <div id="mobile-menu" class="hidden min-[700px]:hidden bg-white border-t border-gray-200 shadow-lg max-h-[80vh] overflow-y-auto">
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-blue-600 font-bold bg-blue-50 border-l-4 border-blue-600">News</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Gallery</a>
+            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Teaching</a>
+            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Join Us</a>
+            
+            <!-- Mobile Social Links (Visible in menu on small screens) -->
+            <div class="flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden">
+                <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 flex items-center gap-2">
+                    <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
+                </a>
+                <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 flex items-center gap-2">
+                    <i data-feather="mail" class="w-5 h-5"></i> Email
+                </a>
+            </div>
         </div>
     </header>
 
-    <main class="pt-32 pb-24 min-h-screen">
+    <main class="pt-28 sm:pt-32 pb-24 min-h-screen">
         <section id="news" class="section relative z-10">
              <div class="container mx-auto px-4 md:px-6">
                  <div class="text-center mb-16">
@@ -128,17 +149,24 @@
                  </div>
                  
                  <!-- Timeline Container -->
-                 <div class="relative max-w-6xl mx-auto pb-12">
+                 <div class="relative max-w-6xl mx-auto pb-6">
                      <!-- Vertical Line -->
                      <div class="timeline-line"></div>
                      
                      <!-- Timeline Items will be injected here -->
                      <div id="news-timeline"></div>
                  </div>
+
+                 <!-- Load More Button -->
+                 <div class="text-center mt-8 relative z-20">
+                     <button id="load-more-btn" class="hidden bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-md border border-gray-100 hover:bg-blue-50 hover:scale-105 transition-all duration-300 flex items-center mx-auto gap-2">
+                         See Older Posts <i data-feather="arrow-down-circle" class="w-5 h-5"></i>
+                     </button>
+                 </div>
              </div>
         </section>
 
-        <!-- Modal (Kept same as before) -->
+        <!-- Modal -->
         <div id="news-modal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 opacity-0">
             <div class="bg-white rounded-3xl max-w-3xl w-full relative shadow-2xl overflow-hidden transform transition-all" id="news-modal-content-wrapper">
                 <button id="news-modal-close-btn" class="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 z-10 shadow-lg transition-transform hover:scale-110">
@@ -216,22 +244,30 @@
             return new Date(dateString).toLocaleDateString('en-US', options);
         }
 
+        // --- PAGINATION STATE ---
+        let visibleCount = 4; // Start showing 4 items
+        const LOAD_INCREMENT = 4; // Load 4 more at a time
+
         function renderRoadmap() {
             const container = document.getElementById('news-timeline');
+            const loadMoreBtn = document.getElementById('load-more-btn');
             if (!container) return;
 
             // 1. Sort items by date (newest first)
-            const sortedItems = [...newsItems].sort((a, b) => new Date(b.date) - new Date(a.date));
+            const allSortedItems = [...newsItems].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // 2. Slice based on visible count
+            const visibleItems = allSortedItems.slice(0, visibleCount);
 
-            // 2. Group items by Year
+            // 3. Group visible items by Year
             const groupedByYear = {};
-            sortedItems.forEach(item => {
+            visibleItems.forEach(item => {
                 const year = new Date(item.date).getFullYear();
                 if (!groupedByYear[year]) groupedByYear[year] = [];
                 groupedByYear[year].push(item);
             });
 
-            // 3. Get Years sorted descending
+            // 4. Get Years sorted descending
             const years = Object.keys(groupedByYear).sort((a, b) => b - a);
 
             let html = '';
@@ -253,12 +289,10 @@
                     globalIndex++;
 
                     // Conditional classes for Desktop (Left vs Right)
-                    // Mobile is always "right" side content, spacer hidden
                     const flexDir = isLeft ? 'md:flex-row-reverse' : 'md:flex-row';
-                    const fadeDir = isLeft ? 'fade-left' : 'fade-right'; // Potential for animation later
                     const arrowClass = isLeft 
-                        ? 'md:right-0 md:translate-x-1/2 md:border-t-transparent md:border-r-transparent md:border-b-gray-100 md:border-l-gray-100' // Arrow on right side of card (pointing left)
-                        : 'md:left-0 md:-translate-x-1/2 md:border-t-transparent md:border-l-transparent md:border-b-gray-100 md:border-r-gray-100'; // Arrow on left side of card (pointing right)
+                        ? 'md:right-0 md:translate-x-1/2 md:border-t-transparent md:border-r-transparent md:border-b-gray-100 md:border-l-gray-100' 
+                        : 'md:left-0 md:-translate-x-1/2 md:border-t-transparent md:border-l-transparent md:border-b-gray-100 md:border-r-gray-100';
 
                     html += `
                         <div class="group flex flex-col md:flex-row ${flexDir} items-center justify-between mb-12 w-full">
@@ -309,12 +343,30 @@
 
             container.innerHTML = html;
             feather.replace();
+
+            // 5. Manage Button Visibility
+            if (loadMoreBtn) {
+                if (visibleCount >= allSortedItems.length) {
+                    loadMoreBtn.classList.add('hidden');
+                } else {
+                    loadMoreBtn.classList.remove('hidden');
+                }
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             const yearSpan = document.getElementById('current-year');
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
             
+            // Set up Load More Button listener
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    visibleCount += LOAD_INCREMENT;
+                    renderRoadmap();
+                });
+            }
+
             renderRoadmap();
 
             // Modal Logic (Reused)
