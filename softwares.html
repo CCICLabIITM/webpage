@@ -11,6 +11,10 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖥</text></svg>">
     <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Matches slate-50 */
+        }
         .nav-link.active {
             color: #2563EB;
             font-weight: 600;
@@ -19,64 +23,82 @@
         .github-card:hover .github-icon {
             transform: rotate(12deg) scale(1.1);
         }
+        /* Smooth mobile menu transition */
+        #mobile-menu { transition: all 0.3s ease-in-out; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-['Inter',_sans-serif]">
+<body class="bg-slate-50 text-gray-800 font-['Inter',_sans-serif]">
 
-    <!-- Header -->
-    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
-        <div class="container mx-auto px-6">
+    <!-- Header Updated to match standard template -->
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
-                    <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
-                    <!-- Added social icons beside the CCIC brand -->
-                    <div class="flex items-center space-x-3">
-                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
-                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                <!-- Logo & Brand Section -->
+                <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+                    <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover">
+                    
+                    <!-- Text size matched to News/Home page -->
+                    <a href="index.html" class="text-sm sm:text-lg font-bold text-gray-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
+                    
+                    <!-- Social Icons: Changed 'hidden sm:flex' to 'flex' to show on mobile -->
+                    <div class="flex items-center space-x-1 sm:space-x-3 ml-1 sm:ml-2">
+                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors p-1" title="LinkedIn">
+                            <i data-feather="linkedin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
-                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
-                            <i data-feather="mail" class="w-5 h-5"></i>
+                        <a href="mailto:soorajk@iitm.ac.in" class="text-red-500 hover:text-red-700 transition-colors p-1" title="Email">
+                            <i data-feather="mail" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
                     </div>
                 </div>
-
-                <!-- Navigation -->
-                <nav class="hidden md:flex items-center space-x-8" data-current-page="softwares">
-                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
-                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
-                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
-                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
-                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
-                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
-                    <a href="softwares.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
-                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
-                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all text-sm font-semibold shadow-md">Join Us</a>
+              
+                <!-- Desktop Nav (Visible from 700px upwards) -->
+                <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6" data-current-page="softwares">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
+                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Research</a>
+                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Team</a>
+                    <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Publications</a>
+                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">News</a>
+                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Collaborations</a>
+                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Gallery</a>
+                    <a href="softwares.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Tools</a>
+                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Teaching</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-3 py-1.5 lg:px-5 lg:py-2 rounded-full hover:bg-blue-700 transition-all text-xs lg:text-sm font-bold shadow-md shadow-blue-100 whitespace-nowrap">Join Us</a>
                 </nav>
 
-                <button id="mobile-menu-btn" class="md:hidden">
-                    <i data-feather="menu"></i>
+                <!-- Mobile Menu Button (Visible on screens smaller than 700px) -->
+                <button id="mobile-menu-btn" class="min-[700px]:hidden p-2 rounded-md hover:bg-gray-100 text-gray-600">
+                    <i data-feather="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Home</a>
-            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Research</a>
-            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Team</a>
-            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Publications</a>
-            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">News</a>
-            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Collaborations</a>
-            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Gallery</a>
+
+        <!-- Mobile Menu (Dropdown for screens smaller than 700px) -->
+        <div id="mobile-menu" class="hidden min-[700px]:hidden bg-white border-t border-gray-200 shadow-lg max-h-[80vh] overflow-y-auto absolute w-full left-0 top-full">
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Research</a>
+            <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
+            <a href="publications.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">News</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Gallery</a>
             <a href="softwares.html" class="block py-3 px-6 text-blue-600 font-bold bg-blue-50 border-l-4 border-blue-600">Tools</a>
-            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Teaching</a>
-            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100">Join Us</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Teaching</a>
+            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Join Us</a>
+            
+            <!-- Mobile Social Links (Kept as backup) -->
+            <div class="flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden">
+                <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                    <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
+                </a>
+                <a href="mailto:soorajk@iitm.ac.in" class="text-red-500 hover:text-red-700 flex items-center gap-2">
+                    <i data-feather="mail" class="w-5 h-5"></i> Email
+                </a>
+            </div>
         </div>
     </header>
 
-    <main class="pt-24">
+    <!-- Main Content: Updated top padding to account for fixed header -->
+    <main class="pt-28 sm:pt-32">
         <section class="section bg-white py-16">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -93,8 +115,8 @@
         </section>
     </main>
 
-    <!-- Updated Footer to match Teaching/Collaborations page -->
-    <footer class="bg-gray-800 text-gray-300 py-8">
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8 relative z-10">
         <div class="container mx-auto px-6 text-center">
             <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
             <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
@@ -234,6 +256,7 @@
             if (mobileMenuBtn && mobileMenu) {
                 mobileMenuBtn.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
+                    feather.replace();
                 });
             }
 
