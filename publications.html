@@ -14,7 +14,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Applied background color directly here */
+            background-color: #f8fafc; /* Updated to slate-50 equivalent */
         }
         
         .nav-link.active, .mobile-link.active {
@@ -39,56 +39,78 @@
         }
     </style>
 </head>
-<body class="text-gray-800 relative">
+<body class="bg-slate-50 text-gray-800 relative">
 
-    <header id="header" class="bg-white/90 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4">
+    <!-- Header Updated to match News/Home/Research/Team Roadmap style -->
+    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-12 w-auto rounded-md object-cover">
-                    <a href="index.html" class="text-xl font-bold text-gray-900">CCIC@IITM</a>
-                    <div class="flex items-center space-x-3 ml-4 border-l pl-4 border-gray-300">
-                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors" title="LinkedIn">
-                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                <!-- Logo & Brand Section -->
+                <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+                    <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover">
+                    
+                    <!-- Text size matched to News/Home page -->
+                    <a href="index.html" class="text-sm sm:text-lg font-bold text-gray-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
+                    
+                    <!-- Social Icons: Changed 'hidden sm:flex' to 'flex' to show on mobile -->
+                    <div class="flex items-center space-x-1 sm:space-x-3 ml-1 sm:ml-2">
+                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors p-1" title="LinkedIn">
+                            <i data-feather="linkedin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
-                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors" title="Email">
-                            <i data-feather="mail" class="w-5 h-5"></i>
+                        <a href="mailto:soorajk@iitm.ac.in" class="text-red-500 hover:text-red-700 transition-colors p-1" title="Email">
+                            <i data-feather="mail" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
                     </div>
                 </div>
               
-                <nav class="hidden md:flex items-center space-x-8" data-current-page="publications">
-                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Home</a>
-                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Research</a>
-                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Team</a>
-                    <a href="publications.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors">Publications</a>
-                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">News</a>
-                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Collaborations</a>
-                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Gallery</a>
-                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
-                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors">Teaching</a>
-                    <a href="contact.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all text-sm font-semibold shadow-md">Join Us</a>
+                <!-- Desktop Nav (Visible from 700px upwards) -->
+                <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6" data-current-page="publications">
+                    <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
+                    <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Research</a>
+                    <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Team</a>
+                    <a href="publications.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Publications</a>
+                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">News</a>
+                    <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Collaborations</a>
+                    <a href="gallery.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Gallery</a>
+                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Tools</a>
+                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Teaching</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-3 py-1.5 lg:px-5 lg:py-2 rounded-full hover:bg-blue-700 transition-all text-xs lg:text-sm font-bold shadow-md shadow-blue-100 whitespace-nowrap">Join Us</a>
                 </nav>
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-100 transition-colors">
-                    <i data-feather="menu" class="w-6 h-6 text-gray-700"></i>
+
+                <!-- Mobile Menu Button (Visible on screens smaller than 700px) -->
+                <button id="mobile-menu-btn" class="min-[700px]:hidden p-2 rounded-md hover:bg-gray-100 text-gray-600">
+                    <i data-feather="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Home</a>
-            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Research</a>
+
+        <!-- Mobile Menu (Dropdown for screens smaller than 700px) -->
+        <div id="mobile-menu" class="hidden min-[700px]:hidden bg-white border-t border-gray-200 shadow-lg max-h-[80vh] overflow-y-auto absolute w-full left-0 top-full">
+            <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Home</a>
+            <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Research</a>
             <a href="team.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Team</a>
-            <a href="publications.html" class="block py-3 px-6 text-blue-600 font-semibold bg-blue-50/50 border-l-4 border-blue-600 mobile-link active">Publications</a>
-            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">News</a>
-            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Collaborations</a>
-            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Gallery</a>
-            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Tools</a>
-            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Teaching</a>
-            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 mobile-link">Join Us</a>
+            <a href="publications.html" class="block py-3 px-6 text-blue-600 font-bold bg-blue-50 border-l-4 border-blue-600">Publications</a>
+            <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">News</a>
+            <a href="collab.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Collaborations</a>
+            <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Gallery</a>
+            <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Tools</a>
+            <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Teaching</a>
+            <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Join Us</a>
+            
+            <!-- Mobile Social Links -->
+            <div class="flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden">
+                <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                    <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
+                </a>
+                <a href="mailto:soorajk@iitm.ac.in" class="text-red-500 hover:text-red-700 flex items-center gap-2">
+                    <i data-feather="mail" class="w-5 h-5"></i> Email
+                </a>
+            </div>
         </div>
     </header>
 
-    <main class="pt-20">
+    <!-- Main Content: Updated top padding to account for fixed header -->
+    <main class="pt-28 sm:pt-32">
         <section id="publications" class="section py-16 md:py-24 relative z-10">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -123,21 +145,21 @@
                     <div class="md:w-1/3 flex-shrink-0 bg-gray-50 p-6 flex items-center justify-center rounded-t-xl md:rounded-l-xl md:rounded-t-none">
                         <img id="modal-image" src="" alt="Graphical abstract" class="w-full h-auto object-contain rounded-lg shadow-md max-h-96 md:max-h-full">
                     </div>
-                 
+                  
                     <div class="md:w-2/3 p-6 md:p-8">
                         <h2 id="modal-title" class="text-2xl font-bold text-gray-900 mb-4 leading-tight"></h2>
-                     
+                      
                         <div class="space-y-4 text-gray-700">
                             <div>
                                 <h4 class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-1">Authors</h4>
                                 <p id="modal-authors" class="text-base"></p>
                             </div>
-                         
+                          
                             <div>
                                 <h4 class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-1">Journal & Citation</h4>
                                 <p id="modal-citation" class="text-base font-medium"></p>
                             </div>
-                         
+                          
                             <div>
                                 <h4 class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-1">Source Link</h4>
                                 <p id="modal-domain" class="text-sm break-all font-mono bg-gray-100 p-2 rounded-lg"></p>
@@ -438,16 +460,12 @@
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuBtn.querySelector('i');
-                if (mobileMenu.classList.contains('hidden')) {
-                    icon.setAttribute('data-feather', 'menu');
-                } else {
-                    icon.setAttribute('data-feather', 'x');
-                }
-                feather.replace();
-            });
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    feather.replace();
+                });
+            }
             
             renderPublications();
             feather.replace();
