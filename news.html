@@ -79,15 +79,17 @@
             <div class="flex items-center justify-between">
                 <!-- Logo & Brand Section -->
                 <div class="flex items-center gap-2 sm:gap-4 shrink-0">
-                    <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-9 sm:h-12 w-auto rounded-md object-cover" onerror="this.style.display='none'; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=CCIC&font=inter';">
-                    <a href="index.html" class="text-base sm:text-xl font-bold text-gray-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
+                    <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover" onerror="this.style.display='none'; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=CCIC&font=inter';">
                     
-                    <!-- Social Icons (Hidden on very small screens, visible on sm+) -->
-                    <div class="hidden sm:flex items-center space-x-2 sm:space-x-3 ml-2 border-l pl-3 border-gray-300">
-                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors p-1" title="LinkedIn">
+                    <!-- Reduced text size slightly as requested (text-sm sm:text-lg) -->
+                    <a href="index.html" class="text-sm sm:text-lg font-bold text-gray-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
+                    
+                    <!-- Social Icons: Changed 'hidden sm:flex' to 'flex' to show on mobile -->
+                    <div class="flex items-center space-x-1 sm:space-x-3 ml-1 sm:ml-2">
+                        <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors p-1" title="LinkedIn">
                             <i data-feather="linkedin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
-                        <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 transition-colors p-1" title="Email">
+                        <a href="mailto:soorajk@iitm.ac.in" class="text-red-500 hover:text-red-700 transition-colors p-1" title="Email">
                             <i data-feather="mail" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         </a>
                     </div>
@@ -128,12 +130,12 @@
             <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Teaching</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Join Us</a>
             
-            <!-- Mobile Social Links (Visible in menu on small screens) -->
+            <!-- Mobile Social Links (Kept as backup) -->
             <div class="flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden">
-                <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-gray-600 hover:text-blue-600 flex items-center gap-2">
+                <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
                     <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
                 </a>
-                <a href="mailto:soorajk@iitm.ac.in" class="text-gray-600 hover:text-blue-600 flex items-center gap-2">
+                <a href="mailto:soorajk@iitm.ac.in" class="text-red-500 hover:text-red-700 flex items-center gap-2">
                     <i data-feather="mail" class="w-5 h-5"></i> Email
                 </a>
             </div>
@@ -310,7 +312,7 @@
                                      data-date="${item.date}"
                                      data-excerpt="${item.excerpt}"
                                      data-image="${item.imageUrl}">
-                                    
+                                     
                                     <!-- Arrow (Desktop only visual) -->
                                     <div class="hidden md:block absolute top-6 w-4 h-4 bg-white border border-gray-100 transform rotate-45 ${arrowClass} z-0"></div>
 
