@@ -11,7 +11,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/feather-icons"></script>
     
@@ -35,18 +35,14 @@
 </head>
 <body class="bg-slate-50 text-slate-800 relative">
 
-    <!-- Header Updated to match standard template -->
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex items-center justify-between">
-                <!-- Logo & Brand Section -->
                 <div class="flex items-center gap-2 sm:gap-4 shrink-0">
                     <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover">
                     
-                    <!-- Text size matched to News/Home page -->
                     <a href="index.html" class="text-sm sm:text-lg font-bold text-gray-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
                     
-                    <!-- Social Icons: Changed 'hidden sm:flex' to 'flex' to show on mobile -->
                     <div class="flex items-center space-x-1 sm:space-x-3 ml-1 sm:ml-2">
                         <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors p-1" title="LinkedIn">
                             <i data-feather="linkedin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
@@ -56,8 +52,7 @@
                         </a>
                     </div>
                 </div>
-              
-                <!-- Desktop Nav (Visible from 700px upwards) -->
+                
                 <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6" data-current-page="collab">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
                     <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Research</a>
@@ -71,14 +66,12 @@
                     <a href="contact.html" class="bg-blue-600 text-white px-3 py-1.5 lg:px-5 lg:py-2 rounded-full hover:bg-blue-700 transition-all text-xs lg:text-sm font-bold shadow-md shadow-blue-100 whitespace-nowrap">Join Us</a>
                 </nav>
 
-                <!-- Mobile Menu Button (Visible on screens smaller than 700px) -->
                 <button id="mobile-menu-btn" class="min-[700px]:hidden p-2 rounded-md hover:bg-gray-100 text-gray-600">
                     <i data-feather="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu (Dropdown for screens smaller than 700px) -->
         <div id="mobile-menu" class="hidden min-[700px]:hidden bg-white border-t border-gray-200 shadow-lg max-h-[80vh] overflow-y-auto absolute w-full left-0 top-full">
             <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Home</a>
             <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Research</a>
@@ -91,7 +84,6 @@
             <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Teaching</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Join Us</a>
             
-            <!-- Mobile Social Links (Kept as backup) -->
             <div class="flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden">
                 <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
                     <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
@@ -105,7 +97,6 @@
 
     <main class="pt-28 sm:pt-32 pb-12 md:pb-20">
        
-        <!-- Funded Projects Section -->
         <section class="py-12 md:py-16 bg-white border-b border-slate-100">
             <div class="max-w-7xl mx-auto px-4 md:px-6">
                 <div class="text-center mb-10 md:mb-16">
@@ -113,14 +104,11 @@
                     <p class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">Our Funded Projects</p>
                     <div class="h-1 w-16 md:w-20 bg-blue-600 mx-auto mt-4 rounded-full"></div>
                 </div>
-                <!-- Grid: 1 column on mobile, 2 on tablet, 3 on desktop -->
                 <div id="funded-projects-container" class="grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    <!-- Cards injected via JS -->
-                </div>
+                    </div>
             </div>
         </section>
 
-        <!-- Collaborations Section -->
         <section class="py-12 md:py-20 bg-slate-50">
             <div class="max-w-7xl mx-auto px-4 md:px-6">
                 <div class="text-center mb-10 md:mb-16">
@@ -128,14 +116,11 @@
                     <p class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">Featured Joint Projects</p>
                     <div class="h-1 w-16 md:w-20 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
                 </div>
-                <!-- Grid: 1 column on mobile, 2 on tablet, 3 on desktop -->
                 <div id="collab-projects-container" class="grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    <!-- Cards injected via JS -->
-                </div>
+                    </div>
             </div>
         </section>
 
-        <!-- Sponsors Section -->
         <section class="py-12 md:py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 md:px-6">
                 <div class="text-center mb-10 md:mb-16">
@@ -143,10 +128,8 @@
                     <p class="text-3xl md:text-4xl font-black text-slate-900 leading-tight">Fundings</p>
                     <p class="mt-4 text-slate-500 text-sm md:text-base max-w-2xl mx-auto px-2">We are grateful for the support from these prestigious agencies that make our research possible.</p>
                 </div>
-                <!-- Grid: 2 columns on mobile (to save space but keep logos visible) -->
                 <div id="sponsors-container" class="grid gap-4 md:gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
-                    <!-- Logos injected via JS -->
-                </div>
+                    </div>
             </div>
         </section>
 
@@ -166,42 +149,76 @@
 
         const FUNDED_PROJECTS = [
             {
-                title: "SERB Core Research Grant",
-                agency: "SERB",
+                title: "IITM(NFIG) Sponsor Project",
+                agency: "IITM(NFSG)",
+                amount: "₹ 46,512,00",
+                period: "18 Aug 2022 - 17 Aug 2025",
                 logo: "https://upload.wikimedia.org/wikipedia/en/e/e1/Science_and_Engineering_Research_Board.png",
-                status: "Ongoing",
-                description: "Investigation of electro-catalytic reduction processes using first-principles calculations.",
-                focus: "Computational Electrochemistry"
+                status: "Completed",
+                description: "Developing high -performance cathode materials for Li-ion batteries by modulating electrode - electrolyte interface",
+                focus: "Electrochemistry"
             },
             {
-                title: "DST-INSPIRE Faculty Project",
-                agency: "DST",
+                title: "IITM(NFIG) Sponsor Project",
+                agency: "IITM(NFIG)",
+                amount: "₹ 5,000,00",
+                period: "22 Jun 2022 - 21 Jun 2024",
                 logo: "https://media.umangapp.in/app/ico/service/dst-inspire.png",
-                status: "Ongoing",
-                description: "Modeling interfacial phenomena in heterogeneous catalysis for sustainable energy.",
+                status: "Completed",
+                description: "The role of ion-solvent interactions in determining the mechanism of formation and structure of solid-electrolyte interface in Li-ion batteries",
                 focus: "Interfacial Chemistry"
-            }
+            },
+            {
+                title: "DST-INSPIRE faculty fellowship",
+                agency: "DST-INSPIRE",
+                amount: "₹ 35,000,00",
+                period: "13 Oct 2020 - 12 Oct 2025",
+                logo: "https://upload.wikimedia.org/wikipedia/en/e/e1/Science_and_Engineering_Research_Board.png",
+                status: "Completed",
+                description: "Computational Studies on the Mechanism and Properties of Electrode-Electrolyte Interface in Li-ion and Post-Li-ion Batteries",
+                focus: "Electrochemistry"
+            },
+            {
+                title: "SERB-Core Research Grant",
+                agency: "SERB",
+                amount: "₹ 44,48,048",
+                period: "08 Feb 2023 - 07 Feb 2026",
+                logo: "https://upload.wikimedia.org/wikipedia/en/e/e1/Science_and_Engineering_Research_Board.png",
+                status: "Ongoing",
+                description: "Computational Studies on the Chemical Reactions at the Liquid-Liquid Interface: Applications to Cellulose-based Biofuel Production",
+                focus: "Electrochemistry"
+            },
+            {
+                title: "Pfizer Inc.",
+                agency: "Pfizer",
+                amount: "₹ 84,38,627",
+                period: "11 Dec 2023 - 10 Apr 2025",
+                logo: "https://upload.wikimedia.org/wikipedia/en/e/e1/Science_and_Engineering_Research_Board.png",
+                status: "Completed",
+                description: "An Automated Tool for Accurate pKa Prediction: Development of Computational Methodology and Graphical User Interface.",
+                focus: "Cheminformatics"
+            }            
         ];
 
         const COLLABORATIONS = [
             {
-                projectTitle: "Computational and Experimental Insights on the Role of ZnO Nanoplatelets Coated Separator in Stabilizing Lithium Metal Anodes",
+                projectTitle: "Computational and Experimental Insights on the Role of ZnO Nanoplatelets",
                 collaborator: "Dr. Rosy",
                 institution: "IIT BHU",
                 logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxWCy6gmC9JJnfb0hrJH1IzGbSw4LVpMcf5w&s",
                 status: "Completed",
                 year: "2025",
-                description: "Developing heterosurface of ZnO.",
+                description: "Developing heterosurface of ZnO Nanoplatelets Coated Separator.",
                 link: "https://doi.org/10.1002/smll.202505175"
             },
             {
-                projectTitle: "Self‐Healing, Ga‐Sb Alloy Confined Sn Anode for Stable Na‐Ion Storage in Glyme Based Electrolytes",
+                projectTitle: "Self‐Healing, Ga‐Sb Alloy Confined Sn Anode",
                 collaborator: "Dr. Thangavelu Palaniselvam",
                 institution: "IIT Madras",
                 logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/1200px-IIT_Madras_Logo.svg.png",
                 status: "Completed",
                 year: "2025",
-                description: "High-performance adsorption studies on Ga-Sb frameworks.",
+                description: "High-performance adsorption studies on Ga-Sb frameworks for Na-Ion Storage.",
                 link: "https://doi.org/10.1002/smll.202504185"
             }
         ];
@@ -237,40 +254,65 @@
             // Render Funded Projects
             const fundedContainer = document.getElementById('funded-projects-container');
             fundedContainer.innerHTML = FUNDED_PROJECTS.map(p => `
-                <div class="project-card bg-white border border-slate-200 p-6 md:p-8 rounded-3xl transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-lg">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="h-14 w-14 md:h-16 md:w-16 bg-slate-50 rounded-xl p-2 flex items-center justify-center border border-slate-100">
-                            <img src="${p.logo}" alt="${p.agency}" class="max-h-full object-contain">
+                <div class="project-card bg-white border border-slate-200 rounded-3xl overflow-hidden transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-xl group">
+                    
+                    <div class="px-6 pt-6 flex justify-between items-start">
+                        <div class="flex items-center gap-3">
+                            <div class="h-12 w-12 bg-slate-50 rounded-lg p-1.5 border border-slate-100 flex items-center justify-center">
+                                <img src="${p.logo}" alt="${p.agency}" class="max-h-full object-contain">
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest">Agency</h4>
+                                <h3 class="text-sm font-bold text-slate-900">${p.agency}</h3>
+                            </div>
                         </div>
-                        <span class="px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full ${p.status === 'Ongoing' ? 'bg-blue-100 text-blue-700' : 'bg-emerald-100 text-emerald-700'}">
+                        <span class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full ${p.status === 'Ongoing' ? 'bg-blue-50 text-blue-600 ring-1 ring-blue-100' : 'bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100'}">
                             ${p.status}
                         </span>
                     </div>
-                    <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-3 leading-snug">${p.title}</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">${p.description}</p>
-                    <div class="pt-4 border-t border-slate-50">
-                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Focus: ${p.focus}</span>
+
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors">${p.title}</h3>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-5 pb-5 border-b border-slate-100">
+                            <div>
+                                <div class="flex items-center gap-1.5 text-slate-400 mb-1">
+                                    <span class="text-sm font-bold leading-none">₹</span>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider">Amount</span>
+                                </div>
+                                <p class="font-bold text-slate-700 text-sm">${p.amount}</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-1.5 text-slate-400 mb-1">
+                                    <i data-feather="calendar" class="w-3.5 h-3.5"></i>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider">Duration</span>
+                                </div>
+                                <p class="font-bold text-slate-700 text-sm">${p.period}</p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-600 text-sm leading-relaxed">${p.description}</p>
                     </div>
                 </div>
             `).join('');
 
-            // Render Collaborations
+            // Render Collaborations (UPDATED: Removed Description and adjusted spacing)
             const collabContainer = document.getElementById('collab-projects-container');
             collabContainer.innerHTML = COLLABORATIONS.map(c => `
                 <div class="project-card bg-white border border-slate-200 rounded-3xl overflow-hidden transition-all duration-300 shadow-sm flex flex-col h-full hover:shadow-lg">
-                    <div class="p-6 md:p-8 text-center flex-grow">
+                    <div class="p-6 md:p-8 text-center flex-grow flex flex-col items-center justify-center">
                         <img src="${c.logo}" alt="${c.institution}" class="h-16 w-16 md:h-20 md:w-20 mx-auto mb-6 object-contain">
                         
-                        <!-- Collaborator Badge -->
                         <span class="inline-block bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2 py-1 rounded-md mb-2 uppercase tracking-wider">
                             Collaborator
                         </span>
                         
                         <h4 class="text-slate-900 font-bold text-base md:text-lg mb-1">${c.collaborator}</h4>
                         <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-6">${c.institution}</p>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3 leading-tight">${c.projectTitle}</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">${c.description}</p>
+                        
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-tight">${c.projectTitle}</h3>
                     </div>
+                    
                     <div class="bg-slate-50 px-6 md:px-8 py-5 flex justify-between items-center border-t border-slate-100">
                         <span class="text-xs font-bold text-slate-500">Year: ${c.year}</span>
                         <a href="${c.link}" target="_blank" class="text-indigo-600 text-sm font-bold flex items-center hover:underline">
@@ -314,4 +356,3 @@
     </script>
 </body>
 </html>
-
