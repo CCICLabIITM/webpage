@@ -7,21 +7,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖥</text></svg>">
     
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background-color: #f0f4f8; /* Slightly darker background to make white cards pop */
         }
 
         /* Style for the truncated excerpt on the card */
         .excerpt-container p {
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2; /* Reduced to 2 for cleaner roadmap look */
+            -webkit-line-clamp: 3; /* Increased for bigger cards */
             overflow: hidden;
             text-overflow: ellipsis;
         }
@@ -52,15 +52,31 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Timeline Specific Styles */
+        /* --- HIGHWAY TIMELINE STYLES --- */
         .timeline-line {
             position: absolute;
-            left: 2rem;
+            left: 1rem; /* Mobile left alignment */
             top: 0;
             bottom: 0;
+            width: 80px; /* Wide road */
+            background-color: #334155; /* Asphalt Color (Slate-700) */
+            border-left: 4px solid #f8fafc; /* White road marking */
+            border-right: 4px solid #f8fafc; /* White road marking */
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            z-index: 0;
+        }
+
+        /* The Yellow Dashed Line */
+        .timeline-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 4px;
-            background-color: #e2e8f0;
-            border-radius: 99px;
+            /* Yellow Dashes */
+            background-image: repeating-linear-gradient(to bottom, #fbbf24 0, #fbbf24 20px, transparent 20px, transparent 40px);
         }
 
         @media (min-width: 768px) {
@@ -74,17 +90,15 @@
 <body class="text-gray-800 relative">
 
     <!-- Header Updated for Custom Breakpoint (700px) -->
-    <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header id="header" class="bg-white/90 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo & Brand Section -->
                 <div class="flex items-center gap-2 sm:gap-4 shrink-0">
                     <img src="IMAGE/LOGO/CCIC_logo.png" alt="CCIC Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover" onerror="this.style.display='none'; this.src='https://placehold.co/100x100/e2e8f0/64748b?text=CCIC&font=inter';">
                     
-                    <!-- Reduced text size slightly as requested (text-sm sm:text-lg) -->
                     <a href="index.html" class="text-sm sm:text-lg font-bold text-gray-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
                     
-                    <!-- Social Icons: Changed 'hidden sm:flex' to 'flex' to show on mobile -->
                     <div class="flex items-center space-x-1 sm:space-x-3 ml-1 sm:ml-2">
                         <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors p-1" title="LinkedIn">
                             <i data-feather="linkedin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
@@ -95,8 +109,7 @@
                     </div>
                 </div>
 
-                <!-- Desktop Nav (Visible from 700px upwards) -->
-                <!-- Uses min-[700px]:flex. Spacing and text size adjusted to fit tight spaces. -->
+                <!-- Desktop Nav -->
                 <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6" data-current-page="news">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
                     <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Research</a>
@@ -110,14 +123,14 @@
                     <a href="contact.html" class="bg-blue-600 text-white px-3 py-1.5 lg:px-5 lg:py-2 rounded-full hover:bg-blue-700 transition-all text-xs lg:text-sm font-bold shadow-md shadow-blue-100 whitespace-nowrap">Join Us</a>
                 </nav>
 
-                <!-- Mobile Menu Button (Visible on screens smaller than 700px) -->
+                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="min-[700px]:hidden p-2 rounded-md hover:bg-gray-100 text-gray-600">
                     <i data-feather="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu (Dropdown for screens smaller than 700px) -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden min-[700px]:hidden bg-white border-t border-gray-200 shadow-lg max-h-[80vh] overflow-y-auto">
             <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Home</a>
             <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Research</a>
@@ -129,30 +142,22 @@
             <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Tools</a>
             <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Teaching</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Join Us</a>
-            
-            <!-- Mobile Social Links (Kept as backup) -->
-            <div class="flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden">
-                <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
-                    <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
-                </a>
-                <a href="mailto:soorajk@iitm.ac.in" class="text-red-500 hover:text-red-700 flex items-center gap-2">
-                    <i data-feather="mail" class="w-5 h-5"></i> Email
-                </a>
-            </div>
         </div>
     </header>
 
-    <main class="pt-28 sm:pt-32 pb-24 min-h-screen">
+    <main class="pt-28 sm:pt-32 pb-24 min-h-screen overflow-x-hidden">
         <section id="news" class="section relative z-10">
              <div class="container mx-auto px-4 md:px-6">
                  <div class="text-center mb-16">
-                     <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Our Journey</h1>
-                     <p class="mt-4 text-gray-600 max-w-2xl mx-auto glass-panel p-4 rounded-2xl">A roadmap of our research breakthroughs, student achievements, and academic milestones through the years.</p>
+                     <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-4">Our Journey</h1>
+                     <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto glass-panel p-6 rounded-2xl shadow-sm">
+                        Driving through our research breakthroughs, student achievements, and academic milestones.
+                     </p>
                  </div>
                  
                  <!-- Timeline Container -->
-                 <div class="relative max-w-6xl mx-auto pb-6">
-                     <!-- Vertical Line -->
+                 <div class="relative max-w-7xl mx-auto pb-6">
+                     <!-- Highway Vertical Line -->
                      <div class="timeline-line"></div>
                      
                      <!-- Timeline Items will be injected here -->
@@ -160,9 +165,9 @@
                  </div>
 
                  <!-- Load More Button -->
-                 <div class="text-center mt-8 relative z-20">
-                     <button id="load-more-btn" class="hidden bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-md border border-gray-100 hover:bg-blue-50 hover:scale-105 transition-all duration-300 flex items-center mx-auto gap-2">
-                         See Older Posts <i data-feather="arrow-down-circle" class="w-5 h-5"></i>
+                 <div class="text-center mt-12 relative z-20">
+                     <button id="load-more-btn" class="hidden bg-slate-800 text-white font-bold py-4 px-10 rounded-full shadow-lg border border-gray-700 hover:bg-black hover:scale-105 transition-all duration-300 flex items-center mx-auto gap-3 text-lg">
+                         Drive Further Back <i data-feather="arrow-down" class="w-6 h-6"></i>
                      </button>
                  </div>
              </div>
@@ -170,16 +175,16 @@
 
         <!-- Modal -->
         <div id="news-modal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 opacity-0">
-            <div class="bg-white rounded-3xl max-w-3xl w-full relative shadow-2xl overflow-hidden transform transition-all" id="news-modal-content-wrapper">
-                <button id="news-modal-close-btn" class="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 z-10 shadow-lg transition-transform hover:scale-110">
-                    <i data-feather="x" class="text-gray-800"></i>
+            <div class="bg-white rounded-3xl max-w-4xl w-full relative shadow-2xl overflow-hidden transform transition-all" id="news-modal-content-wrapper">
+                <button id="news-modal-close-btn" class="absolute top-4 right-4 bg-white/90 backdrop-blur-md rounded-full p-2 z-10 shadow-lg transition-transform hover:scale-110 hover:bg-red-50 hover:text-red-500">
+                    <i data-feather="x" class="text-gray-800 w-6 h-6"></i>
                 </button>
                 <div id="news-modal-content">
-                    <img id="news-modal-image" src="" alt="News image" class="w-full h-72 object-cover">
-                    <div class="p-8 md:p-10">
-                        <p id="news-modal-date" class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3"></p>
-                        <h2 id="news-modal-title" class="text-3xl font-extrabold text-gray-900 mb-6 leading-tight"></h2>
-                        <div id="news-modal-excerpt" class="text-gray-600 space-y-4 leading-relaxed text-lg">
+                    <img id="news-modal-image" src="" alt="News image" class="w-full h-80 md:h-96 object-cover">
+                    <div class="p-8 md:p-12">
+                        <p id="news-modal-date" class="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3"></p>
+                        <h2 id="news-modal-title" class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight"></h2>
+                        <div id="news-modal-excerpt" class="text-gray-600 space-y-6 leading-relaxed text-lg md:text-xl">
                         </div>
                     </div>
                 </div>
@@ -187,10 +192,10 @@
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-gray-300 py-8 relative z-10">
+    <footer class="bg-slate-900 text-gray-300 py-12 relative z-10">
         <div class="container mx-auto px-6 text-center">
-            <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
-            <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
+            <p class="text-lg">© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+            <p class="text-base mt-3 text-slate-500">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline font-medium">Indian Institute of Technology Madras</a></p>
         </div>
     </footer>
     
@@ -200,19 +205,19 @@
             { 
                 title: "Mr. Sudhin R receives best poster award",
                 date: "December 06, 2025",
-                excerpt: "We are delighted to share that Sudhin R. from our CCIC lab has been awarded the Best Poster Award at the Theoretical Chemistry Symposium held in IIT Bombay (TCS-2025).", 
+                excerpt: "We are delighted to share that Sudhin R. from our CCIC lab has been awarded the Best Poster Award at the Theoretical Chemistry Symposium held in IIT Bombay (TCS-2025). This recognition highlights the impactful research being conducted in our group.", 
                 imageUrl: "IMAGE/Awards/SudhinTCS2025.jpeg" 
             },
             { 
                 title: "Madhurja’s Latest Paper Publication",
                 date: "October 16, 2025",
-                excerpt: "We're happy to share our new article on solid electrolyte interphase (SEI) formation in Li metal batteries, published in ACS Applied Energy Materials.", 
+                excerpt: "We're happy to share our new article on solid electrolyte interphase (SEI) formation in Li metal batteries, published in ACS Applied Energy Materials. This work provides critical insights into battery longevity and safety mechanisms.", 
                 imageUrl: "https://pubs.acs.org/cms/10.1021/acsaem.5c02340/asset/images/medium/ae5c02340_0009.gif" 
             },
             { 
                 title: "Mr. Madhurja receives best oral presentation award",
                 date: "September 8, 2025",
-                excerpt: "We are proud to share that Madhurjya Buragohain received the Best Oral Presentation Award at the Chemistry In-House Symposium (CiHS)-2025, organized by the Department of Chemistry, IIT Madras.", 
+                excerpt: "We are proud to share that Madhurjya Buragohain received the Best Oral Presentation Award at the Chemistry In-House Symposium (CiHS)-2025, organized by the Department of Chemistry, IIT Madras. His presentation on battery interfaces was well received by the panel.", 
                 imageUrl: "IMAGE/Awards/MadhurjaCiSH2025.jpeg" 
             },
             { 
@@ -224,25 +229,25 @@
             { 
                 title: "CCIC welcomes new PhD students",
                 date: "August 1, 2025", 
-                excerpt: "We are excited to welcome Anjana Vijayan to the lab. She will be working on solid-electrolyte interfaces and computational battery modeling.", 
-                imageUrl: "https://placehold.co/400x250/3b82f6/FFFFFF?text=Welcome+Anjana" 
+                excerpt: "We are excited to welcome Anjana Vijayan to the lab. She will be working on solid-electrolyte interfaces and computational battery modeling, bringing fresh perspectives to our ongoing projects.", 
+                imageUrl: "https://placehold.co/800x600/3b82f6/FFFFFF?text=Welcome+Anjana" 
             },
             { 
                 title: "Ms. Stuti awarded the prestigious Prof. V. Ramamurthy Endowment Award",
                 date: "August 17, 2025", 
-                excerpt: "We’re delighted to share that STUTI GUPTA, an MSc student from our lab, has been awarded the prestigious Prof. V. Ramamurthy Endowment Award for Best MSc Thesis.", 
+                excerpt: "We’re delighted to share that STUTI GUPTA, an MSc student from our lab, has been awarded the prestigious Prof. V. Ramamurthy Endowment Award for Best MSc Thesis. This award recognizes exceptional academic performance and research capability.", 
                 imageUrl: "IMAGE/Awards/StutiMScAward.jpeg" 
             },
             { 
                 title: "Mr. Jogesh receives best poster award",
                 date: "November 6, 2024", 
-                excerpt: "A big congratulations to Jogeswar Chhatria, who has been awarded the Best Poster in Theoretical Chemistry at the Chemistry In-House Symposium 2024.", 
+                excerpt: "A big congratulations to Jogeswar Chhatria, who has been awarded the Best Poster in Theoretical Chemistry at the Chemistry In-House Symposium 2024. His work on catalytic mechanisms stood out among peers.", 
                 imageUrl: "IMAGE/Awards/jogeshCiSh.jpg" 
             }
         ];
 
         function formatDate(dateString) {
-            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
             return new Date(dateString).toLocaleDateString('en-US', options);
         }
 
@@ -276,11 +281,11 @@
             let globalIndex = 0; // Used for alternating Left/Right layout across years
 
             years.forEach(year => {
-                // Add Year Badge
+                // Add Year Badge (Road Sign style)
                 html += `
-                    <div class="flex justify-start md:justify-center items-center mb-10 pl-8 md:pl-0 relative z-10">
-                        <span class="bg-blue-600 text-white text-lg font-bold px-6 py-2 rounded-full shadow-lg border-4 border-white">
-                            ${year}
+                    <div class="flex justify-start md:justify-center items-center mb-16 pl-12 md:pl-0 relative z-10">
+                        <span class="bg-green-600 text-white text-2xl font-bold px-8 py-3 rounded-md shadow-xl border-4 border-white transform hover:scale-110 transition-transform">
+                            Route ${year}
                         </span>
                     </div>
                 `;
@@ -291,48 +296,84 @@
                     globalIndex++;
 
                     // Conditional classes for Desktop (Left vs Right)
+                    // Adjusted margin and padding to accommodate wide highway
                     const flexDir = isLeft ? 'md:flex-row-reverse' : 'md:flex-row';
+                    
+                    // Arrow positioning logic relative to the card box
                     const arrowClass = isLeft 
-                        ? 'md:right-0 md:translate-x-1/2 md:border-t-transparent md:border-r-transparent md:border-b-gray-100 md:border-l-gray-100' 
-                        : 'md:left-0 md:-translate-x-1/2 md:border-t-transparent md:border-l-transparent md:border-b-gray-100 md:border-r-gray-100';
+                        ? 'md:right-[-12px] md:border-t-transparent md:border-l-transparent md:border-b-white md:border-r-white' 
+                        : 'md:left-[-12px] md:border-t-transparent md:border-r-transparent md:border-b-white md:border-l-white';
 
+                    // Margin logic to push cards away from the center highway
+                    // Highway width is 80px (w-20). Center is 50%. Half highway is 40px.
+                    // We need clearance.
+                    const spacerClass = 'md:w-[50%]'; // Takes up half width (minus gap)
+                    
+                    // Card Width logic
+                    // We make cards take up most of the half-width, minus some gap for the road
+                    const cardWrapperClass = isLeft 
+                        ? 'pr-0 md:pl-16' // If content is on LEFT (flex-row-reverse), padding on Left
+                        : 'pl-16 md:pr-16 md:pl-0'; // If content is on RIGHT (flex-row), padding on Left for mobile, Right for desktop? No wait.
+                        
+                    // Let's simplify the structure.
+                    // Container: Flex Row.
+                    // Left Side: 45% width. Right Side: 45% Width. Gap 10%.
+                    
                     html += `
-                        <div class="group flex flex-col md:flex-row ${flexDir} items-center justify-between mb-12 w-full">
+                        <div class="group flex flex-col md:flex-row ${flexDir} items-center justify-between mb-20 w-full relative">
                             
-                            <!-- Spacer (Desktop) -->
-                            <div class="hidden md:block w-5/12"></div>
+                            <!-- Empty Space on opposite side -->
+                            <div class="hidden md:block w-1/2"></div>
 
-                            <!-- Center Dot -->
-                            <div class="absolute left-8 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-blue-100 shadow-md transform -translate-x-1/2 z-20 group-hover:scale-150 group-hover:bg-blue-600 transition-all duration-300"></div>
+                            <!-- Center Connection Dot (Traffic Light / Waypoint) -->
+                            <div class="absolute left-5 md:left-1/2 w-8 h-8 bg-white rounded-full border-[6px] border-slate-700 shadow-lg transform -translate-x-1/2 z-20 flex items-center justify-center">
+                                <div class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+                            </div>
 
-                            <!-- Content Card -->
-                            <div class="w-full pl-16 md:pl-0 md:w-5/12 z-10">
-                                <div class="news-card-trigger relative bg-white border border-gray-100 p-5 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group-hover:-translate-y-1"
+                            <!-- Content Card Wrapper -->
+                            <!-- We use w-full md:w-1/2 to take up half the container width -->
+                            <!-- We add padding to create the gap from the center line -->
+                            <div class="w-full pl-16 md:pl-0 md:w-1/2 z-10 box-border ${isLeft ? 'md:pr-14' : 'md:pl-14'}">
+                                
+                                <div class="news-card-trigger relative bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer group-hover:-translate-y-2 overflow-hidden border border-gray-100 h-full flex flex-col"
                                      data-title="${item.title}"
-                                     data-date="${item.date}"
+                                     data-date="${formatDate(item.date)}"
                                      data-excerpt="${item.excerpt}"
                                      data-image="${item.imageUrl}">
                                      
-                                    <!-- Arrow (Desktop only visual) -->
-                                    <div class="hidden md:block absolute top-6 w-4 h-4 bg-white border border-gray-100 transform rotate-45 ${arrowClass} z-0"></div>
+                                    <!-- Decorative Arrow pointing to road -->
+                                    <div class="hidden md:block absolute top-12 w-6 h-6 bg-white transform rotate-45 ${arrowClass} z-0 shadow-sm"></div>
 
-                                    <div class="relative z-10 flex flex-col sm:flex-row gap-4">
-                                        <div class="w-full sm:w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
-                                            <img src="${item.imageUrl}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Thumbnail" onerror="this.src='https://placehold.co/100x100/e2e8f0/64748b?text=News'">
-                                        </div>
-                                        <div class="flex-grow">
-                                            <div class="flex items-center text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">
+                                    <!-- BIG IMAGE ON TOP -->
+                                    <div class="w-full h-56 overflow-hidden relative">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                                        <img src="${item.imageUrl}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="News Image" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=CCIC+News'">
+                                        
+                                        <!-- Date Badge Floating on Image -->
+                                        <div class="absolute bottom-4 left-4 z-20">
+                                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-600 text-white shadow-lg">
                                                 <i data-feather="calendar" class="w-3 h-3 mr-1"></i> ${formatDate(item.date)}
-                                            </div>
-                                            <h3 class="font-bold text-gray-900 leading-tight mb-2 group-hover:text-blue-600 transition-colors">
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- CARD CONTENT -->
+                                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between bg-white relative z-10">
+                                        <div>
+                                            <h3 class="text-xl md:text-2xl font-bold text-gray-900 leading-tight mb-3 group-hover:text-blue-700 transition-colors">
                                                 ${item.title}
                                             </h3>
-                                            <div class="excerpt-container text-gray-500 text-xs leading-relaxed mb-3">
+                                            <div class="excerpt-container text-gray-600 text-sm md:text-base leading-relaxed mb-6">
                                                 <p>${item.excerpt}</p>
                                             </div>
-                                            <span class="text-xs font-semibold text-blue-600 flex items-center group-hover:underline">
-                                                Read More <i data-feather="chevron-right" class="w-3 h-3 ml-1"></i>
+                                        </div>
+                                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
+                                            <span class="text-sm font-bold text-blue-600 flex items-center group-hover:underline">
+                                                Read Full Story <i data-feather="arrow-right" class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"></i>
                                             </span>
+                                            <div class="p-2 bg-gray-50 rounded-full text-gray-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                                                <i data-feather="plus" class="w-5 h-5"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -371,14 +412,14 @@
 
             renderRoadmap();
 
-            // Modal Logic (Reused)
+            // Modal Logic
             const newsModal = document.getElementById('news-modal');
             const openNewsModal = (card) => {
                 const { title, date, excerpt, image } = card.dataset;
                 document.getElementById('news-modal-image').src = image;
                 document.getElementById('news-modal-date').textContent = date;
                 document.getElementById('news-modal-title').textContent = title;
-                document.getElementById('news-modal-excerpt').innerHTML = excerpt.split('\n').map(p => `<p>${p}</p>`).join('');
+                document.getElementById('news-modal-excerpt').innerHTML = excerpt.split('\n').map(p => `<p class="mb-4">${p}</p>`).join('');
 
                 newsModal.classList.remove('hidden');
                 setTimeout(() => newsModal.classList.remove('opacity-0'), 10);
