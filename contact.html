@@ -57,7 +57,7 @@
                         </a>
                     </div>
                 </div>
-            
+           
                 <!-- Desktop Nav (Visible from 700px upwards) -->
                 <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6" data-current-page="contact">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
@@ -108,23 +108,48 @@
     <main class="pt-28 sm:pt-32 pb-12">
         <section id="contact" class="section py-10 md:py-20 flex items-center justify-center">
             <div class="container mx-auto px-6 text-center">
-                
+               
                 <!-- Glassmorphism Card Container -->
                 <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-16">
                     <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">Join Our Team</h1>
                     <p class="mt-6 max-w-2xl mx-auto text-base md:text-lg text-gray-600">We are always looking for talented and motivated PhD students and postdoctoral researchers to join our lab. If you are passionate about computational chemistry, we would love to hear from you.</p>
                     
-                    <div class="mt-10">
-                        <a href="mailto:soorajk@iitm.ac.in" class="inline-block bg-blue-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1">
-                            Contact Dr. Kunnikuruvan
-                        </a>
-                    </div>
-
-                    <div class="mt-12 pt-8 border-t border-gray-200 text-gray-700 space-y-2">
+                    <!-- Replaced Contact Button with Address Details -->
+                    <div class="mt-10 text-gray-700 space-y-2">
                         <p class="font-bold text-gray-900 text-base md:text-lg">Computational Catalysis and Interfacial Chemistry (CCIC)</p>
                         <p class="text-sm md:text-base">Department of Chemistry, IIT Madras, 351 (New Building)</p>
                         <p class="text-sm md:text-base">Chennai, Tamil Nadu, 600036</p>
                     </div>
+
+                    <!-- Moved Cards Section Here -->
+                    <div class="mt-12">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            
+                            <!-- Email Card -->
+                            <div class="bg-blue-50/70 p-4 rounded-xl border-2 border-blue-200 shadow-md hover:shadow-lg hover:shadow-blue-200 transition-shadow duration-300 flex flex-col items-center space-y-2">
+                                <i data-feather="mail" class="w-8 h-8 text-blue-600"></i>
+                                <span class="text-sm font-semibold text-gray-600">Email Address</span>
+                                <a href="mailto:soorajk@iitm.ac.in" class="text-blue-800 font-bold text-lg truncate hover:text-blue-900 transition-colors w-full">soorajk@iitm.ac.in</a>
+                            </div>
+
+                            <!-- Phone Card -->
+                            <div class="bg-green-50/70 p-4 rounded-xl border-2 border-green-200 shadow-md hover:shadow-lg hover:shadow-green-200 transition-shadow duration-300 flex flex-col items-center space-y-2">
+                                <i data-feather="phone" class="w-8 h-8 text-green-600"></i>
+                                <span class="text-sm font-semibold text-gray-600">Phone</span>
+                                <span class="text-green-800 font-bold text-lg whitespace-nowrap">+91-44-2257-4245</span>
+                            </div>
+
+                            <!-- Location Card -->
+                            <div class="bg-slate-50/70 p-4 rounded-xl border-2 border-slate-200 shadow-md hover:shadow-lg hover:shadow-slate-200 transition-shadow duration-300 flex flex-col items-center space-y-2">
+                                <i data-feather="map-pin" class="w-8 h-8 text-slate-600"></i>
+                                <span class="text-sm font-semibold text-gray-600">Lab Location</span>
+                                <a href="https://www.google.com/maps/place/Department+of+Chemistry/@12.9881348,80.2324006,21z/data=!4m10!1m2!2m1!1schemistry+department+iit+madras!3m6!1s0x3a525d8020b71665:0x94cb18c14f82268c!8m2!3d12.9881261!4d80.2325725!15sCh9jaGVtaXN0cnkgZGVwYXJ0bWVudCBpaXQgbWFkcmFzkgEVdW5pdmVyc2l0eV9kZXBhcnRtZW50qgFTCgkvbS8wZ3l4d2QQATIfEAEiG7adv6xgP-jLWrkfNa6NEFSJ2mxAhOLdItjFLjIjEAIiH2NoZW1pc3RyeSBkZXBhcnRtZW50IGlpdCBtYWRyYXPgAQA!16s%2Fg%2F1hm3vdcwb?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-slate-800 font-bold text-lg hover:text-slate-900 transition-colors">View on Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Moved Cards Section -->
+
+                    <!-- Previous Footer Location (Removed) -->
                 </div>
 
             </div>
@@ -186,5 +211,3 @@
     </script>
 </body>
 </html>
-
-
