@@ -21,7 +21,6 @@
         }
 
         .animated-gradient {
-            /* Soft scientific colors: Light Blue, Light Teal, Pale Indigo, White */
             background: linear-gradient(-45deg, #e0f2fe, #f0fdf4, #eef2ff, #f8fafc);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -33,24 +32,28 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Smooth mobile menu transition */
+        /* Modal Animations */
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-zoom {
+            animation: zoomIn 0.3s ease-out forwards;
+        }
+        
         #mobile-menu { transition: all 0.3s ease-in-out; }
     </style>
 </head>
 <body class="animated-gradient text-gray-800 min-h-screen flex flex-col">
 
-    <!-- Header Updated to match standard template -->
+    <!-- Header -->
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo & Brand Section -->
                 <div class="flex items-center gap-2 sm:gap-4 shrink-0">
                     <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover">
-                    
-                    <!-- Text size matched to News/Home page -->
                     <a href="index.html" class="text-sm sm:text-lg font-bold text-gray-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
-                    
-                    <!-- Social Icons: Changed 'hidden sm:flex' to 'flex' to show on mobile -->
                     <div class="flex items-center space-x-1 sm:space-x-3 ml-1 sm:ml-2">
                         <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors p-1" title="LinkedIn">
                             <i data-feather="linkedin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
@@ -61,28 +64,28 @@
                     </div>
                 </div>
                
-                <!-- Desktop Nav (Visible from 700px upwards) -->
-                <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6" data-current-page="gallery">
+                <!-- Desktop Nav -->
+                <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
                     <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Research</a>
                     <a href="team.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Team</a>
                     <a href="publications.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Publications</a>
-                     <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Teaching</a>
+                    <a href="course.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Teaching</a>
                     <a href="collab.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Fundings</a>
-                     <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Tools</a>
-                        <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">News</a>
+                    <a href="softwares.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Tools</a>
+                    <a href="news.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">News</a>
                     <a href="gallery.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Gallery</a>
                     <a href="contact.html" class="bg-blue-600 text-white px-3 py-1.5 lg:px-5 lg:py-2 rounded-full hover:bg-blue-700 transition-all text-xs lg:text-sm font-bold shadow-md shadow-blue-100 whitespace-nowrap">Join Us</a>
                 </nav>
 
-                <!-- Mobile Menu Button (Visible on screens smaller than 700px) -->
+                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="min-[700px]:hidden p-2 rounded-md hover:bg-gray-100 text-gray-600">
                     <i data-feather="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu (Dropdown for screens smaller than 700px) -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden min-[700px]:hidden bg-white border-t border-gray-200 shadow-lg max-h-[80vh] overflow-y-auto absolute w-full left-0 top-full">
             <a href="index.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Home</a>
             <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Research</a>
@@ -94,20 +97,10 @@
             <a href="softwares.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Tools</a>
             <a href="course.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Teaching</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Join Us</a>
-            
-            <!-- Mobile Social Links (Kept as backup) -->
-            <div class="flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden">
-                <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
-                    <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
-                </a>
-                <a href="mailto:soorajk@iitm.ac.in" class="text-red-500 hover:text-red-700 flex items-center gap-2">
-                    <i data-feather="mail" class="w-5 h-5"></i> Email
-                </a>
-            </div>
         </div>
     </header>
 
-    <!-- Main Content: Updated top padding to account for fixed header -->
+    <!-- Main Content -->
     <main class="pt-28 sm:pt-32 flex-grow">
         <section id="gallery" class="section bg-transparent py-12 md:py-20">
             <div class="container mx-auto px-4 md:px-6">
@@ -120,9 +113,9 @@
                     <!-- Gallery Items Injected via JS -->
                 </div>
 
-                <!-- ADDED: Google Photos Button (Moved to bottom) -->
+                <!-- Google Photos Button -->
                 <div class="mt-16 flex justify-center">
-                    <a href="https://photos.app.goo.gl/d2Z4pQ4D8R3AtJo6A" target="_blank" class="group inline-flex items-center px-8 py-4 bg-white border border-gray-200 rounded-full shadow-lg hover:shadow-xl hover:border-blue-300 transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="YOUR_GOOGLE_ALBUM_LINK_HERE" target="_blank" class="group inline-flex items-center px-8 py-4 bg-white border border-gray-200 rounded-full shadow-lg hover:shadow-xl hover:border-blue-300 transition-all duration-300 transform hover:-translate-y-1">
                         <div class="bg-blue-100 p-2 rounded-full mr-3 group-hover:bg-blue-600 transition-colors duration-300">
                             <i data-feather="image" class="h-5 w-5 text-blue-600 group-hover:text-white transition-colors duration-300"></i>
                         </div>
@@ -133,23 +126,35 @@
                         <i data-feather="arrow-right" class="ml-4 h-5 w-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-300"></i>
                     </a>
                 </div>
-                <!-- End of Button -->
-
             </div>
         </section>
         
-        <!-- Modal -->
-        <div id="gallery-modal" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
-            <div class="bg-white rounded-xl overflow-hidden max-w-5xl max-h-[90vh] w-full flex flex-col shadow-2xl relative">
-                <button id="modal-close-btn" class="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 z-10 transition-colors">
-                    <i data-feather="x" class="w-6 h-6"></i>
-                </button>
-                <div class="flex-grow overflow-hidden bg-black flex items-center justify-center">
-                    <img id="modal-image" src="" alt="Gallery image" class="max-w-full max-h-[80vh] object-contain">
-                </div>
-                <div class="bg-white p-4 md:p-6">
-                    <p id="modal-caption" class="text-center text-gray-800 font-medium text-sm md:text-base"></p>
-                </div>
+        <!-- Enhanced Immersive Modal -->
+        <div id="gallery-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm transition-all duration-300 opacity-0">
+            
+            <!-- Close Button -->
+            <button id="modal-close-btn" class="absolute top-4 right-4 md:top-6 md:right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-all duration-300 backdrop-blur-md z-50 ring-1 ring-white/10 hover:ring-white/30">
+                <i data-feather="x" class="w-6 h-6 md:w-8 md:h-8"></i>
+            </button>
+
+            <!-- Navigation Buttons -->
+            <button id="prev-btn" class="absolute left-2 md:left-6 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-3 transition-all duration-300 backdrop-blur-md z-50 ring-1 ring-white/10 hover:ring-white/30 hidden md:block hover:scale-110">
+                <i data-feather="chevron-left" class="w-6 h-6 md:w-8 md:h-8"></i>
+            </button>
+            <button id="next-btn" class="absolute right-2 md:right-6 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-3 transition-all duration-300 backdrop-blur-md z-50 ring-1 ring-white/10 hover:ring-white/30 hidden md:block hover:scale-110">
+                <i data-feather="chevron-right" class="w-6 h-6 md:w-8 md:h-8"></i>
+            </button>
+
+            <!-- Image Container -->
+            <div class="relative w-full h-full flex items-center justify-center p-4 md:p-12 pb-24 md:pb-12">
+                <img id="modal-image" src="" alt="Gallery View" class="max-h-full max-w-full object-contain shadow-2xl rounded-sm transition-transform duration-300 select-none">
+            </div>
+
+            <!-- Floating Caption -->
+            <div id="modal-caption-container" class="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 bg-black/60 backdrop-blur-xl text-white px-8 py-4 rounded-2xl border border-white/10 max-w-[90%] md:max-w-2xl text-center shadow-2xl transition-all duration-300">
+                <p id="modal-caption" class="text-sm md:text-base font-light tracking-wide leading-relaxed"></p>
+                <!-- Image Counter -->
+                <p id="image-counter" class="text-xs text-gray-400 mt-1 font-mono uppercase tracking-widest"></p>
             </div>
         </div>
 
@@ -172,8 +177,11 @@
             { src: "IMAGE/Gallery/29July_2023.png", caption: "" },
             { src: "IMAGE/Gallery/07August_2023.png", caption: "" },
             { src: "IMAGE/Gallery/21_September_2023.png", caption: "" },
+            { src: "https://photos.fife.usercontent.google.com/pw/AP1GczOO-KYdOlXCL3x2_Mj4B_JX4835rwm4Mt4Ii2DXSLdXSaQ8x2ff7JM=w1171-h879-s-no?authuser=2", caption: "" },
             { src: "IMAGE/Gallery/10Oct_2023.png", caption: "Great vibes, amazing team • Lab dinner • 10/10/23" }
         ];
+
+        let currentImageIndex = 0;
 
         // Rendering Logic
         function renderGallery() {
@@ -183,7 +191,7 @@
             grid.innerHTML = galleryImages.map((img, index) => `
                 <div class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl cursor-pointer bg-white border border-gray-100 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]" onclick="openModal(${index})">
                     <div class="aspect-square overflow-hidden relative">
-                        <img src="${img.src}" alt="Gallery Image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/e2e8f0/1e293b?text=Photo';">
+                        <img src="${img.src}" loading="lazy" alt="Gallery Image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/e2e8f0/1e293b?text=Photo';">
                         
                         <!-- Overlay -->
                         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
@@ -202,31 +210,107 @@
             if (typeof feather !== 'undefined') feather.replace();
         }
 
-        // Modal Logic
+        // --- Enhanced Modal Logic ---
         const modal = document.getElementById('gallery-modal');
         const modalImg = document.getElementById('modal-image');
         const modalCaption = document.getElementById('modal-caption');
+        const imgCounter = document.getElementById('image-counter');
         const closeBtn = document.getElementById('modal-close-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+
+        function updateModalContent() {
+            const img = galleryImages[currentImageIndex];
+            
+            // Fade out image slightly before switching (optional, for simple switch we just swap)
+            modalImg.src = img.src;
+            modalCaption.textContent = img.caption || "";
+            imgCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+            
+            // Hide caption container if empty
+            const captionContainer = document.getElementById('modal-caption-container');
+            if(!img.caption) {
+                captionContainer.classList.add('opacity-0');
+            } else {
+                captionContainer.classList.remove('opacity-0');
+            }
+        }
 
         function openModal(index) {
-            const img = galleryImages[index];
-            modalImg.src = img.src;
-            modalCaption.textContent = img.caption;
+            currentImageIndex = index;
+            updateModalContent();
+            
             modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            // Allow layout to repaint before adding opacity for transition
+            requestAnimationFrame(() => {
+                modal.classList.remove('opacity-0');
+                modalImg.classList.add('modal-zoom');
+            });
+            
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            modal.classList.add('hidden');
-            document.body.style.overflow = ''; // Restore background scrolling
+            modal.classList.add('opacity-0');
+            modalImg.classList.remove('modal-zoom');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Match transition duration
+            
+            document.body.style.overflow = '';
         }
 
-        if(closeBtn) closeBtn.addEventListener('click', closeModal);
-        if(modal) {
-             modal.addEventListener('click', (e) => {
-                if(e.target === modal) closeModal();
-            });
+        function nextImage(e) {
+            if(e) e.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateModalContent();
         }
+
+        function prevImage(e) {
+            if(e) e.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateModalContent();
+        }
+
+        // Event Listeners
+        if(closeBtn) closeBtn.addEventListener('click', closeModal);
+        if(nextBtn) nextBtn.addEventListener('click', nextImage);
+        if(prevBtn) prevBtn.addEventListener('click', prevImage);
+
+        if(modal) {
+            // Close on backdrop click
+            modal.addEventListener('click', (e) => {
+                if(e.target === modal || e.target.classList.contains('flex')) closeModal();
+            });
+            
+            // Swipe support for touch devices
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            modal.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            modal.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) nextImage();
+                if (touchEndX > touchStartX + 50) prevImage();
+            }
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('hidden')) return;
+            
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
