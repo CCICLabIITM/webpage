@@ -64,7 +64,7 @@
                         </a>
                     </div>
                 </div>
-              
+               
                 <!-- Desktop Nav (Visible from 700px upwards) -->
                 <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6" data-current-page="course">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
@@ -109,7 +109,7 @@
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Teaching</h2>
                 <p class="mt-4 text-gray-600 font-medium max-w-2xl mx-auto glass-header p-4 rounded-2xl shadow-sm">
-                    List of courses taught by Dr. Sooraj K. at IIT Madras
+                    List of courses taught by Dr. Sooraj at IIT Madras
                 </p>
             </div>
         </section>
@@ -144,25 +144,25 @@
                 semester: "Autumn 2026",
             },
             {
-                level: "M.Sc",
+                level: "M.Sc & Ph.D",
                 code: "CY5017",
                 title: "Principles of Quantum Mechanics",
                 semester: "Autumn 2026",
             },
             {
-                level: "M.Sc",
+                level: "M.Sc & Ph.D",
                 code: "CY5018",
                 title: "Chemical Bonding and Group Theory",
                 semester: "Spring 2026",
             },
             {
-                level: "M.Sc",
+                level: "M.Sc & Ph.D",
                 code: "CY5021",
                 title: "Introductory Computational Chemistry Laboratory",
                 semester: "Autumn 2026",
             },
             {
-                level: "M.Sc",
+                level: "M.Sc & Ph.D",
                 code: "CY6128",
                 title: "Computational Quantum Chemistry and Molecular Simulations",
                 semester: "Autumn 2026",
@@ -193,7 +193,8 @@
                 return acc;
             }, {});
 
-            const order = ["B.Tech", "M.Sc", "BS-MS"];
+            // Updated order to include "M.Sc & Ph.D"
+            const order = ["B.Tech", "M.Sc & Ph.D", "BS-MS"];
             let html = '';
             let globalCardIndex = 0; // To ensure colors cycle smoothly across sections
 
