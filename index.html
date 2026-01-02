@@ -14,7 +14,6 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            /* Using the colorful background requested in original index, but can be switched to slate-50 if preferred */
             background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #06b6d4, #10b981);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -85,18 +84,14 @@
 
 <body class="text-gray-800 relative">
 
-    <!-- Header Updated to match Publications Style -->
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex items-center justify-between">
-                <!-- Logo & Brand Section -->
                 <div class="flex items-center gap-2 sm:gap-4 shrink-0">
                     <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover">
                     
-                    <!-- Text size matched -->
                     <a href="index.html" class="text-sm sm:text-lg font-bold text-gray-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
                     
-                    <!-- Social Icons: Changed 'hidden sm:flex' to 'flex' to show on mobile -->
                     <div class="flex items-center space-x-1 sm:space-x-3 ml-1 sm:ml-2">
                         <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors p-1" title="LinkedIn">
                             <i data-feather="linkedin" class="w-4 h-4 sm:w-5 sm:h-5"></i>
@@ -106,8 +101,7 @@
                         </a>
                     </div>
                 </div>
-               
-                <!-- Desktop Nav (Visible from 700px upwards) -->
+              
                 <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6">
                     <a href="index.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
                     <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Research</a>
@@ -121,15 +115,12 @@
                     <a href="contact.html" class="bg-blue-600 text-white px-3 py-1.5 lg:px-5 lg:py-2 rounded-full hover:bg-blue-700 transition-all text-xs lg:text-sm font-bold shadow-md shadow-blue-100 whitespace-nowrap">Join Us</a>
                 </nav>
 
-                <!-- Mobile Menu Button (Visible on screens smaller than 700px) -->
                 <button id="mobile-menu-btn" class="min-[700px]:hidden p-2 rounded-md hover:bg-gray-100 text-gray-600">
                     <i data-feather="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu (Dropdown for screens smaller than 700px) -->
-        <!-- Added absolute positioning to overlay content like Publications page -->
         <div id="mobile-menu" class="hidden min-[700px]:hidden bg-white border-t border-gray-200 shadow-lg max-h-[80vh] overflow-y-auto absolute w-full left-0 top-full">
             <a href="index.html" class="block py-3 px-6 text-blue-600 font-bold bg-blue-50 border-l-4 border-blue-600">Home</a>
             <a href="research.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Research</a>
@@ -141,8 +132,7 @@
             <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">News</a>
             <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Gallery</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Join Us</a>
-            
-            <!-- Mobile Social Links (Kept as backup) -->
+           
             <div class="flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden">
                 <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
                     <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
@@ -164,7 +154,7 @@
                 </div>
                 <div class="absolute inset-0 bg-black/60"></div>
             </div>
-            
+           
             <div class="container mx-auto px-6 py-20 md:py-32 text-center relative z-10">
                 <h1 class="text-4xl md:text-6xl font-bold leading-tight">Computational Catalysis and Interfacial Chemistry (CCIC)</h1>
                 <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">Machine Learning • ab initio MD • Classical MD • Metadynamics • DFT</p>
@@ -188,59 +178,6 @@
                     the discovery and optimization of catalytic materials and interfacial chemistries.
                     Through this multidisciplinary approach, we aim to address fundamental challenges
                     in energy sustainability and contribute to the development of next-generation catalytic and energy storage technologies.</p>
-                <div class="mt-10">
-                    <a href="team.html" class="text-blue-600 font-semibold hover:text-blue-700 flex items-center justify-center space-x-2">
-                        <span>Meet Our Students and Alumni</span>
-                        <i data-feather="arrow-right" class="w-5 h-5"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section bg-white/80 backdrop-blur-md py-16">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Principal Investigator</h2>
-                <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-                    
-                    <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
-                        <div class="flex-shrink-0">
-                            <img src="IMAGE/PROFILE/soorajK.jpg" 
-                                 onerror="this.onerror=null;this.src='https://placehold.co/160x160/2563EB/fff?text=PI+Photo';" 
-                                 alt="Dr. Sooraj Kunnikuruvan" 
-                                 class="w-40 h-40 object-cover rounded-full border-4 border-blue-600 shadow-md mx-auto md:mx-0">
-                        </div>
-
-                        <div class="flex-grow text-center md:text-left">
-                            <h3 class="text-3xl font-bold text-gray-900">Dr. Sooraj Kunnikuruvan</h3>
-                            <p class="text-lg text-blue-600 mb-6">Assistant Professor, Department of Chemistry</p>
-                            <p class="text-lg text-blue-600 mb-6">Office: Chemistry Old Building (209B)</p>
-                            <p class="text-lg text-blue-600 mb-6">Lab: Chemistry New Building (351)</p>
-                            <p class="text-lg text-blue-600 mb-6">Indian Institute of Technology Madras Chennai-600036, INDIA</p>
-                        </div>
-                    </div>
-                    
-                    <h4 class="text-2xl font-bold text-center text-gray-900 mt-8 mb-6 border-t pt-6">Principal Investigator Contact</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                        
-                        <div class="bg-blue-50/70 p-4 rounded-xl border-2 border-blue-200 shadow-md hover:shadow-lg hover:shadow-blue-200 transition-shadow duration-300 flex flex-col items-center space-y-2">
-                            <i data-feather="mail" class="w-8 h-8 text-blue-600"></i>
-                            <span class="text-sm font-semibold text-gray-600">Email Address</span>
-                            <a href="mailto:soorajk@iitm.ac.in" class="text-blue-800 font-bold text-lg truncate hover:text-blue-900 transition-colors">soorajk@iitm.ac.in</a>
-                        </div>
-
-                        <div class="bg-green-50/70 p-4 rounded-xl border-2 border-green-200 shadow-md hover:shadow-lg hover:shadow-green-200 transition-shadow duration-300 flex flex-col items-center space-y-2">
-                            <i data-feather="phone" class="w-8 h-8 text-green-600"></i>
-                            <span class="text-sm font-semibold text-gray-600">Phone</span>
-                            <span class="text-green-800 font-bold text-lg">+91-44-2257-4245</span>
-                        </div>
-
-                        <div class="bg-slate-50/70 p-4 rounded-xl border-2 border-slate-200 shadow-md hover:shadow-lg hover:shadow-slate-200 transition-shadow duration-300 flex flex-col items-center space-y-2">
-                            <i data-feather="map-pin" class="w-8 h-8 text-slate-600"></i>
-                            <span class="text-sm font-semibold text-gray-600">Lab Location</span>
-                            <a href="https://www.google.com/maps/place/Department+of+Chemistry/@12.9881348,80.2324006,21z/data=!4m10!1m2!2m1!1schemistry+department+iit+madras!3m6!1s0x3a525d8020b71665:0x94cb18c14f82268c!8m2!3d12.9881261!4d80.2325725!15sCh9jaGVtaXN0cnkgZGVwYXJ0bWVudCBpaXQgbWFkcmFzkgEVdW5pdmVyc2l0eV9kZXBhcnRtZW50qgFTCgkvbS8wZ3l4d2QQATIfEAEiG7adv6xgP-jLWrkfNa6NEFSJ2mxAhOLdItjFLjIjEAIiH2NoZW1pc3RyeSBkZXBhcnRtZW50IGlpdCBtYWRyYXPgAQA!16s%2Fg%2F1hm3vdcwb?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-slate-800 font-bold text-lg hover:text-slate-900 transition-colors">View on Google Maps</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
         
@@ -248,7 +185,7 @@
 
     <footer class="bg-gray-800 text-gray-300 py-8 relative z-10">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
+            <p>© <span id="current-year"></span> Computational Catalysis and Interfacial Chemistry (CCIC). All Rights Reserved.</p>
             <p class="text-sm mt-2">Affiliated with the <a href="https://www.iitm.ac.in/" target="_blank" class="text-blue-400 hover:underline">Indian Institute of Technology Madras</a></p>
         </div>
     </footer>
@@ -295,6 +232,3 @@
     </script>
 </body>
 </html>
-
-
-
