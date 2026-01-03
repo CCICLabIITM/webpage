@@ -103,7 +103,7 @@
                         <div class="flex-grow text-center md:text-left">
                             <h4 class="text-2xl font-bold text-gray-900">Dr. Sooraj Kunnikuruvan</h4>
                             <p class="text-blue-600 font-bold text-lg mb-4">Principal Investigator</p>
-                            
+                           
                             <div class="space-y-3 text-sm text-gray-700">
                                 <div class="flex flex-col md:flex-row md:space-x-2">
                                     <span class="font-bold text-gray-900 md:w-48 flex-shrink-0">Assistant Professor <br class="hidden md:block"><span class="font-normal text-xs text-gray-500">(May 2022-)</span></span>
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                   
                     <h3 class="text-2xl font-bold text-center mb-8">Group Members</h3>
                     <div id="team-members-list" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
                         <!-- JS populated -->
@@ -142,7 +142,7 @@
                 
                 <div>
                     <h3 class="text-2xl font-bold text-center mb-8">Alumni</h3>
-                    
+                   
                     <!-- Postdoctoral Researchers Section -->
                     <div class="mb-12">
                         <h4 class="text-xl font-semibold text-center text-gray-700 mb-6">Postdoctoral Researchers</h4>
@@ -265,7 +265,7 @@
             if (!list) return;
 
             list.innerHTML = '';
-            
+           
             // If list is empty, optionally show a placeholder message
             if (members.length === 0) {
                  list.innerHTML = '<div class="col-span-full text-center text-gray-500 italic">No alumni listed yet.</div>';
@@ -277,14 +277,14 @@
                 card.className = 'text-center group';
                 const initials = member.name.split(' ').map(n => n[0]).join('');
                 const imageUrl = member.imageUrl && member.imageUrl !== 'X' && member.imageUrl !== 'XXX' && member.imageUrl !== 'IXXX' 
-                                 ? member.imageUrl 
-                                 : `https://placehold.co/200x200/EBF4FF/3B82F6?text=${initials}`;
+                                                 ? member.imageUrl 
+                                                 : `https://placehold.co/200x200/EBF4FF/3B82F6?text=${initials}`;
 
                 let description = `<p class="text-blue-600 font-medium">${member.role}</p>`;
                 if (member.joiningDate) {
                     description += `<p class="text-gray-500 text-sm mt-1">Joined: ${member.joiningDate}</p>`;
                 }
-                
+               
                 if (member.researchArea) {
                     description += `<p class="text-gray-600 text-sm mt-1 italic font-medium">${member.researchArea}</p>`;
                 }
@@ -322,9 +322,12 @@
                 list.appendChild(card);
             });
         }
-       
+      
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
             // Mobile Menu Toggle - Moved to top to ensure binding
             const mbBtn = document.getElementById('mobile-menu-btn');
             const mbMenu = document.getElementById('mobile-menu');
@@ -340,7 +343,7 @@
             renderTeam(phdAlumni, 'team-alumni-phd-list'); // Render new PhD section
             renderTeam(mscAlumni, 'team-alumni-msc-list');
             renderTeam(internAlumni, 'team-alumni-intern-list');
-         
+        
             if (window.feather) feather.replace();
 
             // Auto-highlight active nav link
@@ -356,16 +359,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
