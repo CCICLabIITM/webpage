@@ -52,7 +52,7 @@
                         </a>
                     </div>
                 </div>
-                
+               
                 <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6" data-current-page="collab">
                     <a href="index.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
                     <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Research</a>
@@ -83,7 +83,7 @@
             <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">News</a>
             <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Gallery</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Join Us</a>
-            
+           
             <div class="flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden">
                 <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
                     <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
@@ -96,7 +96,7 @@
     </header>
 
     <main class="pt-28 sm:pt-32 pb-12 md:pb-20">
-       
+      
         <section class="py-12 md:py-16 bg-white border-b border-slate-100">
             <div class="max-w-7xl mx-auto px-4 md:px-6">
                 <div class="text-center mb-10 md:mb-16">
@@ -112,7 +112,7 @@
 
         <!-- 
         DISABLED SECTION: FEATURED JOINT PROJECTS
-        
+       
         <section class="py-12 md:py-20 bg-slate-50">
             <div class="max-w-7xl mx-auto px-4 md:px-6">
                 <div class="text-center mb-10 md:mb-16">
@@ -128,7 +128,7 @@
 
         <!-- 
         DISABLED SECTION: SUPPORT / FUNDINGS
-        
+       
         <section class="py-12 md:py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 md:px-6">
                 <div class="text-center mb-10 md:mb-16">
@@ -270,7 +270,7 @@
             if (fundedContainer) {
                 fundedContainer.innerHTML = FUNDED_PROJECTS.map(p => `
                     <div class="project-card bg-white border border-slate-200 rounded-3xl overflow-hidden transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-xl group">
-                        
+                       
                         <div class="px-6 pt-6 flex justify-between items-start">
                             <div class="flex items-center gap-3">
                                 <div class="h-12 w-12 bg-slate-50 rounded-lg p-1.5 border border-slate-100 flex items-center justify-center">
@@ -288,7 +288,7 @@
 
                         <div class="p-6 flex-grow flex flex-col">
                             <h3 class="text-lg font-bold text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors">${p.title}</h3>
-                            
+                           
                             <div class="grid grid-cols-2 gap-4 mb-5 pb-5 border-b border-slate-100">
                                 <div>
                                     <div class="flex items-center gap-1.5 text-slate-400 mb-1">
@@ -319,17 +319,17 @@
                     <div class="project-card bg-white border border-slate-200 rounded-3xl overflow-hidden transition-all duration-300 shadow-sm flex flex-col h-full hover:shadow-lg">
                         <div class="p-6 md:p-8 text-center flex-grow flex flex-col items-center justify-center">
                             <img src="${c.logo}" alt="${c.institution}" class="h-16 w-16 md:h-20 md:w-20 mx-auto mb-6 object-contain">
-                            
+                           
                             <span class="inline-block bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2 py-1 rounded-md mb-2 uppercase tracking-wider">
                                 Collaborator
                             </span>
-                            
+                           
                             <h4 class="text-slate-900 font-bold text-base md:text-lg mb-1">${c.collaborator}</h4>
                             <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-6">${c.institution}</p>
-                            
+                           
                             <h3 class="text-lg font-bold text-slate-900 mb-2 leading-tight">${c.projectTitle}</h3>
                         </div>
-                        
+                       
                         <div class="bg-slate-50 px-6 md:px-8 py-5 flex justify-between items-center border-t border-slate-100">
                             <span class="text-xs font-bold text-slate-500">Year: ${c.year}</span>
                             <a href="${c.link}" target="_blank" class="text-indigo-600 text-sm font-bold flex items-center hover:underline">
@@ -352,35 +352,29 @@
                 `).join('');
             }
 
-            // Update footer year
-            const yearSpan = document.getElementById('current-year');
-            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
-            
             // Re-init icons
             if (typeof feather !== 'undefined') feather.replace();
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Update footer year FIRST to ensure it displays regardless of other errors
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
             renderAll();
-            
+           
             // Mobile Menu Toggle
             const mbBtn = document.getElementById('mobile-menu-btn');
             const mbMenu = document.getElementById('mobile-menu');
             if(mbBtn && mbMenu) {
                 mbBtn.addEventListener('click', () => {
                     mbMenu.classList.toggle('hidden');
-                    feather.replace();
+                    if (typeof feather !== 'undefined') feather.replace();
                 });
             }
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
