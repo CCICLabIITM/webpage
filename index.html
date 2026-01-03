@@ -32,15 +32,7 @@
             border-bottom: 2px solid transparent;
         }
 
-        /* Slideshow Animation */
-        @keyframes fadeEffect {
-            0% { opacity: 0; transform: scale(1.05); }
-            5% { opacity: 1; transform: scale(1); }
-            20% { opacity: 1; transform: scale(1); }
-            25% { opacity: 0; transform: scale(1.05); }
-            100% { opacity: 0; }
-        }
-
+        /* --- NEW SLIDESHOW STYLES (Supports Dynamic Number of Images) --- */
         .slideshow-container {
             position: relative;
             width: 100%;
@@ -55,20 +47,19 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            /* Start hidden */
             opacity: 0;
-            animation-name: fadeEffect;
-            animation-duration: 30s; /* 5s per image * 6 images */
-            animation-iteration-count: infinite;
-            transition: transform 0.5s ease-in-out;
+            transform: scale(1.1); /* Slight zoom in for effect */
+            transition: opacity 1.5s ease-in-out, transform 6s ease-out;
+            z-index: 0;
         }
 
-        /* Staggered animation delays */
-        .slideshow-image:nth-child(1) { animation-delay: 0s; }
-        .slideshow-image:nth-child(2) { animation-delay: 5s; }
-        .slideshow-image:nth-child(3) { animation-delay: 10s; }
-        .slideshow-image:nth-child(4) { animation-delay: 15s; }
-        .slideshow-image:nth-child(5) { animation-delay: 20s; }
-        .slideshow-image:nth-child(6) { animation-delay: 25s; }
+        /* The class added by JS to show the image */
+        .slideshow-image.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 1;
+        }
 
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
@@ -101,7 +92,7 @@
                         </a>
                     </div>
                 </div>
-               
+              
                 <nav class="hidden min-[700px]:flex items-center space-x-2 lg:space-x-6">
                     <a href="index.html" class="nav-link active text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Home</a>
                     <a href="research.html" class="nav-link text-gray-600 hover:text-blue-600 font-medium transition-colors text-xs lg:text-sm font-semibold whitespace-nowrap">Research</a>
@@ -132,7 +123,7 @@
             <a href="news.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">News</a>
             <a href="gallery.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Gallery</a>
             <a href="contact.html" class="block py-3 px-6 text-gray-700 hover:bg-gray-50 border-l-4 border-transparent hover:border-blue-500">Join Us</a>
-            
+           
             <div class="flex items-center gap-4 px-6 py-4 border-t border-gray-100 sm:hidden">
                 <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
                     <i data-feather="linkedin" class="w-5 h-5"></i> LinkedIn
@@ -147,17 +138,16 @@
     <main>
         <section id="home" class="section relative min-h-screen flex items-center justify-center text-white overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-full z-0">
-                <div class="slideshow-container">
-                    <img src="IMAGE/Slideshow/SlideShow_MADHURJA.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000/fff?text=Chemical+Lab';" alt="Chemical lab equipment" class="slideshow-image">
-                    <img src="https://chemistry-europe.onlinelibrary.wiley.com/cms/asset/139325c0-0914-46df-a579-e103fde3418d/batt202200430-toc-0001-m.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000/fff?text=3D+Molecular+Model';" alt="3D molecular model" class="slideshow-image">
-                    <img src="https://pubs.rsc.org/en/Image/Get?imageInfo.ImageType=GA&imageInfo.ImageIdentifier.ManuscriptID=D4CP03032J&imageInfo.ImageIdentifier.Year=2024" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000/fff?text=Scientific+Equipment';" alt="Advanced scientific equipment" class="slideshow-image">
-                    <img src="IMAGE/Slideshow/SlideShow_DEVANAND.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000/fff?text=Chemical+Lab';" alt="Chemical lab equipment" class="slideshow-image">
-                    <img src="IMAGE/Slideshow/SlideShow_ATHIRA.png" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/000/fff?text=Chemical+Lab';" alt="Chemical lab equipment" class="slideshow-image">
-                </div>
-                <div class="absolute inset-0 bg-black/60"></div>
+                <!-- 
+                     NOTICE: The images inside this container are now controlled by the 
+                     JavaScript "SLIDESHOW CONFIGURATION" at the bottom of this file.
+                     You do not need to add <img> tags here manually.
+                -->
+                <div class="slideshow-container" id="slideshow-container"></div>
+                <div class="absolute inset-0 bg-black/60 z-10"></div>
             </div>
-            
-            <div class="container mx-auto px-6 py-20 md:py-32 text-center relative z-10">
+           
+            <div class="container mx-auto px-6 py-20 md:py-32 text-center relative z-20">
                 <h1 class="text-4xl md:text-6xl font-bold leading-tight">Computational Catalysis and Interfacial Chemistry (CCIC)</h1>
                 <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">Advancing catalysis and interfacial chemistry through computations</p>
                 <div class="mt-10">
@@ -184,19 +174,74 @@ sustainability, and advanced functional materials.</p>
         </div>
     </footer>
 
-    <div id="gallery-modal" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg max-w-4xl max-h-full w-full h-auto p-4 relative">
-            <button id="modal-close-btn" class="absolute -top-4 -right-4 bg-white rounded-full p-2 z-10">
-                <i data-feather="x" class="text-gray-800"></i>
-            </button>
-            <img id="modal-image" src="" alt="Gallery image" class="w-full h-auto max-h-[80vh] object-contain rounded-md">
-            <p id="modal-caption" class="text-center text-gray-700 mt-4"></p>
-        </div>
-    </div>
-    
     <script>
+        // =========================================================================
+        //  👇👇👇 SLIDESHOW CONFIGURATION - EDIT IMAGES HERE 👇👇👇
+        // =========================================================================
+        
+        const slideshowConfig = {
+            // How many seconds should each image stay on screen?
+            durationPerImage: 5, 
+            
+            // LIST OF IMAGE LINKS
+            // To add an image: Add a comma, then the link inside quotes "..."
+            images: [
+                "IMAGE/Slideshow/SlideShow_MADHURJA.png",
+                "https://chemistry-europe.onlinelibrary.wiley.com/cms/asset/139325c0-0914-46df-a579-e103fde3418d/batt202200430-toc-0001-m.jpg",
+                "https://pubs.rsc.org/en/Image/Get?imageInfo.ImageType=GA&imageInfo.ImageIdentifier.ManuscriptID=D4CP03032J&imageInfo.ImageIdentifier.Year=2024",
+                "IMAGE/Slideshow/SlideShow_DEVANAND.png",
+                "IMAGE/Slideshow/SlideShow_ATHIRA.png",
+                // Add more links here...
+            ]
+        };
+
+        // =========================================================================
+        //  👆👆👆 END OF EDITING SECTION - DO NOT TOUCH CODE BELOW 👆👆👆
+        // =========================================================================
+
         document.addEventListener('DOMContentLoaded', () => {
-             // Mobile Menu Logic
+            
+            // --- Slideshow Logic ---
+            const container = document.getElementById('slideshow-container');
+            if (container && slideshowConfig.images.length > 0) {
+                
+                // 1. Create Image Elements
+                slideshowConfig.images.forEach((url, index) => {
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.className = `slideshow-image ${index === 0 ? 'active' : ''}`; // First image active
+                    img.alt = `Slideshow Image ${index + 1}`;
+                    
+                    // Fallback for broken links
+                    img.onerror = function() {
+                        console.warn(`Failed to load image: ${url}`);
+                        this.style.display = 'none'; // Hide broken images so they don't break layout
+                    };
+                    
+                    container.appendChild(img);
+                });
+
+                // 2. Start Animation Loop
+                let currentIndex = 0;
+                const images = container.querySelectorAll('.slideshow-image');
+                
+                if(images.length > 1) {
+                    setInterval(() => {
+                        // Remove active class from current
+                        images[currentIndex].classList.remove('active');
+                        
+                        // Calculate next index
+                        currentIndex = (currentIndex + 1) % images.length;
+                        
+                        // Add active class to next
+                        images[currentIndex].classList.add('active');
+                        
+                    }, slideshowConfig.durationPerImage * 1000); // Convert seconds to ms
+                }
+            }
+
+
+            // --- Other Site Logic ---
              const mbBtn = document.getElementById('mobile-menu-btn');
              const mbMenu = document.getElementById('mobile-menu');
              if(mbBtn && mbMenu) {
@@ -212,18 +257,7 @@ sustainability, and advanced functional materials.</p>
              if (yearElem) {
                  yearElem.textContent = new Date().getFullYear();
              }
-            
-             // Ensure slideshow starts effectively
-             let slideIndex = 0;
-             function showSlides() {
-                 let slides = document.getElementsByClassName("slideshow-image");
-                 if(slides.length > 0) {
-                     // CSS handles the animation, this just confirms existence
-                 }
-             }
-             showSlides();
         });
     </script>
 </body>
 </html>
-
