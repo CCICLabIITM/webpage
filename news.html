@@ -64,6 +64,7 @@
             border-right: 4px solid #f8fafc; /* White road marking */
             box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
             z-index: 0;
+            overflow: hidden; /* Keep cars inside the road */
         }
 
         /* The Yellow Dashed Line */
@@ -77,6 +78,38 @@
             width: 4px;
             /* Yellow Dashes */
             background-image: repeating-linear-gradient(to bottom, #fbbf24 0, #fbbf24 20px, transparent 20px, transparent 40px);
+            z-index: 2; /* Above cars if they cross center, though cars will be z-index 1 */
+        }
+
+        /* --- CAR ANIMATIONS --- */
+        .car {
+            position: absolute;
+            width: 24px;
+            height: 48px;
+            z-index: 1;
+            filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
+        }
+
+        /* Lane 1: Moving Down (Left side of road) */
+        .car-down {
+            left: 15%; 
+            animation: drive-down linear infinite;
+        }
+
+        /* Lane 2: Moving Up (Right side of road) */
+        .car-up {
+            right: 15%;
+            animation: drive-up linear infinite;
+        }
+
+        @keyframes drive-down {
+            from { top: -100px; }
+            to { top: 110%; }
+        }
+
+        @keyframes drive-up {
+            from { top: 110%; }
+            to { top: -100px; }
         }
 
         @media (min-width: 768px) {
@@ -158,7 +191,10 @@
                  <!-- Timeline Container -->
                  <div class="relative max-w-7xl mx-auto pb-6">
                      <!-- Highway Vertical Line -->
-                     <div class="timeline-line"></div>
+                     <div class="timeline-line">
+                         <!-- Traffic Container -->
+                         <div id="traffic-flow" class="absolute inset-0 w-full h-full pointer-events-none"></div>
+                     </div>
                      
                      <!-- Timeline Items will be injected here -->
                      <div id="news-timeline"></div>
@@ -295,30 +331,12 @@
                     const isLeft = globalIndex % 2 !== 0; // Alternating layout
                     globalIndex++;
 
-                    // Conditional classes for Desktop (Left vs Right)
-                    // Adjusted margin and padding to accommodate wide highway
                     const flexDir = isLeft ? 'md:flex-row-reverse' : 'md:flex-row';
                     
-                    // Arrow positioning logic relative to the card box
                     const arrowClass = isLeft 
                         ? 'md:right-[-12px] md:border-t-transparent md:border-l-transparent md:border-b-white md:border-r-white' 
                         : 'md:left-[-12px] md:border-t-transparent md:border-r-transparent md:border-b-white md:border-l-white';
 
-                    // Margin logic to push cards away from the center highway
-                    // Highway width is 80px (w-20). Center is 50%. Half highway is 40px.
-                    // We need clearance.
-                    const spacerClass = 'md:w-[50%]'; // Takes up half width (minus gap)
-                    
-                    // Card Width logic
-                    // We make cards take up most of the half-width, minus some gap for the road
-                    const cardWrapperClass = isLeft 
-                        ? 'pr-0 md:pl-16' // If content is on LEFT (flex-row-reverse), padding on Left
-                        : 'pl-16 md:pr-16 md:pl-0'; // If content is on RIGHT (flex-row), padding on Left for mobile, Right for desktop? No wait.
-                        
-                    // Let's simplify the structure.
-                    // Container: Flex Row.
-                    // Left Side: 45% width. Right Side: 45% Width. Gap 10%.
-                    
                     html += `
                         <div class="group flex flex-col md:flex-row ${flexDir} items-center justify-between mb-20 w-full relative">
                             
@@ -331,8 +349,6 @@
                             </div>
 
                             <!-- Content Card Wrapper -->
-                            <!-- We use w-full md:w-1/2 to take up half the container width -->
-                            <!-- We add padding to create the gap from the center line -->
                             <div class="w-full pl-16 md:pl-0 md:w-1/2 z-10 box-border ${isLeft ? 'md:pr-14' : 'md:pl-14'}">
                                 
                                 <div class="news-card-trigger relative bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer group-hover:-translate-y-2 overflow-hidden border border-gray-100 h-full flex flex-col"
@@ -397,6 +413,56 @@
             }
         }
 
+        // --- TRAFFIC SYSTEM ---
+        function initTraffic() {
+            const trafficContainer = document.getElementById('traffic-flow');
+            if (!trafficContainer) return;
+
+            // Car SVG Generator
+            const getCarSvg = (color) => `
+                <svg viewBox="0 0 24 48" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                    <rect x="2" y="4" width="20" height="40" rx="4" fill="${color}" stroke="#0f172a" stroke-width="1.5"/>
+                    <rect x="4" y="8" width="16" height="8" rx="2" fill="#bae6fd" stroke="#0f172a" stroke-width="1"/> <!-- Windshield -->
+                    <rect x="4" y="34" width="16" height="6" rx="2" fill="#bae6fd" stroke="#0f172a" stroke-width="1"/> <!-- Rear Window -->
+                    <rect x="2" y="20" width="20" height="12" fill="none" stroke="#0f172a" stroke-width="0.5" stroke-dasharray="2 2"/> <!-- Roof detail -->
+                </svg>
+            `;
+
+            const colors = ['#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ffffff', '#94a3b8'];
+
+            function spawnCar(direction) {
+                const car = document.createElement('div');
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                car.className = `car ${direction === 'down' ? 'car-down' : 'car-up'}`;
+                car.innerHTML = getCarSvg(randomColor);
+                
+                // Randomize speed
+                const duration = 5 + Math.random() * 5; // 5s to 10s
+                car.style.animationDuration = `${duration}s`;
+
+                trafficContainer.appendChild(car);
+
+                // Remove car after animation to keep DOM clean
+                setTimeout(() => {
+                    if (car.parentNode) car.parentNode.removeChild(car);
+                }, duration * 1000);
+            }
+
+            // Loop to spawn cars
+            setInterval(() => {
+                if (Math.random() > 0.3) spawnCar('down'); // 70% chance
+            }, 2000);
+
+            setInterval(() => {
+                if (Math.random() > 0.4) spawnCar('up'); // 60% chance
+            }, 2500);
+            
+            // Spawn initial set
+            spawnCar('down');
+            setTimeout(() => spawnCar('up'), 1000);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const yearSpan = document.getElementById('current-year');
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
@@ -411,6 +477,7 @@
             }
 
             renderRoadmap();
+            initTraffic(); // Start the cars
 
             // Modal Logic
             const newsModal = document.getElementById('news-modal');
@@ -451,6 +518,3 @@
     </script>
 </body>
 </html>
-
-
-
