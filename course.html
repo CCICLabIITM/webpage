@@ -41,6 +41,22 @@
 
         /* Smooth mobile menu transition */
         #mobile-menu { transition: all 0.3s ease-in-out; }
+		/* Logo Animation Keyframes */
+        @keyframes shine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .logo-shine {
+            /* This gradient creates the moving color effect */
+            background: linear-gradient(to right, #111827 20%, #2563eb 50%, #111827 80%);
+            background-size: 200% auto;
+            color: #111827; /* Fallback color */
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-800 font-['Inter',_sans-serif]">
@@ -53,7 +69,10 @@
                 <div class="flex items-center gap-2 sm:gap-4 shrink-0">
                     <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.onerror=null;this.src='https://placehold.co/100x100/e2e8f0/1e293b?text=CCIC';" alt="CCIC Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover">
                     
-                    <a href="index.html" class="text-sm sm:text-lg font-bold text-gray-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
+                    <a href="index.html" class="font-montserrat text-xl sm:text-2xl whitespace-nowrap flex items-baseline group">
+                        <span class="font-extrabold tracking-tight logo-shine">CCIC</span>
+                        <span class="font-medium ml-1 logo-shine">@IITM</span>
+                    </a>
                     
                     <div class="flex items-center space-x-1 sm:space-x-3 ml-1 sm:ml-2">
                         <a href="https://www.linkedin.com/company/computational-catalysis-and-interfacial-chemistry-ccic-group-iit-madras/?viewAsMember=true" target="_blank" class="text-blue-600 hover:text-blue-800 transition-colors p-1" title="LinkedIn">
