@@ -32,6 +32,22 @@
 
         /* Smooth mobile menu transition */
         #mobile-menu { transition: all 0.3s ease-in-out; }
+		/* Logo Animation Keyframes */
+        @keyframes shine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .logo-shine {
+            /* This gradient creates the moving color effect */
+            background: linear-gradient(to right, #111827 20%, #2563eb 50%, #111827 80%);
+            background-size: 200% auto;
+            color: #111827; /* Fallback color */
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-800">
@@ -45,7 +61,10 @@
                     <img src="IMAGE/LOGO/CCIC_logo.png" onerror="this.src='https://placehold.co/100x100/e0e7ff/312e81?text=CCIC'" alt="CCIC Logo" class="h-8 sm:h-10 w-auto rounded-md object-cover">
                     
                     <!-- Text size matched to News/Home page -->
-                    <a href="index.html" class="text-sm sm:text-lg font-bold text-slate-900 tracking-tight whitespace-nowrap">CCIC@IITM</a>
+                    <a href="index.html" class="font-montserrat text-xl sm:text-2xl whitespace-nowrap flex items-baseline group">
+                        <span class="font-extrabold tracking-tight logo-shine">CCIC</span>
+                        <span class="font-medium ml-1 logo-shine">@IITM</span>
+                    </a>
                     
                     <!-- Social Icons: Changed 'hidden sm:flex' to 'flex' to show on mobile -->
                     <div class="flex items-center space-x-1 sm:space-x-3 ml-1 sm:ml-2">
